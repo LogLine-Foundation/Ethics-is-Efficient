@@ -1,0 +1,108 @@
+{
+  "kind": "manifest.v1",
+  "title": "LogLine SecurityOS Protocol Canon v1.0.1",
+  "version": "1.0.1",
+  "date": "2026-02-04",
+  "author": {
+    "name": "Dan (Voulezvous)",
+    "institution": "LogLine Foundation"
+  },
+  "papers": [
+    {
+      "id": "llf.paper.prologue.v1",
+      "path": "00_Prologue_Ethics_is_Efficient.md",
+      "title": "Prologue — The Law of Verifiable Intent",
+      "kind": "Canon/Prologue",
+      "hash": "b3:b9ef33eaa359a9923510159b04e507bf96008541367305de5a55f954cb3a5bc7"
+    },
+    {
+      "id": "llf.paper.ethics.v1",
+      "path": "01_A_Ethics_is_Efficient.md",
+      "title": "Paper A — Ethics is Efficient",
+      "kind": "Canon/Foundation",
+      "hash": "b3:c35fc985c3761841de37301c6a3188585d9a9c5dfe2982e8a7692d85c66bbf34"
+    },
+    {
+      "id": "llf.paper.text-power.v1",
+      "path": "02_B_Hardware_as_Text_and_Power.md",
+      "title": "Paper B — Hardware as Text and Power",
+      "kind": "Canon/Foundation",
+      "hash": "b3:03ba6db35010768c08b10470c671ee41d1780fda334fd5a3ffb9d358933093e5"
+    },
+    {
+      "id": "llf.paper.logline-protocol.v1",
+      "path": "03_I_The_LogLine_Protocol.md",
+      "title": "Paper I — The LogLine Protocol",
+      "kind": "Canon/Spec",
+      "hash": "b3:5b7d61c8cb4b0d8ed9e612f48569afe2c91d13c3c7bff876c258079c91545d72"
+    },
+    {
+      "id": "llf.paper.json-atomic.v1",
+      "path": "04_II_JSON_Atomic.md",
+      "title": "Paper II — JSON✯Atomic: The Identity Layer",
+      "kind": "Canon/Spec",
+      "hash": "b3:ff12bc4be52a96c85aa2c6db1af69f4b933072f0507d8cf7640676a49570cafd"
+    },
+    {
+      "id": "llf.paper.lllv.v1",
+      "path": "05_III_LLLV_Ledger_and_Proof_Vectors.md",
+      "title": "Paper III — LLLV: The Retrieval Atom",
+      "kind": "Canon/Spec",
+      "hash": "b3:449a6b0af483a8e326ac835459d93f3e8871488a601326e5f1d68fad6a50d90c"
+    },
+    {
+      "id": "llf.paper.tdln.v1",
+      "path": "06_IV_TDLN_Deterministic_Translation_of_Natural_Language.md",
+      "title": "Paper IV — TDLN: The Policy Compiler",
+      "kind": "Canon/Spec",
+      "hash": "b3:9e896dece32d968c37c41a0c183f68b1d62192134925f1f1256e368d8f9d7a47"
+    },
+    {
+      "id": "llf.paper.sirp.v1",
+      "path": "07_V_SIRP_Secure_Intent_Routing_Protocol.md",
+      "title": "Paper V — SIRP: The Network Atom",
+      "kind": "Canon/Spec",
+      "hash": "b3:2bb1d426d5aec4ec6fdf4ab82926e310685c24886ba23d797dd960ccc3f45282"
+    },
+    {
+      "id": "llf.paper.chip-as-code.v1",
+      "path": "08_VI_Chip_as_Code.md",
+      "title": "Paper VI — Chip as Code: The Redefinition of Computation",
+      "kind": "Canon/Spec",
+      "hash": "b3:32df047a8facb05d1d7e653de26be60ba191f1dd652d62133a272144b430e7a0"
+    },
+    {
+      "id": "llf.declaration.v1",
+      "path": "98_Declaration_of_Invention_LogLine.md",
+      "title": "Declaration of Invention & Public Disclosure",
+      "kind": "Legal/Declaration",
+      "hash": "b3:7832056353c3a2dda3b1ecc98e3289e1ccfc1994cf05933e7df1a0ae45d763fc"
+    },
+    {
+      "id": "llf.announcement.v1",
+      "path": "99_Announcement_LogLine_SecurityOS.md",
+      "title": "Public Announcement",
+      "kind": "Announcement",
+      "hash": "b3:06f80870fadbaf59b53bba3667bebfde3f0e24de47f69b6f9417bf083232b598"
+    }
+  ],
+  "invariants": [
+    "I1 Integrity — Every effect has a preceding tuple and receipt",
+    "I2 Legality — DENY or unmet REQUIRE produces GHOST only",
+    "I3 Attribution — All identities cryptographically verifiable",
+    "I4 Reproducibility — Replay reconstructs state exactly",
+    "I5 Observability — Drift is detectable and alertable"
+  ],
+  "gates": [
+    "G1 Build — Compiler reproducible, SBOM present",
+    "G2 Conformance — Invariants hold, test vectors pass",
+    "G3 Health — HAL enforced, receipts emitted",
+    "G4 Publish — Specs, schemas, manifests published"
+  ],
+  "thesis": "A computer is not defined by its hardware. It is defined by the protocol it follows.",
+  "license": {
+    "specs": "Open",
+    "docs": "CC BY 4.0"
+  },
+  "generated_at": "2026-02-04T23:00:00Z"
+}

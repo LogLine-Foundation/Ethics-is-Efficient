@@ -1,0 +1,13 @@
+
+[workspace]
+members = [
+  "crates/tdln-wasm",
+  "crates/tdln-core",
+  "crates/tdln-bundle",
+  "services/resolver",
+  "tools/tdln-verify"
+
+  "guests/ack",
+  "guests/ask",
+]
+resolver = "2"

@@ -1,0 +1,22 @@
+{
+  "realm": "trust",
+  "inputs": {
+    "policy": {
+      "kind": "json",
+      "payload": {
+        "rule": "always-ack"
+      }
+    },
+    "data": [
+      {
+        "kind": "blob",
+        "name": "request.json",
+        "payload": {
+          "actor": {
+            "role": "astronaut"
+          }
+        }
+      }
+    ]
+  }
+}

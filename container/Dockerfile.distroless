@@ -1,0 +1,7 @@
+
+FROM gcr.io/distroless/static:nonroot
+WORKDIR /app
+ARG TARGETARCH
+COPY dist/resolver-${TARGETARCH} /app/resolver
+EXPOSE 8080
+ENTRYPOINT ["/app/resolver"]

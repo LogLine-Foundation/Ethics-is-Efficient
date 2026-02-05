@@ -1,0 +1,141 @@
+{
+  "kind": "manifest.v1",
+  "title": "LogLine SecurityOS Protocol Canon v1.0.1",
+  "version": "1.0.1",
+  "date": "2026-02-05",
+  "author": {
+    "name": "Dan Voulez",
+    "institution": "The LogLine Foundation"
+  },
+  "structure": {
+    "prologue": "00_Prologue_Ethics_is_Efficient.md",
+    "overview": "01_From_Silicon_to_User.md",
+    "specs": ["02_I", "03_II", "04_III", "05_IV", "06_V"],
+    "synthesis": "07_Hardware_as_Text_and_Power.md",
+    "proof": "08_Chip_as_Code.md"
+  },
+  "papers": [
+    {
+      "id": "llf.paper.prologue.v1",
+      "path": "00_Prologue_Ethics_is_Efficient.md",
+      "title": "Prologue: Ethics is Efficient",
+      "kind": "Canon/Prologue",
+      "role": "The Why — Ethics as foundation for partnership",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.overview.v1",
+      "path": "01_From_Silicon_to_User.md",
+      "title": "From Silicon to User",
+      "kind": "Canon/Overview",
+      "role": "The What — The complete journey",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.logline-protocol.v1",
+      "path": "02_I_The_LogLine_Protocol.md",
+      "title": "Paper I: The LogLine Protocol",
+      "kind": "Canon/Spec",
+      "role": "The Pact — Nine fields that bind intention to accountability",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.json-atomic.v1",
+      "path": "03_II_JSON_Atomic.md",
+      "title": "Paper II: JSON Atomic",
+      "kind": "Canon/Spec",
+      "role": "The Identity — Same meaning, same bytes, same hash",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.lllv.v1",
+      "path": "04_III_LLLV.md",
+      "title": "Paper III: LLLV",
+      "kind": "Canon/Spec",
+      "role": "The Memory — Verifiable retrieval with proof",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.tdln.v1",
+      "path": "05_IV_TDLN.md",
+      "title": "Paper IV: TDLN",
+      "kind": "Canon/Spec",
+      "role": "The Compiler — Policy becomes executable constraint",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.sirp.v1",
+      "path": "06_V_SIRP.md",
+      "title": "Paper V: SIRP",
+      "kind": "Canon/Spec",
+      "role": "The Network — Delivery produces receipts",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.text-power.v1",
+      "path": "07_Hardware_as_Text_and_Power.md",
+      "title": "Hardware as Text and Power",
+      "kind": "Canon/Synthesis",
+      "role": "The Revelation — Text IS hardware, partnership IS governance",
+      "hash": ""
+    },
+    {
+      "id": "llf.paper.chip-as-code.v1",
+      "path": "08_Chip_as_Code.md",
+      "title": "Paper VI: Chip as Code",
+      "kind": "Canon/Proof",
+      "role": "The Proof — Real code that compiles and runs",
+      "hash": ""
+    },
+    {
+      "id": "llf.declaration.v1",
+      "path": "98_Declaration_of_Invention_LogLine.md",
+      "title": "Declaration of Invention & Public Disclosure",
+      "kind": "Legal/Declaration",
+      "role": "Legal record of invention",
+      "hash": ""
+    },
+    {
+      "id": "llf.announcement.v1",
+      "path": "99_Announcement_LogLine_SecurityOS.md",
+      "title": "Public Announcement",
+      "kind": "Announcement",
+      "role": "Public disclosure",
+      "hash": ""
+    }
+  ],
+  "invariants": [
+    "I1 Integrity — Every effect has a preceding tuple and receipt",
+    "I2 Legality — DENY or unmet REQUIRE produces GHOST only",
+    "I3 Attribution — All identities cryptographically verifiable",
+    "I4 Reproducibility — Replay reconstructs state exactly",
+    "I5 Observability — Drift is detectable and alertable"
+  ],
+  "gates": [
+    "G1 Build — Compiler reproducible, SBOM present",
+    "G2 Conformance — Invariants hold, test vectors pass",
+    "G3 Health — HAL enforced, receipts emitted",
+    "G4 Publish — Specs, schemas, manifests published"
+  ],
+  "thesis": {
+    "core": "The text IS the hardware. The silicon is just a rendering.",
+    "foundation": "Ethics is efficient because verification is cheaper than argument.",
+    "partnership": "Human and AI as partners. Both accountable. Both protected."
+  },
+  "narrative_arc": [
+    "Prologue: Why we do this — ethics as foundation",
+    "Overview: What we're building — the complete journey",
+    "Papers I-V: How it works — the technical specifications",
+    "Synthesis: The insight — text is power, partnership is governance",
+    "Proof: It works — real code that compiles"
+  ],
+  "meta": {
+    "built_by": "Human-AI partnership over one year",
+    "methodology": "Iterative collaboration, mutual learning, shared accountability"
+  },
+  "license": {
+    "specs": "Open",
+    "docs": "CC BY 4.0"
+  },
+  "generated_at": "2026-02-05T15:00:00Z"
+}

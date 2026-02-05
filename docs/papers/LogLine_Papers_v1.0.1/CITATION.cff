@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "LogLine SecurityOS: A Protocol Suite for Verifiable Accountability"
+message: "If you use this protocol specification, please cite it as below."
+type: software
+authors:
+  - family-names: "Voulez"
+    given-names: "Dan"
+    alias: "Voulezvous"
+    affiliation: "The LogLine Foundation"
+version: "1.0.1"
+date-released: "2026-02-03"
+abstract: >
+  LogLine SecurityOS is a complete protocol architecture that inverts the
+  fundamental relationship between execution and recording in computational
+  systems. The architecture requires that every action be recorded, evaluated
+  against policy, and receipted before execution can occur. It introduces
+  six interlocking protocols (LogLine, JSON✯Atomic, LLLV, TDLN, SIRP,
+  Chip-as-Code) built on two foundational principles (Ethics is Efficient,
+  Hardware as Text).
+keywords:
+  - verifiable accountability
+  - zero-trust architecture
+  - cryptographic receipts
+  - semantic canonicalization
+  - policy compilation
+  - autonomous agents
+  - LLM governance
+license: CC-BY-4.0
+repository-code: "https://github.com/logline-foundation/logline-papers"
+url: "https://logline.foundation"

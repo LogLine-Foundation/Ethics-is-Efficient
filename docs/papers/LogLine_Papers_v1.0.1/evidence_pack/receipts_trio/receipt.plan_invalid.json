@@ -1,0 +1,32 @@
+{
+  "kind": "receipt.power.v1",
+  "trace_id": "01JK7V3EXAMPLE0003",
+  "parent_trace_id": null,
+  "rules_applied_id": "nv-gate.v0.51",
+  "policy_set_hash": "b3:example_policy_hash_placeholder",
+  "policy": {
+    "id": "llf.power.boundary.v1",
+    "hash": "b3:example_hash"
+  },
+  "decision": "plan_invalid",
+  "error_code": "PLAN_INVALID",
+  "error_reason": "AST failed HAL constraint: forbidden capability 'net:raw'",
+  "capabilities_granted": [],
+  "capabilities_required": ["net:raw"],
+  "hal_ref": "b3:example_hal_ref",
+  "safeguards": {
+    "isolation": "n/a",
+    "breaker": "n/a"
+  },
+  "ethics_efficiency": {
+    "score": 0.0,
+    "rationale": "Plan rejected at compile time; forbidden state non-representable"
+  },
+  "inputs_hash": "b3:example_inputs_hash",
+  "planner_hash": "b3:example_planner_hash",
+  "compiler_hash": "b3:example_compiler_hash",
+  "signature": "ed25519:example_signature",
+  "kid": "example-key-id",
+  "issued_at": "2026-02-03T12:02:00Z",
+  "_note": "PLACEHOLDER - PLAN_INVALID example. Replace with actual receipts."
+}

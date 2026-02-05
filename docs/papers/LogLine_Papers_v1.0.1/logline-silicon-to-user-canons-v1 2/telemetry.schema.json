@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://logline.world/schemas/telemetry.schema.json",
+  "title": "LogLine Telemetry Schema (v0.1)",
+  "type": "object",
+  "required": [
+    "ts",
+    "service",
+    "kind",
+    "payload"
+  ],
+  "properties": {
+    "ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "service": {
+      "type": "string",
+      "enum": [
+        "issuer",
+        "registry",
+        "tdlne",
+        "shield"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "decision",
+        "receipt",
+        "entity_write",
+        "health",
+        "auth_issue",
+        "auth_verify",
+        "proxy_request"
+      ]
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "chip_id": {
+          "type": "string"
+        },
+        "slice_slug": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "allow",
+            "deny"
+          ]
+        },
+        "obligations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "span_id": {
+          "type": "string"
+        },
+        "inputs_hash": {
+          "type": "string"
+        },
+        "actor_tier": {
+          "type": "string"
+        },
+        "actor_country": {
+          "type": "string"
+        },
+        "latency_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cost_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "energy_j": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cold_start_estimate_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sla_cold_start_max_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string"
+        },
+        "entity_id": {
+          "type": "string"
+        },
+        "entity_kind": {
+          "type": "string"
+        }
+      }
+    },
+    "units": {
+      "type": "object",
+      "description": "Explicit units from HAL profile for observability alignment",
+      "properties": {
+        "timebase_ns": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "energy_unit": {
+          "type": "string",
+          "const": "J"
+        },
+        "cost_unit": {
+          "type": "string",
+          "const": "USD"
+        }
+      },
+      "required": [
+        "timebase_ns",
+        "energy_unit",
+        "cost_unit"
+      ]
+    }
+  }
+}

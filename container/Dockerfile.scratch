@@ -1,0 +1,9 @@
+
+FROM scratch
+WORKDIR /
+ARG TARGETARCH
+# Expect binaries built as dist/resolver-amd64 or dist/resolver-arm64
+COPY dist/resolver-${TARGETARCH} /resolver
+EXPOSE 8080
+USER 65532:65532
+ENTRYPOINT ["/resolver"]

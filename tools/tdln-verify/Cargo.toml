@@ -1,0 +1,10 @@
+
+[package]
+name = "tdln-verify"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+zip = { version = "0.6", default-features = false, features = ["deflate"] }
+serde_json = "1"

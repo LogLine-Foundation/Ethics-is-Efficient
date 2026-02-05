@@ -1,0 +1,80 @@
+# LogLine → Prometheus mapping (v0.1)
+# Use with promtail/vector to transform JSON lines into metrics.
+
+metrics:
+  - name: tdln_evaluate_latency_seconds
+    type: histogram
+    help: TDLN evaluate latency
+    match:
+      service: "tdlne"
+      kind: "decision"
+    value_from: "payload.latency_ms"
+    transform: "ms_to_seconds"
+    buckets: [0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2, 5]
+    labels:
+      decision: "payload.decision"
+      chip_id: "payload.chip_id"
+      slice: "payload.slice_slug"
+      tier: "payload.actor_tier"
+      country: "payload.actor_country"
+    exemplar_from: "payload.span_id"
+
+  - name: tdlne_decision_total
+    type: counter
+    help: TDLN decisions by outcome
+    match: { service: "tdlne", kind: "decision" }
+    value_from: "1"
+    labels:
+      decision: "payload.decision"
+      chip_id: "payload.chip_id"
+      slice: "payload.slice_slug"
+      tier: "payload.actor_tier"
+      country: "payload.actor_country"
+
+  - name: registry_entity_write_total
+    type: counter
+    help: Registry entity writes
+    match: { service: "registry", kind: "entity_write" }
+    value_from: "1"
+    labels:
+      entity_kind: "payload.entity_kind"
+      status: "payload.status"
+
+  - name: issuer_token_issued_total
+    type: counter
+    help: Issuer tokens issued
+    match: { service: "issuer", kind: "auth_issue" }
+    value_from: "1"
+    labels:
+      role: "payload.role"
+
+  - name: shield_request_total
+    type: counter
+    help: Shield proxied requests
+    match: { service: "shield", kind: "proxy_request" }
+    value_from: "1"
+    labels:
+      upstream_status: "payload.status"
+      method: "payload.method"
+      route: "payload.route"
+
+  - name: shield_upstream_latency_seconds
+    type: histogram
+    help: Shield upstream latency
+    match: { service: "shield", kind: "proxy_request" }
+    value_from: "payload.latency_ms"
+    transform: "ms_to_seconds"
+    buckets: [0.005, 0.01, 0.02, 0.05, 0.1, 0.25, 0.5, 1]
+    labels:
+      method: "payload.method"
+      route: "payload.route"
+      upstream_status: "payload.status"
+
+  - name: chip_cold_start_seconds
+    type: gauge
+    help: Estimated cold start from chip outputs (observability)
+    match: { service: "tdlne", kind: "decision" }
+    value_from: "payload.cold_start_estimate_s"
+    labels:
+      chip_id: "payload.chip_id"
+      slice: "payload.slice_slug"

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DiamondCard v1 (trust)",
+  "type": "object",
+  "required": [
+    "schema",
+    "realm",
+    "object",
+    "did",
+    "card_id",
+    "decision",
+    "refs",
+    "runtime",
+    "signatures"
+  ],
+  "properties": {
+    "schema": {
+      "const": "tdln/trust@1"
+    },
+    "realm": {
+      "const": "trust"
+    },
+    "object": {
+      "const": "diamondcard"
+    },
+    "did": {
+      "type": "string"
+    },
+    "card_id": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ACK",
+        "ASK",
+        "NACK"
+      ]
+    },
+    "refs": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "signatures": {
+      "type": "object"
+    }
+  }
+}
