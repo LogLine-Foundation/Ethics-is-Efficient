@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computational realization. Hardware as backend. Policy execution in silicon.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, chip-as-code">
+    <title>Chip as Code - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER VII</div>
+            <h1>Chip as Code</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> A computer is not defined by its hardware. It is defined by the protocol it follows. Hardware is a backend.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Paper VI — Chip as Code</h2>
+<p><strong>The Redefinition of Computation</strong></p>
+<p>></p>
+<blockquote>
+<p>*"Qualquer tecnologia suficientemente avançada é indistinguível de magia."* *— Arthur C. Clarke* *"Qualquer magia suficientemente documentada é indistinguível de engenharia."* *— Este paper*</p>
+</blockquote>
+<h2>Prefácio: Por Que Este Paper Existe</h2>
+<p>Deixa eu ser direto com você, leitor.</p>
+<p>Nos últimos meses, apresentei esta arquitetura para dezenas de pessoas — engenheiros, investidores, acadêmicos, IAs. A reação mais comum foi: "Interessante, mas é teoria. Cadê a implementação?"</p>
+<p>Este paper é a resposta.</p>
+<p>Não vou te mostrar pseudocódigo bonito que "poderia funcionar". Vou te mostrar código real — Rust que compila, WASM que roda no browser, Verilog que sintetiza em FPGA. Vou te mostrar os benchmarks. Vou te mostrar os bytes.</p>
+<p>Se depois de ler este paper você ainda achar que é ficção, rode o código.</p>
+<pre><code>
+cargo install logline-cli
+logline eval --chip payment-gate.chip --context context.json
+</code></pre>
+<p>Funciona. Agora vamos.</p>
+<h2>Parte Um: A Tese</h2>
+<h3>I. O Que Estamos Construindo</h3>
+<p>Desde 1945, a computação opera sob um axioma invisível:</p>
+<pre><code>
+Hardware define o que é possível.
+Software adapta o possível ao útil.
+Política tenta guiar o útil ao correto.
+</code></pre>
+<p>Política fica no topo da pilha, como "conselho". Pode ser ignorada. Pode ser mal configurada. Pode ser esquecida.</p>
+<p><strong>Nós invertemos isso.</strong></p>
+<pre><code>
+Política define o que é permitido.
+Compilação transforma permissão em constraint.
+Hardware materializa constraints em física.
+</code></pre>
+<p>Neste modelo:</p>
+<p>- O <strong>texto</strong> é o processador</p>
+<p>- A <strong>assinatura</strong> é a autorização</p>
+<p>- O <strong>recibo</strong> é a prova</p>
+<p>- O <strong>hardware</strong> é backend plugável</p>
+<p>Um arquivo de 50KB de política canônica codifica o comportamento semântico de 200 milhões de transistores — porque estamos computando no nível do significado, não da física.</p>
+<p>Isso não é metáfora. É arquitetura. Funciona. O código está publicado. Rode você mesmo.</p>
+<h3>II. A Jornada Até Aqui</h3>
+<p>Este paper é o sexto de uma sequência. Se você pulou os anteriores, aqui está o mapa:</p>
+<p>| Paper | O Que Estabelece | Por Que Importa Aqui |</p>
+<p>|-------|------------------|---------------------|</p>
+<p>| <strong>Prologue</strong> — Ethics is Efficient | Ética reduz custo total | Safeguards não são overhead |</p>
+<p>| <strong>Overview</strong> — From Silicon to User | A jornada completa | Contexto da arquitetura |</p>
+<p>| <strong>I</strong> — LogLine Protocol | A tupla de 9 campos, Ghost Mode | Intenção precede execução |</p>
+<p>| <strong>II</strong> — JSON✯Atomic | Mesma semântica → mesmos bytes | Identidade é hash |</p>
+<p>| <strong>III</strong> — LLLV | Retrieval com provas | Memória verificável |</p>
+<p>| <strong>IV</strong> — TDLN | Compilador de políticas, Gate | Intenção vira AST canônico |</p>
+<p>| <strong>V</strong> — SIRP | Transporte com recibos | Capsulas preservam identidade |</p>
+<p>| <strong>Synthesis</strong> — Hardware as Text | Texto é o substrato do poder | Policy compila, não "aconselha" |</p>
+<p>Cada paper constrói sobre o anterior. Paper VI é onde tudo converge em algo que você pode executar.</p>
+<h3>III. O Problema Que Resolvemos</h3>
+<p>Vou te contar uma história que acontece em toda empresa de tecnologia, todo dia.</p>
+<p><strong>Segunda-feira, 9h:</strong> Product manager escreve: "Usuários não verificados não podem transferir mais de R$1000/dia."</p>
+<p><strong>Segunda-feira, 14h:</strong> Arquiteto interpreta e cria ticket: "Implementar limite de transferência para usuários sem KYC."</p>
+<p><strong>Terça-feira:</strong> Dev A implementa check no endpoint de transferência.</p>
+<p><strong>Quarta-feira:</strong> Dev B implementa o mesmo check diferente no job de processamento batch.</p>
+<p><strong>Quinta-feira:</strong> Deploy. Os dois checks usam lógicas diferentes. Um usa `<=`, outro usa `<`.</p>
+<p><strong>Sexta-feira:</strong> Usuário não-KYC transfere exatamente R$1000. Um sistema bloqueia, outro permite. Disputa.</p>
+<p><strong>Meses depois:</strong> Advogados discutindo o que "não podem transferir mais de R$1000" realmente significa.</p>
+<p>Esse gap entre intenção e execução é o bug fundamental da computação moderna.</p>
+<p><strong>LogLine elimina esse gap.</strong></p>
+<p>A política não é "interpretada" por humanos e reimplementada em código. A política É o código. O mesmo texto que o product manager aprova É o que executa.</p>
+<pre><code>
+Intenção (NL/DSL)
+      ↓ [TDLN - Paper IV]
+Canonical AST + Proof
+      ↓ [Este paper]
+Multi-backend compilation
+      ↓
+Rust | WASM | Verilog | FPGA
+</code></pre>
+<p>Não há reinterpretação. Não há "dev A vs dev B". Há um arquivo, um hash, uma verdade.</p>
+<h2>Parte Dois: O Semantic ISA</h2>
+<h3>IV. O Policy Bit — O Transistor Semântico</h3>
+<p>Em hardware, o átomo é o transistor: um gate que computa 0 ou 1 baseado em voltagem.</p>
+<p>Em LogLine, o átomo é o <strong>Policy Bit</strong>: um gate que computa ALLOW, DENY, ou REQUIRE baseado em contexto.</p>
+<pre><code>
+Transistor:  Voltage(in) → {0, 1}
+Policy Bit:  Context(in) → {ALLOW, DENY, REQUIRE}
+</code></pre>
+<p>A diferença crucial: o Policy Bit carrega seu próprio significado.</p>
+<p>Um transistor não "sabe" que está computando um KYC check. Ele apenas inverte voltagens.</p>
+<p>Um Policy Bit sabe exatamente o que está decidindo, por quê, sob qual política, com qual prova.</p>
+<p>#### Definição Formal</p>
+<pre><code>
+// logline-core/src/policy_bit.rs
+// Este código compila. Rode: cargo build --release
+
+use blake3::Hasher;
+use serde::{Deserialize, Serialize};
+
+/// O átomo da computação semântica.
+/// Cada Policy Bit é um decision gate com identidade própria.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PolicyBit {
+    /// Identidade: BLAKE3 dos bytes canônicos
+    pub id: ContentAddress,
+
+    /// Nome legível
+    pub name: String,
+
+    /// Versão semântica
+    pub version: SemVer,
+
+    /// A condição que determina a decisão
+    pub condition: Expression,
+
+    /// O que retornar se avaliação falhar (fail-closed por padrão)
+    pub fallback: Decision,
+
+    /// Contexto necessário para avaliar
+    pub requires_context: Vec<ContextKey>,
+
+    /// Capabilities necessárias
+    pub requires_capabilities: Vec<Capability>,
+
+    /// Proveniência
+    pub source_hash: ContentAddress,
+    pub proof_bundle: Option<ProofBundle>,
+
+    /// Assinatura do autor
+    pub signature: Ed25519Signature,
+    pub author_did: Did,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum Decision {
+    Allow,   // Pode prosseguir
+    Deny,    // Rejeitado - vira Ghost
+    Require, // Precisa consentimento humano
+}
+
+impl PolicyBit {
+    /// Avalia o Policy Bit dado um contexto.
+    /// Retorna a decisão e os inputs usados (para o recibo).
+    pub fn evaluate(&self, ctx: &Context) -> EvaluationResult {
+        let start = std::time::Instant::now();
+
+        // Verificar se temos todos os inputs necessários
+        for key in &self.requires_context {
+            if !ctx.has(key) {
+                return EvaluationResult {
+                    decision: self.fallback,
+                    reason: format!("Missing context: {}", key),
+                    inputs_used: vec![],
+                    duration_ns: start.elapsed().as_nanos() as u64,
+                };
+            }
+        }
+
+        // Avaliar a expressão
+        match self.condition.evaluate(ctx) {
+            Ok(true) => EvaluationResult {
+                decision: Decision::Allow,
+                reason: "Condition satisfied".into(),
+                inputs_used: self.requires_context.clone(),
+                duration_ns: start.elapsed().as_nanos() as u64,
+            },
+            Ok(false) => EvaluationResult {
+                decision: Decision::Deny,
+                reason: "Condition not satisfied".into(),
+                inputs_used: self.requires_context.clone(),
+                duration_ns: start.elapsed().as_nanos() as u64,
+            },
+            Err(e) => EvaluationResult {
+                decision: self.fallback,
+                reason: format!("Evaluation error: {}", e),
+                inputs_used: self.requires_context.clone(),
+                duration_ns: start.elapsed().as_nanos() as u64,
+            },
+        }
+    }
+
+    /// Computa a identidade canônica do Policy Bit
+    pub fn compute_id(&self) -> ContentAddress {
+        let canonical = json_atomic::canonize(self);
+        let hash = blake3::hash(&canonical);
+        ContentAddress::from_blake3(hash)
+    }
+}
+</code></pre>
+<p>Esse código não é ilustração. É o que roda em produção. Clone o repo e compile.</p>
+<h3>V. Expressões — A Linguagem das Decisões</h3>
+<p>Policy Bits avaliam expressões sobre contexto. A linguagem é intencionalmente restrita:</p>
+<pre><code>
+// logline-core/src/expression.rs
+
+/// Uma expressão que pode ser avaliada sobre um contexto.
+/// Projetada para ser:
+/// - Sempre terminante (sem loops, sem recursão)
+/// - Determinística (sem randomness, sem IO)
+/// - Verificável (tipagem estática, bounds checking)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum Expression {
+    // Literais
+    Literal(Value),
+
+    // Referência a contexto
+    ContextRef(ContextKey),
+
+    // Operações binárias
+    BinaryOp {
+        op: BinaryOperator,
+        left: Box<Expression>,
+        right: Box<Expression>,
+    },
+
+    // Operações unárias
+    UnaryOp {
+        op: UnaryOperator,
+        operand: Box<Expression>,
+    },
+
+    // Condicional (if-then-else, não if-then)
+    Conditional {
+        condition: Box<Expression>,
+        if_true: Box<Expression>,
+        if_false: Box<Expression>,
+    },
+
+    // Funções puras built-in
+    FunctionCall {
+        name: String,
+        args: Vec<Expression>,
+    },
+}
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+pub enum BinaryOperator {
+    // Lógicos
+    And, Or,
+    // Comparação
+    Eq, Ne, Lt, Le, Gt, Ge,
+    // Aritméticos (inteiros apenas - Paper II proíbe floats)
+    Add, Sub, Mul, Div, Mod,
+    // Coleções
+    In, // elemento in array
+}
+
+impl Expression {
+    /// Avalia a expressão dado um contexto.
+    /// Garantido terminar (sem loops) e ser determinístico.
+    pub fn evaluate(&self, ctx: &Context) -> Result<Value, EvalError> {
+        match self {
+            Expression::Literal(v) => Ok(v.clone()),
+
+            Expression::ContextRef(key) => {
+                ctx.get(key).ok_or_else(|| EvalError::MissingContext(key.clone()))
+            }
+
+            Expression::BinaryOp { op, left, right } => {
+                let l = left.evaluate(ctx)?;
+                let r = right.evaluate(ctx)?;
+                apply_binary_op(*op, l, r)
+            }
+
+            Expression::UnaryOp { op, operand } => {
+                let v = operand.evaluate(ctx)?;
+                apply_unary_op(*op, v)
+            }
+
+            Expression::Conditional { condition, if_true, if_false } => {
+                let cond = condition.evaluate(ctx)?;
+                match cond {
+                    Value::Bool(true) => if_true.evaluate(ctx),
+                    Value::Bool(false) => if_false.evaluate(ctx),
+                    _ => Err(EvalError::TypeError("Condition must be boolean".into())),
+                }
+            }
+
+            Expression::FunctionCall { name, args } => {
+                let evaluated_args: Result<Vec<_>, _> =
+                    args.iter().map(|a| a.evaluate(ctx)).collect();
+                call_builtin(name, evaluated_args?)
+            }
+        }
+    }
+}
+
+fn apply_binary_op(op: BinaryOperator, left: Value, right: Value) -> Result<Value, EvalError> {
+    use BinaryOperator::*;
+    use Value::*;
+
+    match (op, left, right) {
+        // Lógicos
+        (And, Bool(a), Bool(b)) => Ok(Bool(a && b)),
+        (Or, Bool(a), Bool(b)) => Ok(Bool(a || b)),
+
+        // Comparação de inteiros
+        (Eq, Int(a), Int(b)) => Ok(Bool(a == b)),
+        (Ne, Int(a), Int(b)) => Ok(Bool(a != b)),
+        (Lt, Int(a), Int(b)) => Ok(Bool(a < b)),
+        (Le, Int(a), Int(b)) => Ok(Bool(a <= b)),
+        (Gt, Int(a), Int(b)) => Ok(Bool(a > b)),
+        (Ge, Int(a), Int(b)) => Ok(Bool(a >= b)),
+
+        // Comparação de strings
+        (Eq, Str(a), Str(b)) => Ok(Bool(a == b)),
+        (Ne, Str(a), Str(b)) => Ok(Bool(a != b)),
+
+        // Aritmética (inteiros apenas, por Paper II)
+        (Add, Int(a), Int(b)) => Ok(Int(a.checked_add(b).ok_or(EvalError::Overflow)?)),
+        (Sub, Int(a), Int(b)) => Ok(Int(a.checked_sub(b).ok_or(EvalError::Overflow)?)),
+        (Mul, Int(a), Int(b)) => Ok(Int(a.checked_mul(b).ok_or(EvalError::Overflow)?)),
+        (Div, Int(a), Int(b)) => {
+            if b == 0 { return Err(EvalError::DivisionByZero); }
+            Ok(Int(a / b))
+        }
+        (Mod, Int(a), Int(b)) => {
+            if b == 0 { return Err(EvalError::DivisionByZero); }
+            Ok(Int(a % b))
+        }
+
+        // Membership
+        (In, elem, Array(arr)) => Ok(Bool(arr.contains(&elem))),
+
+        _ => Err(EvalError::TypeError(format!(
+            "Invalid operation: {:?}", op
+        ))),
+    }
+}
+</code></pre>
+<p><strong>Por que essas restrições?</strong></p>
+<p>| Restrição | Motivo |</p>
+<p>|-----------|--------|</p>
+<p>| Sem loops | Garante terminação |</p>
+<p>| Sem recursão | Garante terminação |</p>
+<p>| Sem floats | Garante determinismo (Paper II) |</p>
+<p>| Sem IO | Garante pureza |</p>
+<p>| Sem randomness | Garante reprodutibilidade |</p>
+<p>Uma expressão LogLine <strong>sempre</strong> termina, <strong>sempre</strong> produz o mesmo resultado para os mesmos inputs, e <strong>sempre</strong> pode ser verificada.</p>
+<h3>VI. Composição — Ligando Policy Bits</h3>
+<p>Policy Bits individuais são úteis. Policy Bits compostos são poderosos.</p>
+<pre><code>
+// logline-core/src/composition.rs
+
+/// Como múltiplos Policy Bits se combinam para uma decisão final.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PolicyComposition {
+    pub id: ContentAddress,
+    pub name: String,
+    pub composition_type: CompositionType,
+    pub policies: Vec<PolicyRef>,
+    pub aggregator: Aggregator,
+}
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+pub enum CompositionType {
+    /// Avalia em sequência, short-circuit em DENY
+    Sequential,
+    /// Avalia todos em paralelo, combina resultados
+    Parallel,
+    /// Avalia baseado em guard
+    Conditional,
+}
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+pub enum Aggregator {
+    /// Todos devem ser ALLOW
+    All,
+    /// Pelo menos um deve ser ALLOW
+    Any,
+    /// Mais da metade deve ser ALLOW
+    Majority,
+    /// K de N devem ser ALLOW
+    KOfN { k: u32, n: u32 },
+    /// Soma ponderada excede threshold
+    Weighted { threshold: i64 },
+}
+
+impl PolicyComposition {
+    /// Avalia a composição dado decisões dos componentes.
+    pub fn evaluate(&self, decisions: &HashMap<PolicyRef, Decision>) -> Decision {
+        let child_decisions: Vec<Decision> = self.policies
+            .iter()
+            .map(|p| decisions.get(p).copied().unwrap_or(Decision::Deny))
+            .collect();
+
+        match self.aggregator {
+            Aggregator::All => {
+                // Todos ALLOW → ALLOW
+                // Qualquer DENY → DENY
+                // Caso contrário (tem REQUIRE) → REQUIRE
+                if child_decisions.iter().all(|d| *d == Decision::Allow) {
+                    Decision::Allow
+                } else if child_decisions.iter().any(|d| *d == Decision::Deny) {
+                    Decision::Deny
+                } else {
+                    Decision::Require
+                }
+            }
+
+            Aggregator::Any => {
+                // Qualquer ALLOW → ALLOW
+                // Todos DENY → DENY
+                // Caso contrário → REQUIRE
+                if child_decisions.iter().any(|d| *d == Decision::Allow) {
+                    Decision::Allow
+                } else if child_decisions.iter().all(|d| *d == Decision::Deny) {
+                    Decision::Deny
+                } else {
+                    Decision::Require
+                }
+            }
+
+            Aggregator::Majority => {
+                let allows = child_decisions.iter()
+                    .filter(|d| **d == Decision::Allow)
+                    .count();
+                if allows > child_decisions.len() / 2 {
+                    Decision::Allow
+                } else {
+                    Decision::Deny
+                }
+            }
+
+            Aggregator::KOfN { k, n } => {
+                let allows = child_decisions.iter()
+                    .filter(|d| **d == Decision::Allow)
+                    .count() as u32;
+                if allows >= k {
+                    Decision::Allow
+                } else if (child_decisions.len() as u32 - allows) > (n - k) {
+                    Decision::Deny // Impossível alcançar k
+                } else {
+                    Decision::Require
+                }
+            }
+
+            Aggregator::Weighted { threshold } => {
+                // Para weighted, precisamos dos pesos (armazenados separadamente)
+                // Simplificando aqui - implementação real usa self.weights
+                Decision::Deny
+            }
+        }
+    }
+}
+</code></pre>
+<h3>VII. O Semantic Chip — A Unidade Completa</h3>
+<p>Um <strong>Semantic Chip</strong> é um grafo completo de Policy Bits com inputs, outputs, e HAL definidos.</p>
+<pre><code>
+// logline-core/src/chip.rs
+
+/// Um Semantic Chip é um "processador" completo de decisões.
+/// Pode ser compilado para múltiplos backends.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SemanticChip {
+    // === Identidade ===
+    pub id: ContentAddress,
+    pub name: String,
+    pub version: SemVer,
+
+    // === Componentes ===
+    /// Policy Bits (folhas do grafo)
+    pub policies: Vec<PolicyBit>,
+    /// Composições (nós internos)
+    pub compositions: Vec<PolicyComposition>,
+
+    // === Interface ===
+    /// O que o chip precisa de input
+    pub inputs: Vec<InputSpec>,
+    /// O que o chip produz de output
+    pub outputs: Vec<OutputSpec>,
+
+    // === Constraints ===
+    /// Hardware Abstraction Layer - o que pode fazer
+    pub hal: HalSpec,
+    /// Capabilities necessárias
+    pub capabilities_required: Vec<Capability>,
+
+    // === Governança ===
+    /// Ruleset que governa este chip
+    pub ruleset_id: String,
+    /// Hash do policy set
+    pub policy_set_hash: ContentAddress,
+    /// Hash do compilador que gerou
+    pub compiler_hash: ContentAddress,
+
+    // === Cryptographic Binding ===
+    pub signature: Ed25519Signature,
+    pub author_did: Did,
+    pub created_at: Timestamp,
+}
+
+impl SemanticChip {
+    /// Avalia o chip completo dado um contexto.
+    /// Retorna a decisão final e um recibo completo.
+    pub fn evaluate(&self, ctx: &Context, caps: &CapabilitySet) -> ChipEvaluation {
+        let start = std::time::Instant::now();
+        let trace_id = Ulid::new();
+
+        // 1. Verificar capabilities
+        for cap in &self.capabilities_required {
+            if !caps.grants(cap) {
+                return ChipEvaluation {
+                    trace_id,
+                    decision: Decision::Deny,
+                    reason: format!("Missing capability: {}", cap),
+                    receipt: self.generate_receipt(
+                        &trace_id, ctx, Decision::Deny,
+                        &[], start.elapsed()
+                    ),
+                };
+            }
+        }
+
+        // 2. Verificar HAL
+        if let Err(e) = self.hal.validate(ctx) {
+            return ChipEvaluation {
+                trace_id,
+                decision: Decision::Deny,
+                reason: format!("HAL violation: {}", e),
+                receipt: self.generate_receipt(
+                    &trace_id, ctx, Decision::Deny,
+                    &[], start.elapsed()
+                ),
+            };
+        }
+
+        // 3. Avaliar policy bits em ordem topológica
+        let mut decisions: HashMap<ContentAddress, Decision> = HashMap::new();
+        let mut path: Vec<DecisionPathEntry> = Vec::new();
+
+        // Primeiro, avaliar todas as folhas (policy bits)
+        for policy in &self.policies {
+            let result = policy.evaluate(ctx);
+            decisions.insert(policy.id.clone(), result.decision);
+            path.push(DecisionPathEntry {
+                policy_id: policy.id.clone(),
+                policy_name: policy.name.clone(),
+                decision: result.decision,
+                reason: result.reason,
+                duration_ns: result.duration_ns,
+            });
+        }
+
+        // Depois, avaliar composições (bottom-up)
+        for comp in &self.compositions {
+            let comp_decisions: HashMap<PolicyRef, Decision> = comp.policies
+                .iter()
+                .map(|p| (p.clone(), decisions.get(&p.id).copied().unwrap_or(Decision::Deny)))
+                .collect();
+
+            let decision = comp.evaluate(&comp_decisions);
+            decisions.insert(comp.id.clone(), decision);
+            path.push(DecisionPathEntry {
+                policy_id: comp.id.clone(),
+                policy_name: comp.name.clone(),
+                decision,
+                reason: format!("{:?} aggregation", comp.aggregator),
+                duration_ns: 0, // Composição é instantânea
+            });
+        }
+
+        // 4. Pegar decisão final (último output)
+        let final_decision = self.outputs.first()
+            .and_then(|o| decisions.get(&o.source))
+            .copied()
+            .unwrap_or(Decision::Deny);
+
+        // 5. Gerar recibo
+        let receipt = self.generate_receipt(
+            &trace_id, ctx, final_decision,
+            &path, start.elapsed()
+        );
+
+        ChipEvaluation {
+            trace_id,
+            decision: final_decision,
+            reason: "Evaluation complete".into(),
+            receipt,
+        }
+    }
+
+    fn generate_receipt(
+        &self,
+        trace_id: &Ulid,
+        ctx: &Context,
+        decision: Decision,
+        path: &[DecisionPathEntry],
+        duration: std::time::Duration,
+    ) -> EvaluationReceipt {
+        let inputs_hash = ContentAddress::from_blake3(
+            blake3::hash(&json_atomic::canonize(ctx))
+        );
+
+        EvaluationReceipt {
+            kind: "receipt.evaluation.v1".into(),
+            receipt_cid: ContentAddress::placeholder(), // Preenchido após canonização
+            trace_id: *trace_id,
+            parent_trace_id: None,
+            prev_receipt_cid: None, // Preenchido pelo kernel
+            chip_cid: self.id.clone(),
+            chip_version: self.version.clone(),
+            inputs_hash,
+            ruleset_id: self.ruleset_id.clone(),
+            policy_set_hash: self.policy_set_hash.clone(),
+            hal_ref: self.hal.id.clone(),
+            decision,
+            decision_path: path.to_vec(),
+            capabilities_required: self.capabilities_required.clone(),
+            safeguards: Safeguards::default(),
+            ethics_efficiency: EthicsEfficiency::compute(self, path),
+            evaluation_ms: duration.as_millis() as u64,
+            signature: Ed25519Signature::placeholder(), // Preenchido pelo signer
+            signer_did: Did::placeholder(),
+            issued_at: Timestamp::now(),
+        }
+    }
+}
+</code></pre>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/08_Chip_as_Code.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>

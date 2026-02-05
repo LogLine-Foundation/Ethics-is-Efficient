@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ledger and Proof Vectors. Proof-carrying retrieval. Evidence capsules.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, lllv">
+    <title>LLLV - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER III</div>
+            <h1>LLLV</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> Memory becomes infrastructure only when retrieval is proof-carrying, content-addressed, and time-aware.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Paper III — LLLV: The Retrieval Atom</h2>
+<p><strong>Verifiable Memory for Accountable Agents</strong></p>
+<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+<h2>The Story</h2>
+<p><strong>January 2025. A legal AI assistant. A malpractice lawsuit.</strong></p>
+<p>The AI had recommended a specific legal strategy based on "relevant case law." The case was lost. The client sued. In discovery, the question arose: <strong>why did the AI retrieve those specific cases?</strong></p>
+<p>The vendor's answer: "The vector search returned them as most relevant."</p>
+<p>The lawyer's follow-up: "Prove it."</p>
+<p>Silence. The retrieval system was a black box. No one could explain why those three cases were returned instead of the four that would have won the case. No one could prove the index hadn't been tampered with. No one could reconstruct the decision.</p>
+<p><strong>$4.2 million settlement. The AI couldn't explain its own memory.</strong></p>
+<p>Now imagine a different architecture.</p>
+<p>Every retrieval returns an <strong>evidence chain</strong>:</p>
+<pre><code>
+{
+  "type": "LLLV_TOPK_EVIDENCE_V1",
+  "query_cid": "b3:7f3a9b2c...",
+  "index_pack_cid": "b3:4d5e6f7a...",
+  "results": [
+    {
+      "id": "case:smith_v_jones_2019",
+      "dist": 0.1831,
+      "proof": {
+        "block": "POSTINGS",
+        "merkle_path": ["b3:a1b2c3...", "b3:d4e5f6..."]
+      }
+    }
+  ],
+  "stats": {
+    "algo": "hnsw",
+    "params_cid": "b3:8f9a0b1c...",
+    "visited": 812
+  },
+  "signature": "ed25519:responder_key"
+}
+</code></pre>
+<p>This evidence can be verified offline, years later, by anyone with the pack file. The proof is cryptographic. The explanation is deterministic.</p>
+<p><strong>The lawsuit becomes a hash comparison.</strong></p>
+<p>This is LLLV.</p>
+<h2>I. The Problem</h2>
+<p>Modern retrieval systems are black boxes. They return results without explanation. They claim relevance without proof. They mutate state without receipts.</p>
+<p>When an agent retrieves information to make a decision:</p>
+<p>- How do we know the retrieval was honest?</p>
+<p>- How do we know the index wasn't tampered with?</p>
+<p>- How do we reconstruct "why these results" after the fact?</p>
+<p>- How do we audit memory at scale?</p>
+<p><strong>Vector search without verification is not infrastructure. It is faith.</strong></p>
+<h2>II. The Thesis</h2>
+<blockquote>
+<p>**Retrieval becomes infrastructure when answers are provable artifacts, not opaque guesses.**</p>
+</blockquote>
+<p>LLLV defines:</p>
+<p>1. <strong>Vector Capsule</strong> — the atomic, content-addressed unit binding embedding to provenance</p>
+<p>2. <strong>Index Pack</strong> — a portable, merkleized ANN index verifiable offline</p>
+<p>3. <strong>Top-K Evidence</strong> — a proof bundle explaining why these K items were returned</p>
+<p>4. <strong>Temporal Narrative</strong> — an append-only timeline turning time into evidence</p>
+<p>When memory can be audited, it can be trusted.</p>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/04_III_LLLV.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deterministic Translation of Natural Language. Policy compilation. Consent protocol.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, tdln">
+    <title>TDLN - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER IV</div>
+            <h1>TDLN</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> Intention, when normalized under a signed constitution, becomes a logical atom: canonical, proven, governable, and ready to execute.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Paper IV — TDLN: The Policy Compiler</h2>
+<p><strong>Deterministic Translation of Natural Language</strong></p>
+<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+<h2>The Story</h2>
+<p><strong>September 2024. An AI trading system. A regulatory investigation.</strong></p>
+<p>The system was supposed to "avoid trades that might manipulate the market." The developers interpreted this as: flag trades above $1 million. The regulators interpreted it as: detect coordinated patterns regardless of size.</p>
+<p>Six months of trades were executed under the wrong interpretation. $340 million in fines. The investigation's central question: <strong>"What did 'might manipulate' actually mean in this system?"</strong></p>
+<p>No one could answer. The policy existed as a comment in the code:</p>
+<pre><code>
+# Avoid trades that might manipulate the market
+if trade.amount > 1_000_000:
+    flag_for_review(trade)
+</code></pre>
+<p>The gap between human intent and machine execution was invisible. The interpretation was buried in an engineer's decision from months ago. There was no proof that this interpretation matched the policy. There was no way to verify what "should have" happened.</p>
+<p><strong>Now imagine a different architecture.</strong></p>
+<p>The policy is written in TDLN:</p>
+<pre><code>
+ruleset market_safeguards@v1.0
+
+@policy manipulation_detection
+@description "Detect trades that might manipulate the market"
+when trade.amount > 1000000: flag_review
+when trade.pattern IN ["wash", "layering", "spoofing"]: flag_review
+when trade.velocity > context.market.avg_velocity * 3: flag_review
+</code></pre>
+<p>This policy compiles to a canonical AST with a deterministic CID:</p>
+<pre><code>
+canon_cid: b3:4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...
+</code></pre>
+<p>The compilation produces a proof binding the source text to the AST. The proof is signed. If regulators ask "what did this policy mean?", the answer is the AST. If they ask "did the system follow the policy?", the answer is: compare the decision receipts to the policy hash.</p>
+<p><strong>The investigation becomes a hash comparison.</strong></p>
+<p>This is TDLN.</p>
+<h2>I. The Problem</h2>
+<p>Natural language is ambiguous. Code is rigid. The gap between human intent and machine execution is where systems fail.</p>
+<p>Traditional approaches:</p>
+<p>- Developers interpret requirements (lossy)</p>
+<p>- Code encodes interpretation (drift)</p>
+<p>- Tests verify code, not intent (mismatch)</p>
+<p>- Production reveals the gap (incident)</p>
+<p><strong>The translation from "what I meant" to "what the machine did" is invisible, unverifiable, and unreproducible.</strong></p>
+<h2>II. The Thesis</h2>
+<blockquote>
+<p>**Intention, when compiled under a signed ruleset, becomes a canonical, proof-carrying bundle.**</p>
+</blockquote>
+<p>TDLN defines:</p>
+<p>1. A typed <strong>policy language</strong> without ambiguity</p>
+<p>2. A <strong>canonicalization function</strong> (ρ) that normalizes ASTs</p>
+<p>3. A <strong>translation proof</strong> binding source to output</p>
+<p>4. A <strong>Gate</strong> that evaluates bundles deterministically</p>
+<p><strong>The compiler is governance. The proof is accountability.</strong></p>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/05_IV_TDLN.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>

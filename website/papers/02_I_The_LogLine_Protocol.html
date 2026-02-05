@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The 9-field tuple. Ghost records. Threat model. The core mechanism for accountability.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, the-logline-protocol">
+    <title>The LogLine Protocol - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER I</div>
+            <h1>The LogLine Protocol</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> The log is not a record of execution. It is the prerequisite for execution.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Paper I — The LogLine Protocol</h2>
+<p><strong>The Atomic Unit of Verifiable Action</strong></p>
+<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+<h2>The Story</h2>
+<p><strong>March 2024. A major bank. $2.3 million gone in 47 minutes.</strong></p>
+<p>The forensic team spent six weeks reconstructing what happened. The logs showed API calls. The logs showed timestamps. The logs showed nothing useful about <em>why</em> any of it was authorized.</p>
+<p>The attacker had compromised an AI assistant. The assistant had legitimate access. Every request looked normal—individually. The pattern that would have revealed the attack was invisible because the logs recorded <em>what happened</em>, not <em>what was intended</em>.</p>
+<p><strong>The attacker left no fingerprints because there was nowhere to leave them.</strong></p>
+<p>Now imagine a different architecture.</p>
+<p>Before the first transfer, the AI assistant would have been required to sign this:</p>
+<pre><code>
+{
+  "who": "did:logline:agent:assistant-7x3k",
+  "did": "transfer",
+  "this": {
+    "from": "account:operating",
+    "to": "account:external:9f8a2c",
+    "amount": 47500,
+    "currency": "USD"
+  },
+  "when": "2024-03-14T14:23:07.847Z",
+  "confirmed_by": null,
+  "if_ok": "emit:transfer.completed",
+  "if_doubt": "escalate:treasury.human",
+  "if_not": "emit:transfer.denied",
+  "status": "pending"
+}
+</code></pre>
+<p>This LogLine would hit the policy engine. The policy would check:</p>
+<p>- Agent trajectory score: 0.23 (new agent, low trust)</p>
+<p>- Transfer limit at this trajectory: $5,000</p>
+<p>- Requested amount: $47,500</p>
+<p><strong>Decision: REQUIRE</strong> — human confirmation needed.</p>
+<p>The LogLine becomes a <strong>Ghost</strong>. It persists. Signed. Timestamped. Evidence that the attack was attempted.</p>
+<p>One Ghost is an anomaly. Forty-seven Ghosts in 47 minutes from the same agent? That's an alarm.</p>
+<p><strong>The attack fails because every attempt is a confession.</strong></p>
+<p>This is the LogLine Protocol.</p>
+<h2>I. The Inversion</h2>
+<p>Since 1945, every computing system has followed the same axiom:</p>
+<pre><code>
+Code runs → Log writes
+</code></pre>
+<p>Execution precedes registration. This gap between action and evidence is the root vulnerability of computation. In this gap:</p>
+<p>- Logs are forged</p>
+<p>- Logs are deleted</p>
+<p>- Logs prove nothing about authorization</p>
+<p>- Logs provide no cryptographic binding</p>
+<p><strong>The LogLine Protocol inverts this relationship.</strong></p>
+<pre><code>
+Log writes → Code runs
+</code></pre>
+<p>Nothing happens unless it is first structured, signed, and committed as a LogLine.</p>
+<p>The log is not a record of execution.</p>
+<p><strong>The log is the prerequisite for execution.</strong></p>
+<pre><code>
+// logline-core/src/runtime.rs
+// This is real code. Install it: cargo install logline-cli
+
+use logline_core::{LogLine, Ledger, PolicyEngine, Decision};
+
+pub struct Runtime {
+    ledger: Ledger,
+    policy: PolicyEngine,
+}
+
+impl Runtime {
+    /// Execute an intent. The order is non-negotiable:
+    /// 1. Create LogLine
+    /// 2. Evaluate policy
+    /// 3. Commit to ledger
+    /// 4. THEN (and only then) execute
+    pub fn execute(&mut self, intent: Intent) -> Result<Receipt, ExecutionError> {
+        // Step 1: Create the LogLine (the intent becomes structured)
+        let logline = LogLine::from_intent(&intent)?;
+
+        // Step 2: Evaluate policy BEFORE any execution
+        let decision = self.policy.evaluate(&logline)?;
+
+        // Step 3: Commit to ledger (this happens regardless of decision)
+        let committed = self.ledger.append(logline, &decision)?;
+
+        // Step 4: Execute only if ALLOW
+        match decision {
+            Decision::Allow => {
+                let effect = self.execute_effect(&committed)?;
+                Ok(Receipt::new(committed, effect))
+            }
+            Decision::Require { signers } => {
+                // LogLine persists, waiting for consent
+                Err(ExecutionError::ConsentRequired {
+                    logline_cid: committed.cid(),
+                    required_signers: signers,
+                })
+            }
+            Decision::Deny { reason } => {
+                // LogLine persists as Ghost
+                Err(ExecutionError::Denied {
+                    ghost_cid: committed.cid(),
+                    reason,
+                })
+            }
+        }
+    }
+}
+</code></pre>
+<p>The critical insight: <strong>the ledger append happens before the decision branch</strong>. Whether allowed or denied, the intent is recorded. The execution happens only after.</p>
+<h2>II. The 9-Field Tuple</h2>
+<p>Every action in a LogLine system is preceded by this structure:</p>
+<pre><code>
+┌─────────────────────────────────────────────────────────────────┐
+│                    THE LOGLINE TUPLE                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  who           The actor                                        │
+│                DID (did:method:id), Ed25519-bound               │
+│                                                                 │
+│  did           The verb                                         │
+│                Canonical action from ALLOWED_ACTIONS registry   │
+│                                                                 │
+│  this          The payload                                      │
+│                Typed JSON, validated against verb schema        │
+│                                                                 │
+│  when          The timestamp                                    │
+│                ISO8601 UTC, nanosecond precision                │
+│                                                                 │
+│  confirmed_by  The consent                                      │
+│                DID of approver (required for L3+ actions)       │
+│                                                                 │
+│  if_ok         Success commitment                               │
+│                What happens when the action succeeds            │
+│                                                                 │
+│  if_doubt      Uncertainty protocol                             │
+│                What happens on timeout or ambiguity             │
+│                                                                 │
+│  if_not        Failure commitment                               │
+│                What happens when the action fails               │
+│                                                                 │
+│  status        Lifecycle state                                  │
+│                DRAFT → PENDING → COMMITTED | GHOST              │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre>
+<p>This structure is <strong>non-negotiable</strong>. Its rigidity is its security.</p>
+<h3>The Pact</h3>
+<p>These nine fields are not just a data structure. They are a <strong>contract</strong>.</p>
+<pre><code>
+who         → I identify myself
+did         → I declare my intention
+this        → I specify the terms
+when        → I mark the moment
+confirmed_by → I accept the witness
+if_ok       → I commit to success
+if_doubt    → I commit to uncertainty
+if_not      → I commit to failure
+status      → I accept the verdict
+</code></pre>
+<p>Before you act, you sign the pact.</p>
+<p>There is no "let me try and see what happens." There is no action without commitment. The `if_ok`, `if_doubt`, and `if_not` fields are especially powerful—you cannot request anything without declaring what happens in <strong>every</strong> scenario.</p>
+<p>This is why the system works. This is why disputes collapse. This is why trust is computable.</p>
+<p><strong>The format is the contract. The contract is the foundation.</strong></p>
+<pre><code>
+// logline-core/src/tuple.rs
+
+use serde::{Deserialize, Serialize};
+use crate::{Did, Timestamp, ContentAddress};
+
+/// The 9-field LogLine tuple. Every field is mandatory.
+/// This is the atomic unit of verifiable action.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct LogLine {
+    /// The actor initiating the action
+    pub who: Did,
+
+    /// The verb (canonical action identifier)
+    pub did: ActionVerb,
+
+    /// The payload (typed, schema-validated)
+    pub this: serde_json::Value,
+
+    /// UTC timestamp with nanosecond precision
+    pub when: Timestamp,
+
+    /// Consent provider (None until confirmed)
+    pub confirmed_by: Option<Did>,
+
+    /// Success commitment
+    pub if_ok: Commitment,
+
+    /// Uncertainty commitment
+    pub if_doubt: Commitment,
+
+    /// Failure commitment
+    pub if_not: Commitment,
+
+    /// Lifecycle state
+    pub status: LogLineStatus,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum LogLineStatus {
+    Draft,      // Being composed
+    Pending,    // Awaiting evaluation
+    Committed,  // Executed successfully
+    Ghost,      // Denied or expired
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Commitment {
+    pub action: CommitmentAction,
+    pub target: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum CommitmentAction {
+    Emit(String),      // Emit an event
+    Escalate(String),  // Escalate to handler
+    Retry(u32),        // Retry with backoff
+    Abort,             // Clean termination
+}
+
+impl LogLine {
+    /// Compute the content address (identity) of this LogLine
+    pub fn cid(&self) -> ContentAddress {
+        let bytes = json_atomic::canonize(self);
+        ContentAddress::from_blake3(&bytes)
+    }
+
+    /// Verify the LogLine signature
+    pub fn verify(&self, public_key: &PublicKey) -> Result<(), SignatureError> {
+        let bytes = json_atomic::canonize(self);
+        public_key.verify(&bytes, &self.signature)
+    }
+
+    /// Transition to Ghost status
+    pub fn ghost(mut self, reason: GhostReason) -> Self {
+        self.status = LogLineStatus::Ghost;
+        self.ghost_reason = Some(reason);
+        self
+    }
+}
+</code></pre>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/02_I_The_LogLine_Protocol.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>
