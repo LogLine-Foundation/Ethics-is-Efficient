@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure Intent Routing Protocol. Network transport. Capsules. Cryptographic receipts.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, sirp">
+    <title>SIRP - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER V</div>
+            <h1>SIRP</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> Identity must be routed, not locations. A packet is an accountable artifact when its meaning is content-addressed, signed, and receipted.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Paper V — SIRP: The Network Atom</h2>
+<p><strong>Secure Intent Routing Protocol</strong></p>
+<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+<h2>The Story</h2>
+<p><strong>December 2024. A distributed AI system. A catastrophic failure.</strong></p>
+<p>Three agents were supposed to coordinate a complex financial operation. Agent A sent instructions to Agent B. Agent B claimed it never received them. Agent C executed based on what it <em>thought</em> Agent B had decided. The result: $18 million in erroneous trades.</p>
+<p>The post-mortem was brutal:</p>
+<p>- TCP delivered the packets (probably)</p>
+<p>- No proof of delivery existed</p>
+<p>- No proof of receipt existed</p>
+<p>- Each agent's version of events contradicted the others</p>
+<p>- The network was a black box</p>
+<p><strong>"We can't prove who said what to whom."</strong></p>
+<p>Now imagine a different architecture.</p>
+<p>Every message between agents is a <strong>Capsule</strong>—signed, content-addressed, receipted:</p>
+<pre><code>
+{
+  "magic": "0x5199",
+  "ver": 1,
+  "cid": "b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c...",
+  "sender_did": "did:logline:agent:A",
+  "payload": {
+    "kind": "instruction",
+    "action": "execute_trade",
+    "params": {"symbol": "AAPL", "quantity": 1000}
+  },
+  "signature": "ed25519:..."
+}
+</code></pre>
+<p>When Agent B receives this Capsule, it signs a <strong>Delivery Receipt</strong>:</p>
+<pre><code>
+{
+  "kind": "sirp.receipt.delivery.v1",
+  "capsule_cid": "b3:7f3a9b2c...",
+  "sender_did": "did:logline:agent:A",
+  "receiver_did": "did:logline:agent:B",
+  "ts_received": "2024-12-15T14:23:07.847Z",
+  "outcome": "DELIVERED",
+  "signature": "ed25519:agent_B_key"
+}
+</code></pre>
+<p>Agent B cannot later claim it didn't receive the instruction. The receipt exists. The signature is verifiable. The dispute collapses into a hash comparison.</p>
+<p><strong>The network becomes an audit trail.</strong></p>
+<p>This is SIRP.</p>
+<h2>I. The Problem</h2>
+<p>Networks route packets by location. But in a world of accountable agents, location is irrelevant. What matters is:</p>
+<p>- Who is speaking?</p>
+<p>- What do they intend?</p>
+<p>- Can we prove delivery?</p>
+<p>Traditional networks provide none of this:</p>
+<p>- IP addresses change</p>
+<p>- Packets can be forged</p>
+<p>- Delivery is best-effort</p>
+<p>- Routing leaves no audit trail</p>
+<p><strong>When meaning must travel, it must travel as an accountable artifact.</strong></p>
+<h2>II. The Thesis</h2>
+<blockquote>
+<p>**Route by identity, not topology. Receipt every hop. Prove delivery.**</p>
+</blockquote>
+<p>SIRP defines:</p>
+<p>1. <strong>Capsule</strong> — the atomic, signed, content-addressed message</p>
+<p>2. <strong>Discovery</strong> — identity-bound DHT mapping DIDs to endpoints</p>
+<p>3. <strong>TAL</strong> — transport abstraction (UDP, QUIC, WebSocket, TCP)</p>
+<p>4. <strong>Receipts</strong> — cryptographic proof of relay and delivery</p>
+<p><strong>SIRP is to the network what the Gate is to execution: nothing meaningful happens without artifacts.</strong></p>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/06_V_SIRP.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>

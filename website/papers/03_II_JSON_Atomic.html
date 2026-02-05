@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deterministic canonicalization. Same meaning = same bytes. Cryptographic stability.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, json✯atomic">
+    <title>JSON✯Atomic - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER II</div>
+            <h1>JSON✯Atomic</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> Same meaning must produce same bytes. Same bytes must produce same hash. Same hash is same identity.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Paper II — JSON✯Atomic</h2>
+<p><strong>The Identity Layer</strong></p>
+<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+<h2>The Problem (A True Story)</h2>
+<p><strong>November 2023. A smart contract audit. $12 million at stake.</strong></p>
+<p>The contract hashed a JSON document to verify agreement between parties. Both parties signed the "same" document. Both hashes were different.</p>
+<pre><code>
+// Party A's serializer produced:
+{"amount": 12000000, "recipient": "0x7a3f..."}
+
+// Party B's serializer produced:
+{"recipient": "0x7a3f...", "amount": 12000000}
+</code></pre>
+<p>Same meaning. Different bytes. Different hashes. The contract rejected both signatures as invalid.</p>
+<p>The fix took three weeks and $200,000 in legal fees. The root cause? <strong>JSON doesn't guarantee key order.</strong></p>
+<p>This was not a bug. This was a design flaw in every system that treats JSON as a serialization format without canonicalization.</p>
+<p><strong>JSON✯Atomic eliminates this class of failure entirely.</strong></p>
+<h2>I. The Principle</h2>
+<blockquote>
+<p>**Same semantics ⇒ same bytes ⇒ same hash ⇒ same identity.**</p>
+</blockquote>
+<pre><code>
+use json_atomic::canonize;
+
+// These two objects have the same meaning
+let obj_a = json!({"b": 1, "a": 2});
+let obj_b = json!({"a": 2, "b": 1});
+
+// JSON✯Atomic produces identical bytes
+let bytes_a = canonize(&obj_a);
+let bytes_b = canonize(&obj_b);
+
+assert_eq!(bytes_a, bytes_b);
+// Both produce: {"a":2,"b":1}
+
+// Therefore identical hashes
+let hash_a = blake3::hash(&bytes_a);
+let hash_b = blake3::hash(&bytes_b);
+
+assert_eq!(hash_a, hash_b);
+// Both produce: b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c...
+</code></pre>
+<p>This is not a feature. It is the foundation upon which all other papers rest.</p>
+<p>- Paper I requires canonical tuples to chain</p>
+<p>- Paper III requires canonical capsules to verify</p>
+<p>- Paper IV requires canonical ASTs to prove</p>
+<p>- Paper V requires canonical receipts to audit</p>
+<p>- Paper VI requires canonical policies to execute</p>
+<p><strong>The byte is the unit of law.</strong></p>
+<h2>II. Install It Now</h2>
+<pre><code>
+# Add to your Rust project
+cargo add json-atomic
+
+# Or install the CLI
+cargo install logline-cli
+</code></pre>
+<pre><code>
+use json_atomic::{canonize, verify, Error};
+
+fn main() -> Result<(), Error> {
+    let document = json!({
+        "who": "did:logline:agent:alice",
+        "did": "transfer",
+        "this": {"amount": 1000, "to": "bob"},
+        "when": "2026-02-05T14:30:00Z"
+    });
+
+    // Canonicalize
+    let canonical_bytes = canonize(&document)?;
+
+    // Hash (identity)
+    let identity = blake3::hash(&canonical_bytes);
+    println!("Identity: b3:{}", hex::encode(identity.as_bytes()));
+
+    // Verify another serialization matches
+    let other_bytes = r#"{"did":"transfer","this":{"amount":1000,"to":"bob"},"when":"2026-02-05T14:30:00Z","who":"did:logline:agent:alice"}"#;
+    assert!(verify(&document, other_bytes.as_bytes())?);
+
+    Ok(())
+}
+</code></pre>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/03_II_JSON_Atomic.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>

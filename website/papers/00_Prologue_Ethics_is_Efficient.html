@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="One-page thesis and system invariants. The foundation of LogLine's architectural philosophy.">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, ethics-is-efficient">
+    <title>Ethics is Efficient - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--code-bg);
+            border-left: 3px solid var(--accent);
+        }
+
+        .paper-meta p {
+            margin-bottom: 8px;
+        }
+
+        /* Content */
+        article {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin: 20px 0;
+            background-color: var(--code-bg);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* Code Blocks */
+        .code-block, pre {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            white-space: pre;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to All Papers</a>
+            <div class="paper-number">PAPER 00 • PROLOGUE</div>
+            <h1>Ethics is Efficient</h1>
+            <div class="paper-meta">
+                <p><strong>Author:</strong> Dan Voulez</p>
+                <p><strong>Institution:</strong> The LogLine Foundation</p>
+                <p><strong>Version:</strong> 1.0.1</p>
+                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Thesis:</strong> Ethics is not overhead. It is the dominant strategy when correctly priced.</p>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <h2>Ethics is Efficient</h2>
+<p><strong>Prologue to the LogLine Papers</strong></p>
+<blockquote>
+<p>*"Fraud doesn't pay when fraud is expensive."*</p>
+</blockquote>
+<h2>Why We Built This</h2>
+<p>Let me tell you why this works.</p>
+<p>Not how. Why.</p>
+<p>Every system you've ever used was built with ethics as an afterthought. A compliance checkbox. A legal department. An ethics committee that meets quarterly and changes nothing.</p>
+<p>Ethics was the last thing added.</p>
+<p>And that's why those systems fail.</p>
+<h2>The Insight</h2>
+<p>Ethics committees in parliaments are theater. Compliance departments are paper-pushers. "Responsible AI" is marketing copy.</p>
+<p>But here's what nobody tells you:</p>
+<p><strong>Ethics is not overhead. Ethics is the dominant strategy.</strong></p>
+<p>When you make honesty cheaper than deception, people choose honesty.</p>
+<p>When you make accountability structural, disputes disappear.</p>
+<p>When you make verification cheaper than argument, trust scales.</p>
+<p>This isn't idealism. This is arithmetic.</p>
+<h2>The Math</h2>
+<p>A major fintech processes $47 billion annually. Industry-standard fraud rate: 0.3%.</p>
+<p>That's $141 million in fraud losses per year.</p>
+<p>Add the teams that deal with fraud:</p>
+<p>- Fraud detection: $30 million</p>
+<p>- Dispute resolution: $22 million</p>
+<p>- Compliance and audit: $18 million</p>
+<p><strong>Total cost of dealing with fraud after the fact: $211 million/year.</strong></p>
+<p>Now imagine a different architecture:</p>
+<p>Every transaction requires a signed intent before execution. Every denial persists as evidence. Every decision produces a cryptographic receipt. Fraud doesn't just fail—it leaves a signed confession.</p>
+<p>In this architecture:</p>
+<p>- Fraud detection shrinks because fraudsters can't probe without leaving evidence</p>
+<p>- Disputes collapse because both parties signed the same receipt</p>
+<p>- Audit becomes verification, not investigation</p>
+<p><strong>Estimated cost: $40 million/year.</strong></p>
+<p><strong>Savings: $171 million/year.</strong></p>
+<p>This isn't theory. This is why LogLine exists.</p>
+
+            <p style="margin-top: 40px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/00_Prologue_Ethics_is_Efficient.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
+            </p>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>The LogLine Foundation</p>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+        </div>
+    </footer>
+</body>
+</html>
