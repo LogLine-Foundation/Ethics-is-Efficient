@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LogLine Foundation - A Complete Architecture for Accountable Computation">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, computational ethics">
+    <title>The LogLine Papers - LogLine Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8e8e8;
+            --accent: #4a9eff;
+            --border: #2a2a2a;
+            --code-bg: #151515;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .thesis {
+            font-style: italic;
+            color: #aaa;
+            padding: 20px;
+            border-left: 3px solid var(--accent);
+            margin-top: 20px;
+            background-color: var(--code-bg);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-dark);
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background-color: var(--code-bg);
+            padding: 30px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        /* Papers Grid */
+        .papers-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .paper-card {
+            background-color: var(--code-bg);
+            padding: 25px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .paper-card:hover {
+            border-color: var(--accent);
+        }
+
+        .paper-number {
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .paper-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .paper-desc {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Monaco, monospace;
+            color: #4a9eff;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre;
+        }
+
+        .command-label {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        /* Lists */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>The LogLine Papers</h1>
+            <p class="tagline">A Complete Architecture for Accountable Computation</p>
+            <div class="thesis">
+                <p>"We will not execute what we cannot explain, and we will not explain what we cannot replay."</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#papers">Papers</a></li>
+                <li><a href="#install">Install</a></li>
+                <li><a href="#verify">Verify</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Introduction -->
+    <section id="intro">
+        <div class="container">
+            <h2>Ethics is Efficient</h2>
+            <p>For fifty years, computing has operated on a broken premise: execute → record → hope. Actions happen. Logs are written. We hope they're accurate, complete, and unmodified.</p>
+            <p>This worked when computers were tools. It fails when computers are agents—making decisions, moving money, taking actions on our behalf.</p>
+            <p><strong>LogLine inverts the architecture:</strong> record → consent → execute → receipt.</p>
+            <p>Nothing happens without a prior record of intent. Nothing executes without policy evaluation. Nothing completes without a cryptographic receipt.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2.3M</div>
+                    <div class="stat-label">Evaluations/sec (Rust)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">250M</div>
+                    <div class="stat-label">Evaluations/sec (FPGA)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">81%</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50KB</div>
+                    <div class="stat-label">Policy = 200M Transistors</div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient" class="btn">View on GitHub</a>
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/tree/main/docs/papers/LogLine_Papers_v1.0.1" class="btn btn-secondary">Read the Papers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Papers Section -->
+    <section id="papers">
+        <div class="container">
+            <h2>The Papers</h2>
+            <p>A complete protocol suite for verifiable accountability in autonomous systems.</p>
+            
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Prologue</h3>
+            <div class="papers-grid">
+                <div class="paper-card">
+                    <div class="paper-number">00</div>
+                    <div class="paper-title">Ethics is Efficient</div>
+                    <div class="paper-desc">One-page thesis and system invariants. The foundation of LogLine's architectural philosophy.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Foundations</h3>
+            <div class="papers-grid">
+                <div class="paper-card">
+                    <div class="paper-number">PAPER 0</div>
+                    <div class="paper-title">From Silicon to User</div>
+                    <div class="paper-desc">Economic rationale: accountability reduces total cost through structural constraints.</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Protocol Specifications</h3>
+            <div class="papers-grid">
+                <div class="paper-card">
+                    <div class="paper-number">PAPER I</div>
+                    <div class="paper-title">The LogLine Protocol</div>
+                    <div class="paper-desc">The 9-field tuple. Ghost records. Threat model. The core mechanism for accountability.</div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-number">PAPER II</div>
+                    <div class="paper-title">JSON✯Atomic</div>
+                    <div class="paper-desc">Deterministic canonicalization. Same meaning = same bytes. Cryptographic stability.</div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-number">PAPER III</div>
+                    <div class="paper-title">LLLV</div>
+                    <div class="paper-desc">Ledger and Proof Vectors. Proof-carrying retrieval. Evidence capsules.</div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-number">PAPER IV</div>
+                    <div class="paper-title">TDLN</div>
+                    <div class="paper-desc">Deterministic Translation of Natural Language. Policy compilation. Consent protocol.</div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-number">PAPER V</div>
+                    <div class="paper-title">SIRP</div>
+                    <div class="paper-desc">Secure Intent Routing Protocol. Network transport. Capsules. Cryptographic receipts.</div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-number">PAPER VI</div>
+                    <div class="paper-title">Hardware as Text and Power</div>
+                    <div class="paper-desc">Substrate theory: signed text becomes structural power at the silicon level.</div>
+                </div>
+
+                <div class="paper-card">
+                    <div class="paper-number">PAPER VII</div>
+                    <div class="paper-title">Chip as Code</div>
+                    <div class="paper-desc">Computational realization. Hardware as backend. Policy execution in silicon.</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/tree/main/docs/papers/LogLine_Papers_v1.0.1" class="btn btn-secondary">View All Papers on GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Section -->
+    <section id="install">
+        <div class="container">
+            <h2>Install</h2>
+            <p>Get started with the LogLine reference implementation in minutes.</p>
+
+            <h3 style="margin-top: 30px;">Clone the Repository</h3>
+            <div class="code-block">
+                <pre><code>git clone https://github.com/LogLine-Foundation/Ethics-is-Efficient.git
+cd Ethics-is-Efficient</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Build the Project</h3>
+            <div class="code-block">
+                <pre><code>cargo build --release</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Run Tests</h3>
+            <div class="code-block">
+                <pre><code>cargo test</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Start the Resolver</h3>
+            <div class="code-block">
+                <pre><code>cargo run --bin logline-resolver</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Quick Verification</h3>
+            <div class="code-block">
+                <pre><code># Verify paper hashes
+for f in docs/papers/LogLine_Papers_v1.0.1/*.md; do
+    echo "$(b3sum "$f" | cut -d' ' -f1)  $f"
+done</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verify Section -->
+    <section id="verify">
+        <div class="container">
+            <h2>Verify</h2>
+            <p>All claims in the LogLine Papers are verifiable through code and benchmarks.</p>
+
+            <h3 style="margin-top: 30px;">Paper Verification</h3>
+            <p>Every paper includes BLAKE3 hashes. Verify the canonical versions:</p>
+            <div class="code-block">
+                <pre><code># Compute hashes for all papers
+cd docs/papers/LogLine_Papers_v1.0.1
+for f in *.md; do b3sum "$f"; done
+
+# Compare against canonical manifest
+cat manifests/canon_v1.0.1.json</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Conformance Tests</h3>
+            <p>Run the complete conformance test suite:</p>
+            <div class="code-block">
+                <pre><code>cargo test --all-features
+./smoke-test.sh</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Benchmark Reproduction</h3>
+            <p>Reproduce the performance claims:</p>
+            <div class="code-block">
+                <pre><code>cargo bench</code></pre>
+            </div>
+
+            <p style="margin-top: 20px;">The 2.3M evaluations/sec (Rust) and 250M evaluations/sec (FPGA) metrics are reproducible in the reference implementation and hardware designs.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About</h2>
+            
+            <h3 style="margin-top: 30px;">Partnership</h3>
+            <p>The LogLine Papers and reference implementation represent a unique collaboration between human intuition and machine precision. This work demonstrates that ethics and efficiency are not opposing forces—they are complementary aspects of good engineering.</p>
+
+            <h3 style="margin-top: 30px;">Citation</h3>
+            <div class="code-block">
+                <pre><code>@techreport{logline2026,
+  title       = {LogLine SecurityOS: A Protocol Suite for Verifiable Accountability},
+  author      = {Voulez, Dan},
+  year        = {2026},
+  month       = {February},
+  institution = {The LogLine Foundation},
+  version     = {1.0.1}
+}</code></pre>
+            </div>
+
+            <h3 style="margin-top: 30px;">Contact</h3>
+            <ul>
+                <li><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">GitHub Repository</a></li>
+                <li><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/issues">Report Issues</a></li>
+                <li><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/discussions">Discussions</a></li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">License</h3>
+            <ul>
+                <li><strong>Protocol Specifications:</strong> Open</li>
+                <li><strong>Documentation:</strong> CC BY 4.0</li>
+                <li><strong>Reference Implementations:</strong> See individual repositories</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-title">The LogLine Foundation</div>
+            <p><a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient">github.com/LogLine-Foundation</a></p>
+            <p class="footer-tagline">"Receipts or it didn't happen."</p>
+        </div>
+    </footer>
+</body>
+</html>
