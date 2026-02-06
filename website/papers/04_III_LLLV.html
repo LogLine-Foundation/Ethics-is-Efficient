@@ -25,14 +25,14 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -81,71 +81,158 @@
             margin-bottom: 8px;
         }
 
-        /* Content */
-        article {
-            padding: 60px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        blockquote {
-            font-style: italic;
-            color: #aaa;
-            padding: 20px;
-            border-left: 3px solid var(--accent);
-            margin: 20px 0;
-            background-color: var(--code-bg);
-        }
-
-        blockquote p {
+        .paper-meta p:last-child {
             margin-bottom: 0;
         }
 
-        /* Code Blocks */
-        .code-block, pre {
-            background-color: var(--code-bg);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            overflow-x: auto;
+        /* Content */
+        article {
+            padding: 80px 0;
         }
 
-        code {
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
+        }
+
+        #markdown-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h4 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        #markdown-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        #markdown-content blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content blockquote p {
+            margin-bottom: 10px;
+        }
+
+        #markdown-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        /* Code Blocks */
+        #markdown-content pre {
+            background-color: var(--code-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        #markdown-content code {
             font-family: 'Courier New', Monaco, monospace;
-            color: #4a9eff;
             font-size: 0.9rem;
         }
 
-        pre {
-            white-space: pre;
+        #markdown-content pre code {
+            color: #4a9eff;
+        }
+
+        #markdown-content p code,
+        #markdown-content li code {
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
 
         /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        #markdown-content ul, 
+        #markdown-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        li {
-            margin-bottom: 8px;
+        #markdown-content li {
+            margin-bottom: 12px;
             color: #ccc;
+            line-height: 1.7;
+        }
+
+        #markdown-content li p {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content th,
+        #markdown-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        #markdown-content th {
+            background-color: var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content td {
+            color: #ccc;
+        }
+
+        #markdown-content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content em {
+            color: #bbb;
         }
 
         /* Links */
@@ -158,30 +245,6 @@
             text-decoration: underline;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -192,12 +255,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
                 font-size: 2rem;
             }
 
-            h2 {
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            #markdown-content h2 {
                 font-size: 1.5rem;
+            }
+
+            #markdown-content h3 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -212,7 +287,7 @@
                 <p><strong>Author:</strong> Dan Voulez</p>
                 <p><strong>Institution:</strong> The LogLine Foundation</p>
                 <p><strong>Version:</strong> 1.0.1</p>
-                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Date:</strong> 2026-02-05</p>
                 <p><strong>Thesis:</strong> Memory becomes infrastructure only when retrieval is proof-carrying, content-addressed, and time-aware.</p>
             </div>
         </div>
@@ -220,20 +295,34 @@
 
     <article>
         <div class="container">
-            <h2>Paper III — LLLV: The Retrieval Atom</h2>
+            <div id="markdown-content">
+<h1>Paper III — LLLV: The Retrieval Atom</h1>
+
 <p><strong>Verifiable Memory for Accountable Agents</strong></p>
+
 <p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+
+<hr>
+
 <h2>The Story</h2>
+
 <p><strong>January 2025. A legal AI assistant. A malpractice lawsuit.</strong></p>
+
 <p>The AI had recommended a specific legal strategy based on "relevant case law." The case was lost. The client sued. In discovery, the question arose: <strong>why did the AI retrieve those specific cases?</strong></p>
+
 <p>The vendor's answer: "The vector search returned them as most relevant."</p>
+
 <p>The lawyer's follow-up: "Prove it."</p>
+
 <p>Silence. The retrieval system was a black box. No one could explain why those three cases were returned instead of the four that would have won the case. No one could prove the index hadn't been tampered with. No one could reconstruct the decision.</p>
+
 <p><strong>$4.2 million settlement. The AI couldn't explain its own memory.</strong></p>
+
 <p>Now imagine a different architecture.</p>
+
 <p>Every retrieval returns an <strong>evidence chain</strong>:</p>
-<pre><code>
-{
+
+<pre><code>{
   "type": "LLLV_TOPK_EVIDENCE_V1",
   "query_cid": "b3:7f3a9b2c...",
   "index_pack_cid": "b3:4d5e6f7a...",
@@ -253,33 +342,446 @@
     "visited": 812
   },
   "signature": "ed25519:responder_key"
-}
-</code></pre>
+}</code></pre>
+
 <p>This evidence can be verified offline, years later, by anyone with the pack file. The proof is cryptographic. The explanation is deterministic.</p>
+
 <p><strong>The lawsuit becomes a hash comparison.</strong></p>
+
 <p>This is LLLV.</p>
+
+<hr>
+
 <h2>I. The Problem</h2>
+
 <p>Modern retrieval systems are black boxes. They return results without explanation. They claim relevance without proof. They mutate state without receipts.</p>
-<p>When an agent retrieves information to make a decision:</p>
-<p>- How do we know the retrieval was honest?</p>
-<p>- How do we know the index wasn't tampered with?</p>
-<p>- How do we reconstruct "why these results" after the fact?</p>
-<p>- How do we audit memory at scale?</p>
+
+<p>When an agent retrieves information to make a decision:<br><ul><br><li>How do we know the retrieval was honest?</li><br><li>How do we know the index wasn't tampered with?</li><br><li>How do we reconstruct "why these results" after the fact?</li><br><li>How do we audit memory at scale?</li><br></ul></p>
+
 <p><strong>Vector search without verification is not infrastructure. It is faith.</strong></p>
+
+<hr>
+
 <h2>II. The Thesis</h2>
-<blockquote>
-<p>**Retrieval becomes infrastructure when answers are provable artifacts, not opaque guesses.**</p>
-</blockquote>
-<p>LLLV defines:</p>
-<p>1. <strong>Vector Capsule</strong> — the atomic, content-addressed unit binding embedding to provenance</p>
-<p>2. <strong>Index Pack</strong> — a portable, merkleized ANN index verifiable offline</p>
-<p>3. <strong>Top-K Evidence</strong> — a proof bundle explaining why these K items were returned</p>
-<p>4. <strong>Temporal Narrative</strong> — an append-only timeline turning time into evidence</p>
+
+<blockquote><strong>Retrieval becomes infrastructure when answers are provable artifacts, not opaque guesses.</strong></blockquote>
+
+<p>LLLV defines:<br>1. <strong>Vector Capsule</strong> — the atomic, content-addressed unit binding embedding to provenance<br>2. <strong>Index Pack</strong> — a portable, merkleized ANN index verifiable offline<br>3. <strong>Top-K Evidence</strong> — a proof bundle explaining why these K items were returned<br>4. <strong>Temporal Narrative</strong> — an append-only timeline turning time into evidence</p>
+
 <p>When memory can be audited, it can be trusted.</p>
 
-            <p style="margin-top: 40px;">
-                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/04_III_LLLV.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
-            </p>
+<hr>
+
+<h2>III. Install It Now</h2>
+
+<pre><code># Add to your Rust project
+cargo add lllv
+
+<p># Or install the CLI<br>cargo install logline-cli</code></pre></p>
+
+<pre><code>use lllv::{IndexPack, VectorCapsule, TopKEvidence, Query};
+
+<p>fn main() -&gt; Result&lt;(), lllv::Error&gt; {<br>    // Load a verifiable index pack<br>    let pack = IndexPack::load("knowledge_base.lllv.idx")?;</p>
+
+<p>// Verify pack integrity before using<br>    pack.verify()?;  // Checks all Merkle proofs</p>
+
+<p>// Query with evidence<br>    let query = Query::new("What is the statute of limitations?");<br>    let (results, evidence) = pack.search_with_evidence(&amp;query, 10)?;</p>
+
+<p>// Evidence is verifiable offline<br>    assert!(evidence.verify(&amp;pack.manifest())?);</p>
+
+<p>// Print results with provenance<br>    for result in results {<br>        println!(<br>            "Doc: {} (distance: {:.4}, proof: {})",<br>            result.id,<br>            result.distance,<br>            result.proof.merkle_root<br>        );<br>    }</p>
+
+<p>Ok(())<br>}</code></pre></p>
+
+<hr>
+
+<h2>IV. The Vector Capsule</h2>
+
+<p>The atomic unit of LLLV is the <strong>Vector Capsule</strong>: a signed, content-addressed envelope binding an embedding to its provenance.</p>
+
+<h3>Wire Format</h3>
+
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│  MAGIC    u16 [2]   0x4C56 (LV)                         │
+│  VER      u8  [1]   Wire version (0x01)                 │
+│  FLAGS    u8  [1]   Encrypted | Priority | ...          │
+│  TS       u64 [8]   UTC nanoseconds                     │
+│  CID      [32]      BLAKE3(payload)                     │
+│  DIM      u16 [2]   Vector dimensionality               │
+│  LEN      u32 [4]   Payload length                      │
+│  SIG      [64]      Ed25519(header ‖ payload)           │
+├─────────────────────────────────────────────────────────┤
+│  PAYLOAD  var       Canonical manifest + vector bytes   │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+<p>Total header: 114 bytes</p>
+
+<h3>Implementation</h3>
+
+<pre><code>// lllv/src/capsule.rs
+
+<p>use blake3::Hasher;<br>use ed25519_dalek::{Signature, SigningKey, VerifyingKey};</p>
+
+<p>/// A Vector Capsule: signed, content-addressed embedding with provenance<br>#[derive(Debug, Clone)]<br>pub struct VectorCapsule {<br>    pub header: CapsuleHeader,<br>    pub manifest: CapsuleManifest,<br>    pub vector: Vec&lt;f32&gt;,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct CapsuleHeader {<br>    pub magic: u16,      // 0x4C56<br>    pub version: u8,     // 0x01<br>    pub flags: u8,<br>    pub timestamp: u64,  // UTC nanoseconds<br>    pub cid: [u8; 32],   // BLAKE3(payload)<br>    pub dim: u16,<br>    pub payload_len: u32,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct CapsuleManifest {<br>    pub vector_id: String,<br>    pub source_uri: String,<br>    pub mime: String,<br>    pub content_hash: ContentAddress,<br>    pub dim: u16,<br>    pub quant: Quantization,<br>    pub encoder: EncoderInfo,<br>    pub policy_ref: String,<br>    pub ts_ingest: Timestamp,<br>}</p>
+
+<p>impl VectorCapsule {<br>    /// Create a new capsule from content<br>    pub fn create(<br>        content: &amp;[u8],<br>        source_uri: &amp;str,<br>        encoder: &amp;Encoder,<br>        signing_key: &amp;SigningKey,<br>    ) -&gt; Result&lt;Self, CapsuleError&gt; {<br>        // 1. Compute content hash<br>        let content_hash = ContentAddress::from_blake3(blake3::hash(content));</p>
+
+<p>// 2. Generate embedding<br>        let vector = encoder.encode(content)?;</p>
+
+<p>// 3. Create manifest<br>        let manifest = CapsuleManifest {<br>            vector_id: format!("vec:{}", &amp;content_hash.to_string()[3..11]),<br>            source_uri: source_uri.to_string(),<br>            mime: mime_guess::from_path(source_uri)<br>                .first_or_octet_stream()<br>                .to_string(),<br>            content_hash,<br>            dim: vector.len() as u16,<br>            quant: Quantization::F32,<br>            encoder: encoder.info(),<br>            policy_ref: "tdln://policy/lllv.ingest@v1".to_string(),<br>            ts_ingest: Timestamp::now(),<br>        };</p>
+
+<p>// 4. Serialize payload (canonical)<br>        let payload = Self::serialize_payload(&amp;manifest, &amp;vector)?;</p>
+
+<p>// 5. Create header<br>        let header = CapsuleHeader {<br>            magic: 0x4C56,<br>            version: 0x01,<br>            flags: 0x00,<br>            timestamp: Timestamp::now().as_nanos(),<br>            cid: *blake3::hash(&amp;payload).as_bytes(),<br>            dim: manifest.dim,<br>            payload_len: payload.len() as u32,<br>        };</p>
+
+<p>// 6. Sign<br>        let sig_material = Self::signature_material(&amp;header, &amp;payload);<br>        let signature = signing_key.sign(&amp;sig_material);</p>
+
+<p>Ok(Self {<br>            header,<br>            manifest,<br>            vector,<br>            signature,<br>        })<br>    }</p>
+
+<p>/// Verify capsule integrity<br>    pub fn verify(&amp;self, public_key: &amp;VerifyingKey) -&gt; Result&lt;(), CapsuleError&gt; {<br>        // 1. Verify CID<br>        let payload = Self::serialize_payload(&amp;self.manifest, &amp;self.vector)?;<br>        let computed_cid = blake3::hash(&amp;payload);<br>        if computed_cid.as_bytes() != &amp;self.header.cid {<br>            return Err(CapsuleError::CidMismatch);<br>        }</p>
+
+<p>// 2. Verify signature<br>        let sig_material = Self::signature_material(&amp;self.header, &amp;payload);<br>        public_key.verify(&amp;sig_material, &amp;self.signature)<br>            .map_err(|_| CapsuleError::InvalidSignature)?;</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>fn serialize_payload(<br>        manifest: &amp;CapsuleManifest,<br>        vector: &amp;[f32],<br>    ) -&gt; Result&lt;Vec&lt;u8&gt;, CapsuleError&gt; {<br>        let mut payload = json_atomic::canonize(manifest)?;<br>        for v in vector {<br>            payload.extend_from_slice(&amp;v.to_le_bytes());<br>        }<br>        Ok(payload)<br>    }</p>
+
+<p>fn signature_material(header: &amp;CapsuleHeader, payload: &amp;[u8]) -&gt; Vec&lt;u8&gt; {<br>        let mut material = Vec::new();<br>        material.extend_from_slice(b"lllv.capsule.v1");<br>        material.extend_from_slice(&amp;header.magic.to_le_bytes());<br>        material.extend_from_slice(&amp;[header.version, header.flags]);<br>        material.extend_from_slice(&amp;header.timestamp.to_le_bytes());<br>        material.extend_from_slice(&amp;header.cid);<br>        material.extend_from_slice(&amp;header.dim.to_le_bytes());<br>        material.extend_from_slice(&amp;header.payload_len.to_le_bytes());<br>        material.extend_from_slice(payload);<br>        material<br>    }<br>}</code></pre></p>
+
+<h3>Capsule Invariants</h3>
+
+<table>
+<thead>
+<tr><th>ID</th><th>Guarantee</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>VC-I1</strong></td><td>Metadata canonicalized via Paper II before sealing</td></tr>
+<tr><td><strong>VC-I2</strong></td><td><code>CID = BLAKE3(payload_bytes)</code> — mismatch rejected</td></tr>
+<tr><td><strong>VC-I3</strong></td><td>Signature covers header and payload</td></tr>
+<tr><td><strong>VC-I4</strong></td><td>Replay defense by <code>(source_uri, content_hash)</code></td></tr>
+<tr><td><strong>VC-I5</strong></td><td>Policy reference bound to capsule identity</td></tr>
+<tr><td><strong>VC-I6</strong></td><td>Capsules are evidence, not capability</td></tr>
+</tbody>
+</table><hr>
+
+<h2>V. The Index Pack</h2>
+
+<p>An <strong>Index Pack</strong> is a portable file (<code>.lllv.idx</code>) containing everything needed for verifiable retrieval.</p>
+
+<h3>Structure</h3>
+
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│  PACK HEADER                                            │
+│    MAGIC | VER | FLAGS | TS | PACK_CID | MANIFEST_SIG   │
+├─────────────────────────────────────────────────────────┤
+│  TABLE OF CONTENTS                                      │
+│    n_blocks | [BlockDesc { kind, offset, len, cid }]    │
+├─────────────────────────────────────────────────────────┤
+│  BLOCKS                                                 │
+│    ANN_PARAMS      Algorithm configuration              │
+│    VECTOR_STORAGE  Quantized embeddings                 │
+│    POSTINGS        Neighbor lists, levels               │
+│    DOC_TABLE       Canonical metadata rows              │
+│    STATS           Centroids, norms, histograms         │
+│    MERKLE_INDEX    Block proofs                         │
+│    MANIFEST        Signed canonical description         │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+<h3>Implementation</h3>
+
+<pre><code>// lllv/src/index_pack.rs
+
+<p>use std::collections::HashMap;</p>
+
+<p>/// A verifiable index pack<br>pub struct IndexPack {<br>    pub manifest: PackManifest,<br>    blocks: HashMap&lt;BlockKind, Block&gt;,<br>    merkle_tree: MerkleTree,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct PackManifest {<br>    #[serde(rename = "type")]<br>    pub kind: String,  // "LLLV_INDEX_PACK"<br>    pub ver: u32,<br>    pub created_ts: Timestamp,<br>    pub encoder: EncoderInfo,<br>    pub ann: AnnConfig,<br>    pub dim: u16,<br>    pub quant: Quantization,<br>    pub vector_count: u64,<br>    pub root: ContentAddress,  // Merkle root<br>    pub policy_ref: String,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct AnnConfig {<br>    pub algo: String,  // "hnsw"<br>    pub space: String, // "cosine"<br>    pub params: HnswParams,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct HnswParams {<br>    #[serde(rename = "M")]<br>    pub m: u32,<br>    pub ef_construction: u32,<br>    pub ef_search: u32,<br>}</p>
+
+<p>impl IndexPack {<br>    /// Load and verify a pack from disk<br>    pub fn load(path: &amp;str) -&gt; Result&lt;Self, PackError&gt; {<br>        let file = std::fs::File::open(path)?;<br>        let mut reader = std::io::BufReader::new(file);</p>
+
+<p>// Read header<br>        let header = PackHeader::read(&amp;mut reader)?;<br>        if header.magic != 0x4C4C5650 {  // "LLVP"<br>            return Err(PackError::InvalidMagic);<br>        }</p>
+
+<p>// Read table of contents<br>        let toc = TableOfContents::read(&amp;mut reader)?;</p>
+
+<p>// Read blocks<br>        let mut blocks = HashMap::new();<br>        for desc in &amp;toc.blocks {<br>            let block = Block::read(&amp;mut reader, desc)?;<br>            blocks.insert(desc.kind, block);<br>        }</p>
+
+<p>// Reconstruct Merkle tree<br>        let merkle_tree = MerkleTree::from_blocks(&amp;blocks)?;</p>
+
+<p>// Parse manifest<br>        let manifest_block = blocks.get(&amp;BlockKind::Manifest)<br>            .ok_or(PackError::MissingManifest)?;<br>        let manifest: PackManifest = serde_json::from_slice(&amp;manifest_block.data)?;</p>
+
+<p>// Verify Merkle root matches manifest<br>        if merkle_tree.root() != manifest.root {<br>            return Err(PackError::MerkleRootMismatch);<br>        }</p>
+
+<p>Ok(Self {<br>            manifest,<br>            blocks,<br>            merkle_tree,<br>        })<br>    }</p>
+
+<p>/// Verify pack integrity (all blocks)<br>    pub fn verify(&amp;self) -&gt; Result&lt;(), PackError&gt; {<br>        // Verify each block's CID<br>        for (kind, block) in &amp;self.blocks {<br>            let computed_cid = ContentAddress::from_blake3(blake3::hash(&amp;block.data));<br>            if computed_cid != block.desc.cid {<br>                return Err(PackError::BlockCidMismatch { kind: *kind });<br>            }<br>        }</p>
+
+<p>// Verify Merkle proofs<br>        self.merkle_tree.verify_all()?;</p>
+
+<p>// Verify manifest signature<br>        self.manifest.verify_signature()?;</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>/// Search with evidence generation<br>    pub fn search_with_evidence(<br>        &amp;self,<br>        query: &amp;Query,<br>        k: usize,<br>    ) -&gt; Result&lt;(Vec&lt;SearchResult&gt;, TopKEvidence), PackError&gt; {<br>        // Get HNSW index<br>        let hnsw = self.get_hnsw_index()?;</p>
+
+<p>// Encode query<br>        let query_vector = self.encode_query(query)?;<br>        let query_cid = ContentAddress::from_blake3(<br>            blake3::hash(&amp;query_vector_bytes(&amp;query_vector))<br>        );</p>
+
+<p>// Search<br>        let (results, visited) = hnsw.search_with_stats(&amp;query_vector, k)?;</p>
+
+<p>// Generate evidence<br>        let evidence_results: Vec&lt;_&gt; = results.iter()<br>            .map(|r| {<br>                let merkle_path = self.merkle_tree.proof_for_doc(r.id)?;<br>                Ok(EvidenceResult {<br>                    id: r.id.clone(),<br>                    dist: r.distance,<br>                    proof: ResultProof {<br>                        block: BlockKind::Postings,<br>                        merkle_path,<br>                    },<br>                })<br>            })<br>            .collect::&lt;Result&lt;_, PackError&gt;&gt;()?;</p>
+
+<p>let evidence = TopKEvidence {<br>            kind: "LLLV_TOPK_EVIDENCE_V1".to_string(),<br>            query_cid,<br>            index_pack_cid: self.manifest.root.clone(),<br>            results: evidence_results,<br>            stats: SearchStats {<br>                algo: self.manifest.ann.algo.clone(),<br>                params_cid: self.get_params_cid()?,<br>                visited,<br>            },<br>            signature: Signature::pending(),  // Signed by responder<br>        };</p>
+
+<p>Ok((results, evidence))<br>    }<br>}</code></pre></p>
+
+<h3>Merkleization</h3>
+
+<ul>
+<li>Each block individually hashed (BLAKE3)</li>
+<li>Merkle root covers ordered block list</li>
+<li>Inclusion proofs enable partial verification</li>
+</ul>
+
+<pre><code>// lllv/src/merkle.rs
+
+<p>pub struct MerkleTree {<br>    root: ContentAddress,<br>    nodes: Vec&lt;MerkleNode&gt;,<br>    block_indices: HashMap&lt;BlockKind, usize&gt;,<br>}</p>
+
+<p>impl MerkleTree {<br>    /// Generate inclusion proof for a specific block<br>    pub fn proof_for_block(&amp;self, kind: BlockKind) -&gt; Result&lt;Vec&lt;ContentAddress&gt;, MerkleError&gt; {<br>        let idx = self.block_indices.get(&amp;kind)<br>            .ok_or(MerkleError::BlockNotFound)?;</p>
+
+<p>let mut proof = Vec::new();<br>        let mut current = *idx;</p>
+
+<p>while current &gt; 0 {<br>            let sibling = if current % 2 == 0 { current - 1 } else { current + 1 };<br>            if sibling &lt; self.nodes.len() {<br>                proof.push(self.nodes[sibling].hash.clone());<br>            }<br>            current = (current - 1) / 2;<br>        }</p>
+
+<p>Ok(proof)<br>    }</p>
+
+<p>/// Verify an inclusion proof<br>    pub fn verify_proof(<br>        root: &amp;ContentAddress,<br>        block_hash: &amp;ContentAddress,<br>        proof: &amp;[ContentAddress],<br>        index: usize,<br>    ) -&gt; bool {<br>        let mut current = block_hash.clone();<br>        let mut idx = index;</p>
+
+<p>for sibling in proof {<br>            let combined = if idx % 2 == 0 {<br>                combine_hashes(&amp;current, sibling)<br>            } else {<br>                combine_hashes(sibling, &amp;current)<br>            };<br>            current = combined;<br>            idx /= 2;<br>        }</p>
+
+<p>current == *root<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>VI. Top-K Evidence</h2>
+
+<p>A retrieval result without evidence is an assertion. A retrieval result with evidence is a fact.</p>
+
+<pre><code>// lllv/src/evidence.rs
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct TopKEvidence {<br>    #[serde(rename = "type")]<br>    pub kind: String,<br>    pub query_cid: ContentAddress,<br>    pub index_pack_cid: ContentAddress,<br>    pub results: Vec&lt;EvidenceResult&gt;,<br>    pub stats: SearchStats,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct EvidenceResult {<br>    pub id: String,<br>    pub dist: f32,<br>    pub proof: ResultProof,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct ResultProof {<br>    pub block: BlockKind,<br>    pub merkle_path: Vec&lt;ContentAddress&gt;,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct SearchStats {<br>    pub algo: String,<br>    pub params_cid: ContentAddress,<br>    pub visited: u64,<br>}</p>
+
+<p>impl TopKEvidence {<br>    /// Verify evidence against a pack manifest<br>    pub fn verify(&amp;self, manifest: &amp;PackManifest) -&gt; Result&lt;(), EvidenceError&gt; {<br>        // 1. Verify pack CID matches<br>        if self.index_pack_cid != manifest.root {<br>            return Err(EvidenceError::PackMismatch);<br>        }</p>
+
+<p>// 2. Verify each result's Merkle proof<br>        for result in &amp;self.results {<br>            let valid = MerkleTree::verify_proof(<br>                &amp;manifest.root,<br>                &amp;self.compute_result_hash(result)?,<br>                &amp;result.proof.merkle_path,<br>                self.result_index(result)?,<br>            );</p>
+
+<p>if !valid {<br>                return Err(EvidenceError::InvalidMerkleProof {<br>                    result_id: result.id.clone(),<br>                });<br>            }<br>        }</p>
+
+<p>// 3. Verify signature<br>        self.verify_signature()?;</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>/// Verify offline - no network needed<br>    pub fn verify_offline(<br>        &amp;self,<br>        pack_file: &amp;str,<br>        public_key: &amp;VerifyingKey,<br>    ) -&gt; Result&lt;(), EvidenceError&gt; {<br>        let pack = IndexPack::load(pack_file)?;<br>        pack.verify()?;</p>
+
+<p>self.verify(&amp;pack.manifest)?;</p>
+
+<p>// Verify responder signature<br>        let canonical = json_atomic::canonize(self)?;<br>        public_key.verify(&amp;canonical, &amp;self.signature)<br>            .map_err(|_| EvidenceError::InvalidSignature)?;</p>
+
+<p>Ok(())<br>    }<br>}</code></pre></p>
+
+<p>LLLV does not prove optimality. It proves <strong>what was done</strong> under declared parameters.</p>
+
+<hr>
+
+<h2>VII. The Temporal Narrative</h2>
+
+<p>Time is not UI metadata. Time is evidence.</p>
+
+<pre><code>// lllv/src/narrative.rs
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct NarrativeEvent {<br>    #[serde(rename = "type")]<br>    pub kind: String,  // "LLLV_NARRATIVE_V1"<br>    pub vector_id: String,<br>    pub source_uri: String,<br>    pub delta: DeltaType,<br>    pub prev_cid: Option&lt;ContentAddress&gt;,<br>    pub new_cid: ContentAddress,<br>    pub author_did: Did,<br>    pub policy_ref: String,<br>    pub ts: Timestamp,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum DeltaType {<br>    Initial,<br>    MinorEdit,<br>    MajorEdit,<br>    Retired,<br>}</p>
+
+<p>/// A temporal narrative chain<br>pub struct Narrative {<br>    events: Vec&lt;NarrativeEvent&gt;,<br>}</p>
+
+<p>impl Narrative {<br>    /// Load narrative for a vector<br>    pub fn for_vector(<br>        ledger: &amp;Ledger,<br>        vector_id: &amp;str,<br>    ) -&gt; Result&lt;Self, NarrativeError&gt; {<br>        let events = ledger.query()<br>            .kind("LLLV_NARRATIVE_V1")<br>            .field("vector_id", vector_id)<br>            .order_by("ts", Ascending)<br>            .execute()?;</p>
+
+<p>// Verify chain integrity<br>        let mut prev_cid = None;<br>        for event in &amp;events {<br>            if event.prev_cid != prev_cid {<br>                return Err(NarrativeError::BrokenChain {<br>                    event_ts: event.ts,<br>                });<br>            }<br>            prev_cid = Some(event.new_cid.clone());<br>        }</p>
+
+<p>Ok(Self { events })<br>    }</p>
+
+<p>/// Get state at a specific time<br>    pub fn state_at(&amp;self, ts: Timestamp) -&gt; Option&lt;&amp;NarrativeEvent&gt; {<br>        self.events.iter()<br>            .filter(|e| e.ts &lt;= ts)<br>            .last()<br>    }</p>
+
+<p>/// Is the vector retired?<br>    pub fn is_retired(&amp;self) -&gt; bool {<br>        self.events.last()<br>            .map(|e| matches!(e.delta, DeltaType::Retired))<br>            .unwrap_or(false)<br>    }<br>}</p>
+
+<p>/// Temporal weighting for search results<br>pub fn temporal_weight(<br>    event_ts: Timestamp,<br>    now: Timestamp,<br>    tau: Duration,<br>) -&gt; f64 {<br>    let age = now.duration_since(event_ts);<br>    (-age.as_secs_f64() / tau.as_secs_f64()).exp()<br>}</p>
+
+<p>/// Combined scoring<br>pub fn combined_score(<br>    similarity: f64,<br>    event_ts: Timestamp,<br>    now: Timestamp,<br>    tau: Duration,<br>    policy_factor: f64,<br>) -&gt; f64 {<br>    similarity * temporal_weight(event_ts, now, tau) * policy_factor<br>}</code></pre></p>
+
+<hr>
+
+<h2>VIII. CLI Usage</h2>
+
+<pre><code># Ingest documents into a pack
+logline lllv ingest \
+  --source ./documents/ \
+  --encoder glassbox-v1 \
+  --output knowledge.lllv.idx
+
+<p># Output:<br># Ingested 1,048,576 vectors<br># Pack CID: b3:4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...<br># Manifest signed with: ed25519:ingest_key</p>
+
+<p># Verify a pack<br>logline lllv verify knowledge.lllv.idx</p>
+
+<p># Output:<br># Pack integrity: VALID<br># Merkle root: b3:4d5e6f7a...<br># Block verification: 7/7 PASS<br># Manifest signature: VALID</p>
+
+<p># Query with evidence<br>logline lllv query knowledge.lllv.idx \<br>  --query "What is the statute of limitations?" \<br>  --k 10 \<br>  --evidence-file results.evidence.json</p>
+
+<p># Output:<br># Results:<br>#   1. doc:statute_guide_2024 (dist: 0.1831)<br>#   2. doc:legal_handbook_ch7 (dist: 0.1879)<br>#   ...<br># Evidence written to results.evidence.json</p>
+
+<p># Verify evidence offline<br>logline lllv verify-evidence \<br>  --pack knowledge.lllv.idx \<br>  --evidence results.evidence.json</p>
+
+<p># Output:<br># Query CID: b3:7f3a9b2c...<br># Pack CID: b3:4d5e6f7a... (MATCH)<br># Result proofs: 10/10 VALID<br># Signature: VALID<br># Evidence verification: PASS</p>
+
+<p># View temporal narrative<br>logline lllv narrative \<br>  --pack knowledge.lllv.idx \<br>  --vector-id "vec:9f3a8b2c"</p>
+
+<p># Output:<br># Narrative for vec:9f3a8b2c<br># 2026-01-15 10:30:00 INITIAL    b3:null -&gt; b3:a1b2...<br># 2026-01-20 14:15:00 MINOR_EDIT b3:a1b2... -&gt; b3:c3d4...<br># 2026-02-01 09:00:00 MAJOR_EDIT b3:c3d4... -&gt; b3:e5f6...<br># Chain integrity: VALID</code></pre></p>
+
+<hr>
+
+<h2>IX. Verification Procedure</h2>
+
+<p>Given a pack and evidence response:</p>
+
+<pre><code>pub fn verify_retrieval(
+    pack_path: &amp;str,
+    evidence: &amp;TopKEvidence,
+    responder_key: &amp;VerifyingKey,
+) -&gt; Result&lt;VerificationResult, VerifyError&gt; {
+    // 1. Load and verify pack
+    let pack = IndexPack::load(pack_path)?;
+    pack.verify()?;
+
+<p>// 2. Verify manifest signature<br>    pack.manifest.verify_signature()?;</p>
+
+<p>// 3. Verify evidence against pack<br>    evidence.verify(&amp;pack.manifest)?;</p>
+
+<p>// 4. Verify responder signature<br>    let canonical = json_atomic::canonize(evidence)?;<br>    responder_key.verify(&amp;canonical, &amp;evidence.signature)<br>        .map_err(|_| VerifyError::InvalidResponderSignature)?;</p>
+
+<p>Ok(VerificationResult {<br>        pack_valid: true,<br>        evidence_valid: true,<br>        all_proofs_valid: true,<br>        signature_valid: true,<br>    })<br>}</code></pre></p>
+
+<p>This procedure requires only:<br><ul><br><li>Pack bytes</li><br><li>Evidence bytes</li><br><li>Public keys</li><br></ul></p>
+
+<p><strong>No network. No trust. Pure verification.</strong></p>
+
+<hr>
+
+<h2>X. Conformance</h2>
+
+<table>
+<thead>
+<tr><th>Test</th><th>Requirement</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CT-III-01</strong></td><td>Canonical sealing produces stable CIDs</td></tr>
+<tr><td><strong>CT-III-02</strong></td><td>Pack manifest + block CIDs verify offline</td></tr>
+<tr><td><strong>CT-III-03</strong></td><td>Evidence binds to query + pack identities</td></tr>
+<tr><td><strong>CT-III-04</strong></td><td>Narrative events are signed, chained facts</td></tr>
+<tr><td><strong>CT-III-05</strong></td><td>Harness equivalence across implementations</td></tr>
+</tbody>
+</table><pre><code>#[cfg(test)]
+mod conformance {
+    #[test]
+    fn ct_iii_01_stable_cids() {
+        let content = b"test document content";
+        let capsule_a = VectorCapsule::create(content, "test.txt", &amp;encoder, &amp;key)?;
+        let capsule_b = VectorCapsule::create(content, "test.txt", &amp;encoder, &amp;key)?;
+
+<p>// Same content = same CID (deterministic)<br>        assert_eq!(capsule_a.header.cid, capsule_b.header.cid);<br>    }</p>
+
+<p>#[test]<br>    fn ct_iii_02_offline_verification() {<br>        let pack = IndexPack::load("test.lllv.idx")?;</p>
+
+<p>// No network calls - pure local verification<br>        pack.verify()?;<br>    }</p>
+
+<p>#[test]<br>    fn ct_iii_03_evidence_binding() {<br>        let (_, evidence) = pack.search_with_evidence(&amp;query, 10)?;</p>
+
+<p>// Evidence must bind to pack identity<br>        assert_eq!(evidence.index_pack_cid, pack.manifest.root);</p>
+
+<p>// And to query identity<br>        let query_cid = ContentAddress::from_blake3(blake3::hash(&amp;query_bytes));<br>        assert_eq!(evidence.query_cid, query_cid);<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>XI. Integration</h2>
+
+<table>
+<thead>
+<tr><th>Paper</th><th>Relationship</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I — LogLine</strong></td><td>Retrieval operations emit LogLine records</td></tr>
+<tr><td><strong>II — JSON✯Atomic</strong></td><td>All manifests, evidence, receipts are canonical</td></tr>
+<tr><td><strong>IV — TDLN</strong></td><td>Policies govern ingest/query/verify</td></tr>
+<tr><td><strong>V — SIRP</strong></td><td>Artifacts transport as identity-bound capsules</td></tr>
+<tr><td><strong>VI — Chip</strong></td><td>Executors refuse effects without evidence</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XII. The Invariant Connection</h2>
+
+<table>
+<thead>
+<tr><th>Invariant</th><th>LLLV Implementation</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I1</strong> Integrity</td><td>Capsules, packs, evidence canonical and signed</td></tr>
+<tr><td><strong>I2</strong> Legality</td><td>Retrieval alone grants no capability</td></tr>
+<tr><td><strong>I3</strong> Attribution</td><td>DIDs and signatures on all artifacts</td></tr>
+<tr><td><strong>I4</strong> Reproducibility</td><td>Same pack + query → same results + evidence</td></tr>
+<tr><td><strong>I5</strong> Observability</td><td>Block proofs and query stats metrified</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XIII. Conclusion</h2>
+
+<blockquote><strong>Memory becomes infrastructure when it can be audited.</strong></blockquote>
+
+<p>LLLV transforms retrieval from black-box magic into provable fact:</p>
+
+<ul>
+<li><strong>Capsules</strong> bind embeddings to provenance</li>
+<li><strong>Index Packs</strong> are verifiable offline</li>
+<li><strong>Evidence Chains</strong> explain every result</li>
+<li><strong>Narratives</strong> make time auditable</li>
+</ul>
+
+<p>When the system can prove why it remembered what it remembered, memory becomes trustworthy infrastructure for accountable agents.</p>
+
+<p>The lawsuit from the opening story? Under LLLV, it ends in one day. Load the pack file. Load the evidence file. Run <code>logline lllv verify-evidence</code>. Done.</p>
+
+<hr>
+
+<h2>The Equation</h2>
+
+<pre><code>Query + Pack + Evidence = Verifiable Retrieval
+
+<p>Proof replaces faith.</code></pre></p>
+
+<hr>
+
+<p><em>Next: <a href="05_IV_TDLN.md">Paper IV — TDLN</a></em></p>
+            </div>
         </div>
     </article>
 
