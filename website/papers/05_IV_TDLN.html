@@ -25,14 +25,14 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -81,71 +81,158 @@
             margin-bottom: 8px;
         }
 
-        /* Content */
-        article {
-            padding: 60px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        blockquote {
-            font-style: italic;
-            color: #aaa;
-            padding: 20px;
-            border-left: 3px solid var(--accent);
-            margin: 20px 0;
-            background-color: var(--code-bg);
-        }
-
-        blockquote p {
+        .paper-meta p:last-child {
             margin-bottom: 0;
         }
 
-        /* Code Blocks */
-        .code-block, pre {
-            background-color: var(--code-bg);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            overflow-x: auto;
+        /* Content */
+        article {
+            padding: 80px 0;
         }
 
-        code {
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
+        }
+
+        #markdown-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h4 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        #markdown-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        #markdown-content blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content blockquote p {
+            margin-bottom: 10px;
+        }
+
+        #markdown-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        /* Code Blocks */
+        #markdown-content pre {
+            background-color: var(--code-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        #markdown-content code {
             font-family: 'Courier New', Monaco, monospace;
-            color: #4a9eff;
             font-size: 0.9rem;
         }
 
-        pre {
-            white-space: pre;
+        #markdown-content pre code {
+            color: #4a9eff;
+        }
+
+        #markdown-content p code,
+        #markdown-content li code {
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
 
         /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        #markdown-content ul, 
+        #markdown-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        li {
-            margin-bottom: 8px;
+        #markdown-content li {
+            margin-bottom: 12px;
             color: #ccc;
+            line-height: 1.7;
+        }
+
+        #markdown-content li p {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content th,
+        #markdown-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        #markdown-content th {
+            background-color: var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content td {
+            color: #ccc;
+        }
+
+        #markdown-content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content em {
+            color: #bbb;
         }
 
         /* Links */
@@ -158,30 +245,6 @@
             text-decoration: underline;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -192,12 +255,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
                 font-size: 2rem;
             }
 
-            h2 {
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            #markdown-content h2 {
                 font-size: 1.5rem;
+            }
+
+            #markdown-content h3 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -212,7 +287,7 @@
                 <p><strong>Author:</strong> Dan Voulez</p>
                 <p><strong>Institution:</strong> The LogLine Foundation</p>
                 <p><strong>Version:</strong> 1.0.1</p>
-                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Date:</strong> 2026-02-05</p>
                 <p><strong>Thesis:</strong> Intention, when normalized under a signed constitution, becomes a logical atom: canonical, proven, governable, and ready to execute.</p>
             </div>
         </div>
@@ -220,60 +295,573 @@
 
     <article>
         <div class="container">
-            <h2>Paper IV — TDLN: The Policy Compiler</h2>
-<p><strong>Deterministic Translation of Natural Language</strong></p>
-<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
-<h2>The Story</h2>
-<p><strong>September 2024. An AI trading system. A regulatory investigation.</strong></p>
-<p>The system was supposed to "avoid trades that might manipulate the market." The developers interpreted this as: flag trades above $1 million. The regulators interpreted it as: detect coordinated patterns regardless of size.</p>
-<p>Six months of trades were executed under the wrong interpretation. $340 million in fines. The investigation's central question: <strong>"What did 'might manipulate' actually mean in this system?"</strong></p>
-<p>No one could answer. The policy existed as a comment in the code:</p>
-<pre><code>
-# Avoid trades that might manipulate the market
-if trade.amount > 1_000_000:
-    flag_for_review(trade)
-</code></pre>
-<p>The gap between human intent and machine execution was invisible. The interpretation was buried in an engineer's decision from months ago. There was no proof that this interpretation matched the policy. There was no way to verify what "should have" happened.</p>
-<p><strong>Now imagine a different architecture.</strong></p>
-<p>The policy is written in TDLN:</p>
-<pre><code>
-ruleset market_safeguards@v1.0
+            <div id="markdown-content">
+<h1>Paper IV — TDLN: The Policy Compiler</h1>
 
-@policy manipulation_detection
-@description "Detect trades that might manipulate the market"
-when trade.amount > 1000000: flag_review
-when trade.pattern IN ["wash", "layering", "spoofing"]: flag_review
-when trade.velocity > context.market.avg_velocity * 3: flag_review
-</code></pre>
+<p><strong>Deterministic Translation of Natural Language</strong></p>
+
+<p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+
+<hr>
+
+<h2>The Story</h2>
+
+<p><strong>September 2024. An AI trading system. A regulatory investigation.</strong></p>
+
+<p>The system was supposed to "avoid trades that might manipulate the market." The developers interpreted this as: flag trades above $1 million. The regulators interpreted it as: detect coordinated patterns regardless of size.</p>
+
+<p>Six months of trades were executed under the wrong interpretation. $340 million in fines. The investigation's central question: <strong>"What did 'might manipulate' actually mean in this system?"</strong></p>
+
+<p>No one could answer. The policy existed as a comment in the code:</p>
+
+<pre><code># Avoid trades that might manipulate the market
+if trade.amount &gt; 1_000_000:
+    flag_for_review(trade)</code></pre>
+
+<p>The gap between human intent and machine execution was invisible. The interpretation was buried in an engineer's decision from months ago. There was no proof that this interpretation matched the policy. There was no way to verify what "should have" happened.</p>
+
+<p><strong>Now imagine a different architecture.</strong></p>
+
+<p>The policy is written in TDLN:</p>
+
+<pre><code>ruleset market_safeguards@v1.0
+
+<p>@policy manipulation_detection<br>@description "Detect trades that might manipulate the market"<br>when trade.amount &gt; 1000000: flag_review<br>when trade.pattern IN ["wash", "layering", "spoofing"]: flag_review<br>when trade.velocity &gt; context.market.avg_velocity * 3: flag_review</code></pre></p>
+
 <p>This policy compiles to a canonical AST with a deterministic CID:</p>
-<pre><code>
-canon_cid: b3:4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...
-</code></pre>
+
+<pre><code>canon_cid: b3:4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...</code></pre>
+
 <p>The compilation produces a proof binding the source text to the AST. The proof is signed. If regulators ask "what did this policy mean?", the answer is the AST. If they ask "did the system follow the policy?", the answer is: compare the decision receipts to the policy hash.</p>
+
 <p><strong>The investigation becomes a hash comparison.</strong></p>
+
 <p>This is TDLN.</p>
+
+<hr>
+
 <h2>I. The Problem</h2>
+
 <p>Natural language is ambiguous. Code is rigid. The gap between human intent and machine execution is where systems fail.</p>
-<p>Traditional approaches:</p>
-<p>- Developers interpret requirements (lossy)</p>
-<p>- Code encodes interpretation (drift)</p>
-<p>- Tests verify code, not intent (mismatch)</p>
-<p>- Production reveals the gap (incident)</p>
+
+<p>Traditional approaches:<br><ul><br><li>Developers interpret requirements (lossy)</li><br><li>Code encodes interpretation (drift)</li><br><li>Tests verify code, not intent (mismatch)</li><br><li>Production reveals the gap (incident)</li><br></ul></p>
+
 <p><strong>The translation from "what I meant" to "what the machine did" is invisible, unverifiable, and unreproducible.</strong></p>
+
+<hr>
+
 <h2>II. The Thesis</h2>
-<blockquote>
-<p>**Intention, when compiled under a signed ruleset, becomes a canonical, proof-carrying bundle.**</p>
-</blockquote>
-<p>TDLN defines:</p>
-<p>1. A typed <strong>policy language</strong> without ambiguity</p>
-<p>2. A <strong>canonicalization function</strong> (ρ) that normalizes ASTs</p>
-<p>3. A <strong>translation proof</strong> binding source to output</p>
-<p>4. A <strong>Gate</strong> that evaluates bundles deterministically</p>
+
+<blockquote><strong>Intention, when compiled under a signed ruleset, becomes a canonical, proof-carrying bundle.</strong></blockquote>
+
+<p>TDLN defines:<br>1. A typed <strong>policy language</strong> without ambiguity<br>2. A <strong>canonicalization function</strong> (ρ) that normalizes ASTs<br>3. A <strong>translation proof</strong> binding source to output<br>4. A <strong>Gate</strong> that evaluates bundles deterministically</p>
+
 <p><strong>The compiler is governance. The proof is accountability.</strong></p>
 
-            <p style="margin-top: 40px;">
-                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/05_IV_TDLN.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
-            </p>
+<hr>
+
+<h2>III. Install It Now</h2>
+
+<pre><code># Add to your Rust project
+cargo add tdln
+
+<p># Or install the CLI<br>cargo install logline-cli</code></pre></p>
+
+<pre><code>use tdln::{Compiler, Gate, PolicySet, SemanticUnit};
+
+<p>fn main() -&gt; Result&lt;(), tdln::Error&gt; {<br>    // Load a policy file<br>    let source = r#"<br>        ruleset transfer_policy@v1.0</p>
+
+<p>@policy kyc_required<br>        @description "Require KYC for large transfers"<br>        when amount &gt; 1000: require context.user.kyc_verified == true</p>
+
+<p>@policy manager_approval<br>        @description "Require manager approval for very large transfers"<br>        when amount &gt; 10000: require confirmed_by IN ["manager", "director"]<br>    "#;</p>
+
+<p>// Compile with proof generation<br>    let compiler = Compiler::new("nv-gate.v0.51")?;<br>    let (policy_set, proof) = compiler.compile_with_proof(source)?;</p>
+
+<p>println!("Policy set hash: {}", policy_set.hash());<br>    println!("Proof canon_cid: {}", proof.canon_cid);</p>
+
+<p>// Evaluate a transfer intent<br>    let intent = SemanticUnit::transfer(1500, "alice", "bob");<br>    let gate = Gate::new(&amp;policy_set)?;</p>
+
+<p>let decision = gate.evaluate(&amp;intent, &amp;context)?;<br>    println!("Decision: {:?}", decision);</p>
+
+<p>Ok(())<br>}</code></pre></p>
+
+<hr>
+
+<h2>IV. The Architecture</h2>
+
+<h3>Actors</h3>
+
+<table>
+<thead>
+<tr><th>Actor</th><th>Role</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Author</strong></td><td>Proposes intent in NL or DSL</td></tr>
+<tr><td><strong>Compiler</strong></td><td>Transforms intent → AST + proof</td></tr>
+<tr><td><strong>Gate</strong></td><td>Evaluates under signed policy set</td></tr>
+<tr><td><strong>Executor</strong></td><td>Realizes effects with valid receipt only</td></tr>
+<tr><td><strong>Ledger</strong></td><td>Records everything before execution</td></tr>
+</tbody>
+</table><h3>Boundaries</h3>
+
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│  NATURAL LANGUAGE / DSL                                 │
+│  (Ambiguous, human-authored)                            │
+├─────────────────────────────────────────────────────────┤
+│  COMPILER                                               │
+│  (Translation + Proof Generation)                       │
+│  Free text ENDS here                                    │
+├─────────────────────────────────────────────────────────┤
+│  CORE AST                                               │
+│  (Canonical, typed, deterministic)                      │
+├─────────────────────────────────────────────────────────┤
+│  GATE                                                   │
+│  (Policy evaluation + Receipt generation)               │
+├─────────────────────────────────────────────────────────┤
+│  EXECUTOR                                               │
+│  (Effects only with valid receipt)                      │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+<p><strong>The Hard Boundary:</strong> The executor MUST NOT interpret free text. Data is not instructions.</p>
+
+<hr>
+
+<h2>V. The Type System</h2>
+
+<pre><code>// tdln/src/types.rs
+
+<p>/// TDLN's type system - no ambiguity, no surprises<br>#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]<br>pub enum Type {<br>    // Base types<br>    Bool,<br>    Int,      // Arbitrary precision, no floats<br>    String,<br>    Time,     // UTC, RFC3339, nanosecond precision</p>
+
+<p>// Composite types<br>    Tuple(Vec&lt;Type&gt;),<br>    Array(Box&lt;Type&gt;),<br>    Map(Box&lt;Type&gt;),  // Keys are always strings</p>
+
+<p>// Special types<br>    Capability(CapabilityType),<br>    Did,<br>}</p>
+
+<p>/// Capabilities form a lattice<br>#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]<br>pub struct Capability {<br>    pub kind: CapabilityKind,<br>    pub resource: String,<br>}</p>
+
+<p>#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]<br>pub enum CapabilityKind {<br>    Read,<br>    Write,<br>    Emit,<br>    Call,<br>}</p>
+
+<p>impl Capability {<br>    /// Check if this capability subsumes another<br>    /// write:ledger.append ⊑ write:ledger:* ⊑ write:*<br>    pub fn subsumes(&amp;self, other: &amp;Capability) -&gt; bool {<br>        if self.kind != other.kind {<br>            return false;<br>        }</p>
+
+<p>// Wildcard matching<br>        if self.resource == "*" {<br>            return true;<br>        }</p>
+
+<p>if self.resource.ends_with(":*") {<br>            let prefix = &amp;self.resource[..self.resource.len() - 1];<br>            return other.resource.starts_with(prefix);<br>        }</p>
+
+<p>self.resource == other.resource<br>    }<br>}</p>
+
+<p>/// The capability lattice<br>pub struct CapabilityLattice {<br>    granted: Vec&lt;Capability&gt;,<br>}</p>
+
+<p>impl CapabilityLattice {<br>    pub fn check(&amp;self, required: &amp;Capability) -&gt; bool {<br>        self.granted.iter().any(|g| g.subsumes(required))<br>    }<br>}</code></pre></p>
+
+<h3>Time</h3>
+
+<ul>
+<li>Normalized to UTC</li>
+<li>RFC3339 format</li>
+<li>No ambiguous timezones</li>
+<li>Nanosecond precision</li>
+</ul>
+
+<pre><code>// tdln/src/time.rs
+
+<p>#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]<br>pub struct TdlnTime {<br>    nanos: u64,  // Nanoseconds since Unix epoch, UTC<br>}</p>
+
+<p>impl TdlnTime {<br>    pub fn now() -&gt; Self {<br>        Self {<br>            nanos: std::time::SystemTime::now()<br>                .duration_since(std::time::UNIX_EPOCH)<br>                .unwrap()<br>                .as_nanos() as u64,<br>        }<br>    }</p>
+
+<p>pub fn to_rfc3339(&amp;self) -&gt; String {<br>        // Always UTC, always full precision<br>        chrono::DateTime::from_timestamp_nanos(self.nanos as i64)<br>            .to_rfc3339_opts(chrono::SecondsFormat::Nanos, true)<br>    }</p>
+
+<p>pub fn from_rfc3339(s: &amp;str) -&gt; Result&lt;Self, TimeError&gt; {<br>        let dt = chrono::DateTime::parse_from_rfc3339(s)<br>            .map_err(|_| TimeError::InvalidFormat)?;<br>        Ok(Self {<br>            nanos: dt.timestamp_nanos_opt().unwrap() as u64,<br>        })<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>VI. The Policy Language</h2>
+
+<h3>Grammar (EBNF)</h3>
+
+<pre><code>ruleset     := 'ruleset' IDENT '@' SEMVER
+policy      := '@policy' IDENT description? condition+ composition?
+description := '@description' STRING
+condition   := 'when' expression ':' action
+expression  := term (OP term)*
+term        := literal | context_ref | func_call | '(' expression ')'
+action      := 'require' expression | 'deny' | 'allow' | 'flag_review'
+composition := 'compose' aggregator '(' IDENT (',' IDENT)* ')'
+aggregator  := 'all' | 'any' | 'majority' | 'weighted'
+OP          := 'AND' | 'OR' | '==' | '!=' | '&gt;' | '&lt;' | '&gt;=' | '&lt;=' | 'IN'</code></pre>
+
+<h3>Constraints (Enforced at Compile Time)</h3>
+
+<ul>
+<li><strong>No loops</strong> - Guaranteed termination</li>
+<li><strong>No recursion</strong> - Guaranteed termination</li>
+<li><strong>No floats</strong> - Exact arithmetic only</li>
+<li><strong>All functions are total</strong> - Always terminate</li>
+<li><strong>All functions are pure</strong> - No side effects</li>
+</ul>
+
+<pre><code>// tdln/src/parser.rs
+
+<p>pub struct Parser {<br>    lexer: Lexer,<br>    ruleset_id: Option&lt;String&gt;,<br>}</p>
+
+<p>impl Parser {<br>    pub fn parse(&amp;mut self, source: &amp;str) -&gt; Result&lt;Ruleset, ParseError&gt; {<br>        self.lexer = Lexer::new(source);</p>
+
+<p>let ruleset = self.parse_ruleset()?;</p>
+
+<p>// Enforce constraints<br>        self.check_no_loops(&amp;ruleset)?;<br>        self.check_no_recursion(&amp;ruleset)?;<br>        self.check_no_floats(&amp;ruleset)?;<br>        self.check_total_functions(&amp;ruleset)?;<br>        self.check_pure_functions(&amp;ruleset)?;</p>
+
+<p>Ok(ruleset)<br>    }</p>
+
+<p>fn check_no_loops(&amp;self, ruleset: &amp;Ruleset) -&gt; Result&lt;(), ParseError&gt; {<br>        for policy in &amp;ruleset.policies {<br>            for condition in &amp;policy.conditions {<br>                if self.contains_loop(&amp;condition.expression) {<br>                    return Err(ParseError::LoopDetected {<br>                        policy: policy.name.clone(),<br>                    });<br>                }<br>            }<br>        }<br>        Ok(())<br>    }</p>
+
+<p>fn check_no_floats(&amp;self, ruleset: &amp;Ruleset) -&gt; Result&lt;(), ParseError&gt; {<br>        for policy in &amp;ruleset.policies {<br>            for condition in &amp;policy.conditions {<br>                if self.contains_float(&amp;condition.expression) {<br>                    return Err(ParseError::FloatDetected {<br>                        policy: policy.name.clone(),<br>                    });<br>                }<br>            }<br>        }<br>        Ok(())<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>VII. The Core AST</h2>
+
+<h3>Policy Bit</h3>
+
+<p>The atomic unit of policy - a semantic transistor:</p>
+
+<pre><code>// tdln/src/ast.rs
+
+<p>/// A PolicyBit is the atomic unit of policy - a semantic transistor<br>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct PolicyBit {<br>    pub node_type: String,  // Always "policy_bit"<br>    pub id: ContentAddress, // Deterministic CID<br>    pub name: String,<br>    pub description: Option&lt;String&gt;,<br>    pub condition: Expression,<br>    pub action: Action,<br>    pub fallback: bool,     // Fail-closed default<br>    pub requires_cap: Vec&lt;Capability&gt;,<br>}</p>
+
+<p>impl PolicyBit {<br>    /// Compute deterministic ID from content<br>    pub fn compute_id(&amp;self) -&gt; ContentAddress {<br>        let canonical = json_atomic::canonize(&amp;PolicyBitContent {<br>            name: &amp;self.name,<br>            condition: &amp;self.condition,<br>            action: &amp;self.action,<br>        }).unwrap();<br>        ContentAddress::from_blake3(blake3::hash(&amp;canonical))<br>    }</p>
+
+<p>/// Evaluate this policy bit against a context<br>    pub fn evaluate(&amp;self, context: &amp;Context) -&gt; Result&lt;BitResult, EvalError&gt; {<br>        let condition_result = self.condition.evaluate(context)?;</p>
+
+<p>if condition_result {<br>            Ok(BitResult::Triggered(self.action.clone()))<br>        } else {<br>            Ok(BitResult::NotTriggered)<br>        }<br>    }<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum Action {<br>    Allow,<br>    Deny,<br>    Require(Expression),  // Must evaluate to true<br>    FlagReview,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum BitResult {<br>    Triggered(Action),<br>    NotTriggered,<br>}</code></pre></p>
+
+<h3>Policy Composition</h3>
+
+<pre><code>/// Compose multiple policies with aggregation
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PolicyComposition {
+    pub node_type: String,  // Always "policy_composition"
+    pub id: ContentAddress,
+    pub composition_type: CompositionType,
+    pub policies: Vec&lt;ContentAddress&gt;,  // IDs in canonical order
+    pub aggregator: Aggregator,
+}
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum CompositionType {<br>    Sequential,  // Evaluate in order, short-circuit<br>    Parallel,    // Evaluate all, aggregate<br>    Conditional, // If-then-else<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum Aggregator {<br>    All,       // All must pass<br>    Any,       // At least one must pass<br>    Majority,  // &gt;50% must pass<br>    Weighted { threshold: u32, weights: HashMap&lt;ContentAddress, u32&gt; },<br>}</p>
+
+<p>impl PolicyComposition {<br>    pub fn evaluate(<br>        &amp;self,<br>        bits: &amp;HashMap&lt;ContentAddress, PolicyBit&gt;,<br>        context: &amp;Context,<br>    ) -&gt; Result&lt;CompositionResult, EvalError&gt; {<br>        let results: Vec&lt;_&gt; = self.policies.iter()<br>            .map(|id| {<br>                let bit = bits.get(id).ok_or(EvalError::MissingPolicy(*id))?;<br>                bit.evaluate(context)<br>            })<br>            .collect::&lt;Result&lt;_, _&gt;&gt;()?;</p>
+
+<p>match self.aggregator {<br>            Aggregator::All =&gt; {<br>                let all_pass = results.iter().all(|r| !matches!(r, BitResult::Triggered(Action::Deny)));<br>                Ok(if all_pass { CompositionResult::Allow } else { CompositionResult::Deny })<br>            }<br>            Aggregator::Any =&gt; {<br>                let any_pass = results.iter().any(|r| matches!(r, BitResult::Triggered(Action::Allow)));<br>                Ok(if any_pass { CompositionResult::Allow } else { CompositionResult::Deny })<br>            }<br>            Aggregator::Majority =&gt; {<br>                let pass_count = results.iter()<br>                    .filter(|r| !matches!(r, BitResult::Triggered(Action::Deny)))<br>                    .count();<br>                Ok(if pass_count * 2 &gt; results.len() {<br>                    CompositionResult::Allow<br>                } else {<br>                    CompositionResult::Deny<br>                })<br>            }<br>            Aggregator::Weighted { threshold, ref weights } =&gt; {<br>                let total_weight: u32 = self.policies.iter()<br>                    .filter(|id| {<br>                        let idx = self.policies.iter().position(|x| x == *id).unwrap();<br>                        !matches!(results[idx], BitResult::Triggered(Action::Deny))<br>                    })<br>                    .map(|id| weights.get(id).copied().unwrap_or(1))<br>                    .sum();<br>                Ok(if total_weight &gt;= threshold {<br>                    CompositionResult::Allow<br>                } else {<br>                    CompositionResult::Deny<br>                })<br>            }<br>        }<br>    }<br>}</code></pre></p>
+
+<h3>Semantic Unit</h3>
+
+<p>The complete compiled intent:</p>
+
+<pre><code>/// A SemanticUnit is the complete compiled intent
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SemanticUnit {
+    pub node_type: String,  // Always "semantic_unit"
+    pub kind: String,       // "transfer" | "deploy" | "evaluate"
+    pub slots: HashMap&lt;String, Value&gt;,
+    pub inputs: Vec&lt;Parameter&gt;,
+    pub policies: Vec&lt;PolicyRef&gt;,
+    pub hal_ref: ContentAddress,
+    pub rule_set_id: String,
+    pub policy_set_hash: ContentAddress,
+    pub source_hash: ContentAddress,
+    pub ast_cid: ContentAddress,
+    pub canon_cid: ContentAddress,
+}
+
+<p>impl SemanticUnit {<br>    pub fn transfer(amount: u64, from: &amp;str, to: &amp;str) -&gt; Self {<br>        Self {<br>            node_type: "semantic_unit".to_string(),<br>            kind: "transfer".to_string(),<br>            slots: [<br>                ("amount".to_string(), Value::Int(amount as i64)),<br>                ("from".to_string(), Value::String(from.to_string())),<br>                ("to".to_string(), Value::String(to.to_string())),<br>            ].into_iter().collect(),<br>            inputs: vec![],<br>            policies: vec![],<br>            hal_ref: ContentAddress::default(),<br>            rule_set_id: String::new(),<br>            policy_set_hash: ContentAddress::default(),<br>            source_hash: ContentAddress::default(),<br>            ast_cid: ContentAddress::default(),<br>            canon_cid: ContentAddress::default(),<br>        }<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>VIII. Canonicalization (ρ)</h2>
+
+<p>The function ρ normalizes an AST to canonical form.</p>
+
+<pre><code>// tdln/src/canonicalize.rs
+
+<p>/// The canonicalization function ρ<br>/// Guarantees: Idempotence, Confluence, Stability<br>pub fn rho(ast_raw: &amp;Ast, ruleset: &amp;RulesetConfig) -&gt; Result&lt;CanonResult, CanonError&gt; {<br>    // Step 1: Normalize keys (lexicographic order)<br>    let ast = normalize_keys(ast_raw)?;</p>
+
+<p>// Step 2: Normalize slots (canonical symbols)<br>    let ast = normalize_slots(ast, &amp;ruleset.synonym_table)?;</p>
+
+<p>// Step 3: Normalize conditions (CNF form)<br>    let ast = normalize_conditions(ast, NormalForm::Cnf)?;</p>
+
+<p>// Step 4: Simplify boolean expressions<br>    let ast = simplify_bool(ast)?;</p>
+
+<p>// Step 5: Rewrite IDs (deterministic CIDs)<br>    let ast = rewrite_ids(ast)?;</p>
+
+<p>// Step 6: Serialize to canonical bytes (Paper II)<br>    let bytes = json_atomic::canonize(&amp;ast)?;</p>
+
+<p>// Step 7: Compute canonical CID<br>    let canon_cid = ContentAddress::from_blake3(blake3::hash(&amp;bytes));</p>
+
+<p>Ok(CanonResult {<br>        ast,<br>        canon_cid,<br>        bytes,<br>    })<br>}</p>
+
+<p>/// Boolean simplification rules<br>fn simplify_bool(ast: Ast) -&gt; Result&lt;Ast, CanonError&gt; {<br>    ast.transform(|expr| {<br>        match expr {<br>            // A ∧ ⊤ → A<br>            Expr::And(a, b) if *b == Expr::True =&gt; *a,<br>            // A ∧ ⊥ → ⊥<br>            Expr::And(_, b) if *b == Expr::False =&gt; Expr::False,<br>            // A ∨ ⊤ → ⊤<br>            Expr::Or(_, b) if *b == Expr::True =&gt; Expr::True,<br>            // A ∨ ⊥ → A<br>            Expr::Or(a, b) if *b == Expr::False =&gt; *a,<br>            // ¬¬A → A<br>            Expr::Not(box Expr::Not(box a)) =&gt; a,<br>            // Keep as is<br>            other =&gt; other,<br>        }<br>    })<br>}</p>
+
+<p>/// Convert to Conjunctive Normal Form<br>fn normalize_conditions(ast: Ast, form: NormalForm) -&gt; Result&lt;Ast, CanonError&gt; {<br>    ast.transform_conditions(|cond| {<br>        match form {<br>            NormalForm::Cnf =&gt; to_cnf(cond),<br>            NormalForm::Dnf =&gt; to_dnf(cond),<br>        }<br>    })<br>}</p>
+
+<p>#[cfg(test)]<br>mod tests {<br>    #[test]<br>    fn test_idempotence() {<br>        let ast = parse_ast("when x &gt; 10: deny")?;<br>        let ruleset = RulesetConfig::default();</p>
+
+<p>let result1 = rho(&amp;ast, &amp;ruleset)?;<br>        let result2 = rho(&amp;result1.ast, &amp;ruleset)?;</p>
+
+<p>// ρ(ρ(AST)) = ρ(AST)<br>        assert_eq!(result1.canon_cid, result2.canon_cid);<br>        assert_eq!(result1.bytes, result2.bytes);<br>    }</p>
+
+<p>#[test]<br>    fn test_confluence() {<br>        // Different source representations, same meaning<br>        let ast_a = parse_ast("when x &gt; 10 AND y &lt; 5: deny")?;<br>        let ast_b = parse_ast("when y &lt; 5 AND x &gt; 10: deny")?;  // Reordered</p>
+
+<p>let ruleset = RulesetConfig::default();</p>
+
+<p>let result_a = rho(&amp;ast_a, &amp;ruleset)?;<br>        let result_b = rho(&amp;ast_b, &amp;ruleset)?;</p>
+
+<p>// Same meaning → same canon_cid<br>        assert_eq!(result_a.canon_cid, result_b.canon_cid);<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>IX. Translation Proof</h2>
+
+<p>Every compilation produces a proof:</p>
+
+<pre><code>// tdln/src/proof.rs
+
+<p>/// Proof that translation was performed correctly<br>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct TranslationProof {<br>    pub proof_type: String,  // Always "translation"<br>    pub ruleset_id: String,<br>    pub source_hash: ContentAddress,<br>    pub ast_cid: ContentAddress,<br>    pub canon_cid: ContentAddress,<br>    pub steps: Vec&lt;TranslationStep&gt;,<br>    pub compiler_hash: ContentAddress,<br>    pub compiler_kid: String,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct TranslationStep {<br>    pub step: String,<br>    pub input_hash: ContentAddress,<br>    pub output_hash: ContentAddress,<br>    pub rule_applied: Option&lt;String&gt;,<br>}</p>
+
+<p>impl TranslationProof {<br>    /// Verify the proof<br>    pub fn verify(<br>        &amp;self,<br>        source: &amp;str,<br>        public_key: &amp;VerifyingKey,<br>    ) -&gt; Result&lt;(), ProofError&gt; {<br>        // 1. Verify source hash<br>        let computed_source_hash = ContentAddress::from_blake3(<br>            blake3::hash(source.as_bytes())<br>        );<br>        if computed_source_hash != self.source_hash {<br>            return Err(ProofError::SourceMismatch);<br>        }</p>
+
+<p>// 2. Re-execute ρ and compare<br>        let compiler = Compiler::load(&amp;self.compiler_hash)?;<br>        let (_, reproduced) = compiler.compile_with_proof(source)?;</p>
+
+<p>if reproduced.canon_cid != self.canon_cid {<br>            return Err(ProofError::CanonCidMismatch {<br>                expected: self.canon_cid.clone(),<br>                reproduced: reproduced.canon_cid,<br>            });<br>        }</p>
+
+<p>// 3. Verify step chain<br>        self.verify_step_chain()?;</p>
+
+<p>// 4. Verify signature<br>        let canonical = json_atomic::canonize(self)?;<br>        public_key.verify(&amp;canonical, &amp;self.signature)<br>            .map_err(|_| ProofError::InvalidSignature)?;</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>fn verify_step_chain(&amp;self) -&gt; Result&lt;(), ProofError&gt; {<br>        for i in 1..self.steps.len() {<br>            if self.steps[i].input_hash != self.steps[i - 1].output_hash {<br>                return Err(ProofError::BrokenStepChain { step: i });<br>            }<br>        }<br>        Ok(())<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>X. The Gate</h2>
+
+<p>The Gate is the policy evaluator—the semantic transistor.</p>
+
+<pre><code>// tdln/src/gate.rs
+
+<p>/// The Gate evaluates policies and produces receipts<br>pub struct Gate {<br>    policy_set: PolicySet,<br>    hal: HardwareAbstractionLayer,<br>}</p>
+
+<p>/// Decision outcomes<br>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum Decision {<br>    Allow,<br>    Deny { reason: DenyReason, policy_id: ContentAddress },<br>    Require { signers: Vec&lt;Did&gt;, quorum: Quorum, expires: Timestamp },<br>    Ghost { reason: GhostReason },<br>    PlanInvalid { reason: String },<br>}</p>
+
+<p>impl Gate {<br>    pub fn new(policy_set: &amp;PolicySet) -&gt; Result&lt;Self, GateError&gt; {<br>        Ok(Self {<br>            policy_set: policy_set.clone(),<br>            hal: HardwareAbstractionLayer::default(),<br>        })<br>    }</p>
+
+<p>/// Evaluate a semantic unit and produce a receipt<br>    pub fn evaluate(<br>        &amp;self,<br>        unit: &amp;SemanticUnit,<br>        context: &amp;Context,<br>    ) -&gt; Result&lt;(Decision, PowerReceipt), GateError&gt; {<br>        // 1. Check HAL constraints<br>        if let Err(e) = self.hal.check_constraints(unit) {<br>            return Ok((<br>                Decision::PlanInvalid { reason: format!("HAL violation: {}", e) },<br>                PowerReceipt::plan_invalid(unit, e),<br>            ));<br>        }</p>
+
+<p>// 2. Check capability lattice<br>        let required_caps = self.extract_required_capabilities(unit);<br>        let granted_caps = context.capabilities();</p>
+
+<p>for cap in &amp;required_caps {<br>            if !granted_caps.check(cap) {<br>                return Ok((<br>                    Decision::Deny {<br>                        reason: DenyReason::CapabilityMissing {<br>                            required: cap.clone(),<br>                            granted: granted_caps.granted.clone(),<br>                        },<br>                        policy_id: ContentAddress::default(),<br>                    },<br>                    PowerReceipt::deny(unit, "capability_missing"),<br>                ));<br>            }<br>        }</p>
+
+<p>// 3. Evaluate policy bits<br>        let mut triggered_actions = Vec::new();</p>
+
+<p>for policy_ref in &amp;unit.policies {<br>            let policy = self.policy_set.get(policy_ref)?;<br>            let result = policy.evaluate(context)?;</p>
+
+<p>if let BitResult::Triggered(action) = result {<br>                triggered_actions.push((policy_ref, action));<br>            }<br>        }</p>
+
+<p>// 4. Determine final decision<br>        let decision = self.aggregate_decisions(&amp;triggered_actions, context)?;</p>
+
+<p>// 5. Generate receipt<br>        let receipt = PowerReceipt {<br>            kind: "receipt.power.v1".to_string(),<br>            trace_id: Ulid::new(),<br>            rules_applied_id: self.policy_set.ruleset_id.clone(),<br>            policy_set_hash: self.policy_set.hash(),<br>            decision: decision.clone(),<br>            capabilities_granted: granted_caps.granted.clone(),<br>            capabilities_required: required_caps,<br>            hal_ref: self.hal.hash(),<br>            safeguards: self.evaluate_safeguards(context),<br>            ethics_efficiency: self.compute_ethics_efficiency(context),<br>            inputs_hash: unit.compute_inputs_hash(),<br>            compiler_hash: unit.compiler_hash(),<br>            signature: Signature::pending(),<br>            issued_at: Timestamp::now(),<br>        };</p>
+
+<p>Ok((decision, receipt))<br>    }</p>
+
+<p>fn compute_ethics_efficiency(&amp;self, context: &amp;Context) -&gt; EthicsEfficiency {<br>        let mut score = 1.0;<br>        let mut penalties = Vec::new();</p>
+
+<p>// Check isolation<br>        if context.requires_isolation() &amp;&amp; !context.isolation_applied() {<br>            score -= 0.25;<br>            penalties.push("Isolation bypassed in high-risk context");<br>        }</p>
+
+<p>// Check circuit breaker<br>        if context.breaker_at_threshold() &amp;&amp; !context.mitigation_applied() {<br>            score -= 0.25;<br>            penalties.push("Circuit breaker at threshold, no mitigation");<br>        }</p>
+
+<p>// Check shadow validation<br>        if context.shadow_anomaly() &amp;&amp; !context.human_verified() {<br>            score -= 0.25;<br>            penalties.push("Shadow validation anomalous, no human check");<br>        }</p>
+
+<p>EthicsEfficiency {<br>            score: score.max(0.0),<br>            rationale: if penalties.is_empty() {<br>                "All safeguards active".to_string()<br>            } else {<br>                penalties.join("; ")<br>            },<br>        }<br>    }<br>}</code></pre></p>
+
+<h3>Power Receipt</h3>
+
+<pre><code>#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PowerReceipt {
+    pub kind: String,
+    pub trace_id: Ulid,
+    pub rules_applied_id: String,
+    pub policy_set_hash: ContentAddress,
+    pub decision: Decision,
+    pub capabilities_granted: Vec&lt;Capability&gt;,
+    pub capabilities_required: Vec&lt;Capability&gt;,
+    pub hal_ref: ContentAddress,
+    pub safeguards: SafeguardStatus,
+    pub ethics_efficiency: EthicsEfficiency,
+    pub inputs_hash: ContentAddress,
+    pub compiler_hash: ContentAddress,
+    pub signature: Signature,
+    pub issued_at: Timestamp,
+}
+
+<p>impl PowerReceipt {<br>    /// Verify the receipt<br>    pub fn verify(&amp;self, public_key: &amp;VerifyingKey) -&gt; Result&lt;(), ReceiptError&gt; {<br>        let canonical = json_atomic::canonize(self)?;<br>        public_key.verify(&amp;canonical, &amp;self.signature)<br>            .map_err(|_| ReceiptError::InvalidSignature)<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>XI. Consent Protocol</h2>
+
+<p>When <code>required_cap ⊒ threshold_cap</code>:</p>
+
+<pre><code>// tdln/src/consent.rs
+
+<p>/// Consent receipt for high-privilege operations<br>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct ConsentReceipt {<br>    pub kind: String,  // "receipt.consent.v1"<br>    pub parent_trace_id: Ulid,<br>    pub who: Did,<br>    pub confirmed_by: Did,<br>    pub capabilities: Vec&lt;Capability&gt;,<br>    pub scope: ConsentScope,<br>    pub expiry: Timestamp,<br>    pub nonce: ContentAddress,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct ConsentScope {<br>    pub canon_cid: ContentAddress,<br>    pub ruleset_id: String,<br>}</p>
+
+<p>impl ConsentReceipt {<br>    /// Check if consent is valid for a given operation<br>    pub fn is_valid_for(<br>        &amp;self,<br>        operation: &amp;SemanticUnit,<br>        now: Timestamp,<br>    ) -&gt; Result&lt;(), ConsentError&gt; {<br>        // Check expiry<br>        if now &gt; self.expiry {<br>            return Err(ConsentError::Expired);<br>        }</p>
+
+<p>// Check scope matches<br>        if self.scope.canon_cid != operation.canon_cid {<br>            return Err(ConsentError::ScopeMismatch);<br>        }</p>
+
+<p>// Check capabilities cover requirements<br>        let required = operation.required_capabilities();<br>        for cap in &amp;required {<br>            if !self.capabilities.iter().any(|c| c.subsumes(cap)) {<br>                return Err(ConsentError::InsufficientCapabilities);<br>            }<br>        }</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>/// Verify signature<br>    pub fn verify(&amp;self, public_key: &amp;VerifyingKey) -&gt; Result&lt;(), ConsentError&gt; {<br>        let canonical = json_atomic::canonize(self)?;<br>        public_key.verify(&amp;canonical, &amp;self.signature)<br>            .map_err(|_| ConsentError::InvalidSignature)<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>XII. Hardware Abstraction Layer (HAL)</h2>
+
+<p>The HAL declares what effects are permitted:</p>
+
+<pre><code>// tdln/src/hal.rs
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct HardwareAbstractionLayer {<br>    pub target: Target,<br>    pub memory: MemoryConfig,<br>    pub io: IoPermissions,<br>    pub side_effects: SideEffectPolicy,<br>    pub time: TimeConfig,<br>    pub forbid: Vec&lt;String&gt;,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct IoPermissions {<br>    pub read: Vec&lt;String&gt;,<br>    pub write: Vec&lt;String&gt;,<br>    pub emit: Vec&lt;String&gt;,<br>    pub call: Vec&lt;String&gt;,<br>}</p>
+
+<p>impl HardwareAbstractionLayer {<br>    /// Check if an operation is allowed by this HAL<br>    pub fn check_constraints(&amp;self, unit: &amp;SemanticUnit) -&gt; Result&lt;(), HalError&gt; {<br>        // Check memory limits<br>        if unit.estimated_memory() &gt; self.memory.max_pages * 65536 {<br>            return Err(HalError::MemoryExceeded);<br>        }</p>
+
+<p>// Check I/O permissions<br>        for read_op in unit.read_operations() {<br>            if !self.io.read.iter().any(|p| matches_pattern(p, &amp;read_op)) {<br>                return Err(HalError::ReadNotAllowed(read_op));<br>            }<br>        }</p>
+
+<p>for write_op in unit.write_operations() {<br>            if !self.io.write.iter().any(|p| matches_pattern(p, &amp;write_op)) {<br>                return Err(HalError::WriteNotAllowed(write_op));<br>            }<br>        }</p>
+
+<p>// Check forbidden operations<br>        for forbidden in &amp;self.forbid {<br>            if unit.uses_resource(forbidden) {<br>                return Err(HalError::ForbiddenResource(forbidden.clone()));<br>            }<br>        }</p>
+
+<p>Ok(())<br>    }<br>}</p>
+
+<p>fn matches_pattern(pattern: &amp;str, resource: &amp;str) -&gt; bool {<br>    if pattern == "*" {<br>        return true;<br>    }<br>    if pattern.ends_with("*") {<br>        return resource.starts_with(&amp;pattern[..pattern.len() - 1]);<br>    }<br>    pattern == resource<br>}</code></pre></p>
+
+<p><strong>The Rule:</strong> Executor MUST refuse operations outside HAL.</p>
+
+<hr>
+
+<h2>XIII. CLI Usage</h2>
+
+<pre><code># Compile a policy file
+logline tdln compile policy.tdln -o policy.ast.json
+
+<p># Output:<br># Compiled policy.tdln<br># canon_cid: b3:4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...<br># Proof written to policy.proof.json</p>
+
+<p># Verify a translation proof<br>logline tdln verify-proof \<br>  --source policy.tdln \<br>  --proof policy.proof.json</p>
+
+<p># Output:<br># Source hash: MATCH<br># Canon CID: MATCH<br># Step chain: VALID<br># Signature: VALID<br># Proof verification: PASS</p>
+
+<p># Evaluate an intent against a policy<br>logline tdln evaluate \<br>  --policy policy.ast.json \<br>  --intent '{"kind": "transfer", "amount": 5000, "to": "bob"}'</p>
+
+<p># Output:<br># Decision: REQUIRE<br># Required signers: manager, director<br># Quorum: 1 of 2<br># Receipt written to receipt.json</p>
+
+<p># Show policy as human-readable<br>logline tdln explain policy.ast.json</p>
+
+<p># Output:<br># Ruleset: transfer_policy@v1.0<br>#<br># Policy: kyc_required<br>#   When: amount &gt; 1000<br>#   Action: require context.user.kyc_verified == true<br>#<br># Policy: manager_approval<br>#   When: amount &gt; 10000<br>#   Action: require confirmed_by IN ["manager", "director"]</code></pre></p>
+
+<hr>
+
+<h2>XIV. Conformance</h2>
+
+<table>
+<thead>
+<tr><th>Test</th><th>Requirement</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CT-PRESERVATION</strong></td><td>Type safety preserved through evaluation</td></tr>
+<tr><td><strong>CT-PROGRESS</strong></td><td>Well-typed AST reduces to true/false</td></tr>
+<tr><td><strong>CT-ρ-IDEMP</strong></td><td>ρ(ρ(AST)) = ρ(AST)</td></tr>
+<tr><td><strong>CT-HASH-STABILITY</strong></td><td>Same semantics → same canon_cid</td></tr>
+<tr><td><strong>CT-CAP-CHECK</strong></td><td>All ALLOW decisions satisfy capability lattice</td></tr>
+<tr><td><strong>CT-TOCTOU</strong></td><td>Hash drift invalidates execution</td></tr>
+</tbody>
+</table><pre><code>#[cfg(test)]
+mod conformance {
+    #[test]
+    fn ct_preservation() {
+        let policy = parse("when amount &gt; 1000: deny")?;
+        let context = Context::new().with("amount", Value::Int(500));
+
+<p>// Type safety preserved: amount is Int, 1000 is Int, comparison valid<br>        let result = policy.evaluate(&amp;context)?;<br>        assert!(matches!(result, BitResult::NotTriggered));<br>    }</p>
+
+<p>#[test]<br>    fn ct_progress() {<br>        let policy = parse("when true: allow")?;<br>        let context = Context::new();</p>
+
+<p>// Well-typed AST always reduces to a decision<br>        let result = policy.evaluate(&amp;context)?;<br>        assert!(matches!(result, BitResult::Triggered(Action::Allow)));<br>    }</p>
+
+<p>#[test]<br>    fn ct_cap_check() {<br>        let gate = Gate::new(&amp;policy_set)?;<br>        let unit = SemanticUnit::transfer(1000, "alice", "bob");<br>        let context = Context::new()<br>            .with_capabilities(vec![Capability::read("vault:balance")]);</p>
+
+<p>let (decision, _) = gate.evaluate(&amp;unit, &amp;context)?;</p>
+
+<p>// ALLOW only if capabilities sufficient<br>        if matches!(decision, Decision::Allow) {<br>            // Verify capability lattice satisfied<br>            for req in unit.required_capabilities() {<br>                assert!(context.capabilities().check(&amp;req));<br>            }<br>        }<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>XV. The Invariant Connection</h2>
+
+<table>
+<thead>
+<tr><th>Invariant</th><th>TDLN Implementation</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I1</strong> Integrity</td><td>canon_cid, proofs, receipts canonical and signed</td></tr>
+<tr><td><strong>I2</strong> Legality</td><td>deny/timeout → GHOST; violations are PLAN_INVALID</td></tr>
+<tr><td><strong>I3</strong> Attribution</td><td>who, confirmed_by, kid with Ed25519</td></tr>
+<tr><td><strong>I4</strong> Reproducibility</td><td>Deterministic ρ; same ruleset → same decision</td></tr>
+<tr><td><strong>I5</strong> Observability</td><td>consent, ghost, drift metrics alertable</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XVI. Conclusion</h2>
+
+<blockquote><strong>The compiler is governance. The proof is accountability.</strong></blockquote>
+
+<p>TDLN transforms the gap between intention and execution into a verifiable bridge:</p>
+
+<ul>
+<li><strong>Intent</strong> enters as natural language or DSL</li>
+<li><strong>Compiler</strong> produces canonical AST with proof</li>
+<li><strong>Gate</strong> evaluates deterministically</li>
+<li><strong>Executor</strong> moves only with valid receipt</li>
+</ul>
+
+<p>The question "what did you mean?" becomes answerable: show the canon_cid.</p>
+
+<p>The question "did the system follow the rules?" becomes computable: compare receipts to policy hash.</p>
+
+<p>Without receipt, it didn't happen.<br>With receipt, it cannot be disputed.</p>
+
+<hr>
+
+<h2>The Equation</h2>
+
+<pre><code>Intent + Ruleset + Compiler = Canonical AST + Proof
+
+<p>Compilation is governance.<br>Proof is accountability.</code></pre></p>
+
+<hr>
+
+<p><em>Next: <a href="06_V_SIRP.md">Paper V — SIRP</a></em></p>
+            </div>
         </div>
     </article>
 

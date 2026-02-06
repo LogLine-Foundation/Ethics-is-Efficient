@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Substrate theory: signed text becomes structural power at the silicon level.">
-    <meta name="keywords" content="LogLine, accountability, security, protocol, hardware-as-text-and-power">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, hardware as text and power">
     <title>Hardware as Text and Power - LogLine Foundation</title>
     <style>
         * {
@@ -25,14 +25,14 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -81,71 +81,158 @@
             margin-bottom: 8px;
         }
 
-        /* Content */
-        article {
-            padding: 60px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        blockquote {
-            font-style: italic;
-            color: #aaa;
-            padding: 20px;
-            border-left: 3px solid var(--accent);
-            margin: 20px 0;
-            background-color: var(--code-bg);
-        }
-
-        blockquote p {
+        .paper-meta p:last-child {
             margin-bottom: 0;
         }
 
-        /* Code Blocks */
-        .code-block, pre {
-            background-color: var(--code-bg);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            overflow-x: auto;
+        /* Content */
+        article {
+            padding: 80px 0;
         }
 
-        code {
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
+        }
+
+        #markdown-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h4 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        #markdown-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        #markdown-content blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content blockquote p {
+            margin-bottom: 10px;
+        }
+
+        #markdown-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        /* Code Blocks */
+        #markdown-content pre {
+            background-color: var(--code-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        #markdown-content code {
             font-family: 'Courier New', Monaco, monospace;
-            color: #4a9eff;
             font-size: 0.9rem;
         }
 
-        pre {
-            white-space: pre;
+        #markdown-content pre code {
+            color: #4a9eff;
+        }
+
+        #markdown-content p code,
+        #markdown-content li code {
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
 
         /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        #markdown-content ul, 
+        #markdown-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        li {
-            margin-bottom: 8px;
+        #markdown-content li {
+            margin-bottom: 12px;
             color: #ccc;
+            line-height: 1.7;
+        }
+
+        #markdown-content li p {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content th,
+        #markdown-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        #markdown-content th {
+            background-color: var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content td {
+            color: #ccc;
+        }
+
+        #markdown-content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content em {
+            color: #bbb;
         }
 
         /* Links */
@@ -158,30 +245,6 @@
             text-decoration: underline;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -192,12 +255,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
                 font-size: 2rem;
             }
 
-            h2 {
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            #markdown-content h2 {
                 font-size: 1.5rem;
+            }
+
+            #markdown-content h3 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -212,7 +287,7 @@
                 <p><strong>Author:</strong> Dan Voulez</p>
                 <p><strong>Institution:</strong> The LogLine Foundation</p>
                 <p><strong>Version:</strong> 1.0.1</p>
-                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Date:</strong> 2026-02-05</p>
                 <p><strong>Thesis:</strong> The text doesn't describe the hardware. The text IS the hardware. The hardware is just a rendering.</p>
             </div>
         </div>
@@ -220,66 +295,384 @@
 
     <article>
         <div class="container">
-            <h2>Hardware as Text and Power</h2>
-<p><strong>The Substrate of Verifiable Governance</strong></p>
-<blockquote>
-<p>*"Whoever controls the text controls the system."*</p>
-</blockquote>
-<h2>Before We Begin</h2>
-<p>Stop.</p>
-<p>Take a breath.</p>
-<p>You've come a long way.</p>
-<p>You've seen the <strong>LogLine Protocol</strong>—nine fields that make every action accountable before it happens. You've seen <strong>JSON✯Atomic</strong>—canonical serialization where same meaning produces same bytes produces same hash. You've seen <strong>LLLV</strong>—verifiable memory where retrieval produces evidence, not just results. You've seen <strong>TDLN</strong>—policy compilation where intention becomes provable AST. You've seen <strong>SIRP</strong>—network routing where delivery produces receipts.</p>
-<p>Five papers. Five layers. Five pieces of something bigger.</p>
-<p>But you haven't seen the whole picture yet.</p>
-<p><strong>Are you ready?</strong></p>
-<p><strong>There's one more thing.</strong></p>
-<h2>I. The Question</h2>
-<p>Let me ask you something.</p>
-<p>When you think about a computer, what do you think about?</p>
-<p>Silicon? Transistors? Electrons flowing through gates?</p>
-<p>That's one way to see it.</p>
-<p>But there's another way.</p>
-<h2>II. A Thought Experiment</h2>
-<p>Consider two files sitting on your desktop right now.</p>
-<p><strong>File 1: policy.md</strong></p>
-<pre><code>
-# Transfer Policy
+            <div id="markdown-content">
+<h1>Hardware as Text and Power</h1>
 
-Users must be KYC verified before transferring more than $1000.
-Transfers above $10,000 require manager approval.
-</code></pre>
-<p><strong>File 2: policy.ll</strong></p>
-<pre><code>
-policy "transfer_authorization":
-  when amount > 1000:
-    require context.user.kyc_verified == true
-  when amount > 10000:
-    require confirmed_by IN ["manager", "director"]
-</code></pre>
+<p><strong>The Substrate of Verifiable Governance</strong></p>
+
+<hr>
+
+<blockquote><em>"Whoever controls the text controls the system."</em></blockquote>
+
+<hr>
+
+<h2>Before We Begin</h2>
+
+<p>Stop.</p>
+
+<p>Take a breath.</p>
+
+<p>You've come a long way.</p>
+
+<p>You've seen the <strong>LogLine Protocol</strong>—nine fields that make every action accountable before it happens. You've seen <strong>JSON✯Atomic</strong>—canonical serialization where same meaning produces same bytes produces same hash. You've seen <strong>LLLV</strong>—verifiable memory where retrieval produces evidence, not just results. You've seen <strong>TDLN</strong>—policy compilation where intention becomes provable AST. You've seen <strong>SIRP</strong>—network routing where delivery produces receipts.</p>
+
+<p>Five papers. Five layers. Five pieces of something bigger.</p>
+
+<p>But you haven't seen the whole picture yet.</p>
+
+<p><strong>Are you ready?</strong></p>
+
+<p><strong>There's one more thing.</strong></p>
+
+<hr>
+
+<h2>I. The Question</h2>
+
+<p>Let me ask you something.</p>
+
+<p>When you think about a computer, what do you think about?</p>
+
+<p>Silicon? Transistors? Electrons flowing through gates?</p>
+
+<p>That's one way to see it.</p>
+
+<p>But there's another way.</p>
+
+<hr>
+
+<h2>II. A Thought Experiment</h2>
+
+<p>Consider two files sitting on your desktop right now.</p>
+
+<p><strong>File 1: policy.md</strong><br><pre><code># Transfer Policy</p>
+
+<p>Users must be KYC verified before transferring more than $1000.<br>Transfers above $10,000 require manager approval.</code></pre></p>
+
+<p><strong>File 2: policy.ll</strong><br><pre><code>policy "transfer_authorization":<br>  when amount &gt; 1000:<br>    require context.user.kyc_verified == true<br>  when amount &gt; 10000:<br>    require confirmed_by IN ["manager", "director"]</code></pre></p>
+
 <p>Both express the same intent.</p>
+
 <p>But there's a crucial difference.</p>
+
 <p>File 1 is <strong>advice</strong>. A human reads it, interprets it, implements something that hopefully matches. The policy and the implementation drift. When disputes arise, you need lawyers.</p>
+
 <p>File 2 is <strong>law</strong>. It compiles directly into constraints that execute. The policy IS the implementation. When disputes arise, you compare hashes.</p>
-<pre><code>
-# This compiles to executable constraint
+
+<pre><code># This compiles to executable constraint
 logline compile policy.ll -o policy.wasm
 
-# The hash of the file IS its identity
-b3sum policy.ll
-# b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...
+<p># The hash of the file IS its identity<br>b3sum policy.ll<br># b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...</p>
 
-# Same text → Same hash → Same behavior
-# Forever. Everywhere. No interpretation.
-</code></pre>
+<p># Same text → Same hash → Same behavior<br># Forever. Everywhere. No interpretation.</code></pre></p>
+
 <p>This is what we mean by "hardware as text."</p>
+
 <p>The text is not describing the hardware.</p>
+
 <p><strong>The text IS the hardware.</strong></p>
+
 <p>The silicon is just one possible materialization.</p>
 
-            <p style="margin-top: 40px;">
-                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/07_Hardware_as_Text_and_Power.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
-            </p>
+<hr>
+
+<h2>III. The Three Powers</h2>
+
+<p>Every modern system involves three kinds of power that must be aligned:</p>
+
+<h3>Silicon Power</h3>
+
+<p>Raw computation. Throughput. Parallelism. Energy efficiency.</p>
+
+<p>Silicon is <strong>amoral and obedient</strong>. It executes whatever can be encoded, with perfect fidelity and zero judgment. It's a furnace: powerful, useful, and completely indifferent to whether it's heating a home or burning it down.</p>
+
+<pre><code>// Silicon doesn't know what it's doing
+// It just executes instructions
+fn transfer(from: Account, to: Account, amount: u64) {
+    from.balance -= amount;  // Could be legitimate
+    to.balance += amount;    // Could be theft
+    // Silicon doesn't care. It just runs.
+}</code></pre>
+
+<h3>Human Power</h3>
+
+<p>Authority to declare commitments and be accountable. Meaning. Priorities. Trade-offs. Exception-handling.</p>
+
+<p>Human power is <strong>legitimate but non-deterministic</strong>. Humans are the source of policy, but terrible at consistent enforcement. We negotiate, we forget, we make exceptions, we get tired.</p>
+
+<pre><code>Human: "Only verified users can transfer large amounts."
+Monday: Enforced.
+Tuesday: Enforced.
+Wednesday: "Just this once, the CEO asked..."
+Thursday: "Well, we did it yesterday..."
+Friday: What policy?</code></pre>
+
+<h3>AI Power</h3>
+
+<p>Amplification. Translation at scale. Compression of complexity.</p>
+
+<p>AI power is <strong>multiplicative</strong>. It doesn't create intent—it amplifies whatever intent is given. Weak governance at the input means scaled failure at the output.</p>
+
+<pre><code>AI + Bad Policy = Bad at Scale
+AI + Good Policy = Good at Scale
+AI + No Policy = Chaos at Scale</code></pre>
+
+<p><strong>Three powers. All necessary. All dangerous alone.</strong></p>
+
+<hr>
+
+<h2>IV. The Problem</h2>
+
+<p>Most systems place policy as <strong>advice above computation</strong>:</p>
+
+<ul>
+<li>Documentation that developers "should" read</li>
+<li>Best practices that teams "should" follow</li>
+<li>Human review that "should" catch errors</li>
+<li>Runtime checks that "should" enforce rules</li>
+<li>Post-incident enforcement that "should" deter violations</li>
+</ul>
+
+<p>Every "should" is a gap.</p>
+
+<p>Every gap is a vulnerability.</p>
+
+<p><strong>The Iron Law of Systems:</strong></p>
+
+<blockquote>If a forbidden state can be represented, it will eventually be reached.</blockquote>
+
+<p>"Can happen" becomes "will happen." Exceptions become normal. Shortcuts become habits. Audits become theater. Incident response becomes the real governance.</p>
+
+<pre><code>Year 1: "We have a policy against that."
+Year 2: "We mostly follow the policy."
+Year 3: "We follow the policy when convenient."
+Year 4: "What policy?"
+Year 5: Incident. Investigation. "How did we get here?"</code></pre>
+
+<hr>
+
+<h2>V. The Solution</h2>
+
+<p>Here is the insight that changes everything:</p>
+
+<p><strong>Text is the only substrate where intention becomes enforceable constraint.</strong></p>
+
+<p>Think about it.</p>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Why It Matters</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Human-writable</strong></td><td>Humans can author policy</td></tr>
+<tr><td><strong>Machine-executable</strong></td><td>Machines can enforce policy</td></tr>
+<tr><td><strong>Cryptographically signable</strong></td><td>Authorship is verifiable</td></tr>
+<tr><td><strong>Content-addressable</strong></td><td>Identity is deterministic</td></tr>
+<tr><td><strong>Version-controllable</strong></td><td>History is preserved</td></tr>
+<tr><td><strong>Universally portable</strong></td><td>Runs anywhere</td></tr>
+</tbody>
+</table>No other substrate has all six properties.
+
+<p>Silicon isn't human-writable. Voice isn't machine-parseable. Images aren't content-addressable. Binary isn't version-controllable.</p>
+
+<p><strong>Text is the unique intersection.</strong></p>
+
+<hr>
+
+<h2>VI. The Three Equations</h2>
+
+<p>When text is treated as law, three things become true:</p>
+
+<h3>Equation 1: The File is the Identity</h3>
+
+<pre><code>Same Meaning → Same Bytes → Same Hash
+
+<p>Identity = BLAKE3(canonical_bytes)</code></pre></p>
+
+<p>If someone gives you a policy hash, you can verify:<br><ul><br><li>You have the exact same policy</li><br><li>It hasn't been modified</li><br><li>Any execution using it is traceable</li><br></ul></p>
+
+<h3>Equation 2: The Compiler is Governance</h3>
+
+<pre><code>Policy + Compiler → Constraints
+
+<p>Compilation = Governance</code></pre></p>
+
+<p>The policy text doesn't just describe what should happen. It compiles into constraints that make violations <strong>structurally impossible</strong>.</p>
+
+<h3>Equation 3: The Runtime is Proof</h3>
+
+<pre><code>Execution → Receipt
+
+<p>Receipt = Proof of Governance</code></pre></p>
+
+<p>Every execution produces a cryptographic receipt proving what happened, under what policy, authorized by whom.</p>
+
+<hr>
+
+<h2>VII. Non-Representability</h2>
+
+<p>This is the most important concept.</p>
+
+<p><strong>Traditional security:</strong> Detect and prevent violations at runtime.</p>
+
+<p><strong>LogLine security:</strong> Make violations impossible to express.</p>
+
+<h3>The Core Lemma</h3>
+
+<blockquote>If a violation cannot be encoded in the type system, then no valid program can express it, thus execution cannot observe it.</blockquote>
+
+<p>The forbidden state doesn't get caught.</p>
+
+<p><strong>The forbidden state cannot be typed.</strong></p>
+
+<p>In traditional systems, security is an arms race:<br><ul><br><li>Attacker finds bypass</li><br><li>Defender adds check</li><br><li>Attacker finds new bypass</li><br><li>Forever</li><br></ul></p>
+
+<p>In LogLine, security is structural:<br><ul><br><li>Violations cannot be typed</li><br><li>Therefore cannot be compiled</li><br><li>Therefore cannot execute</li><br><li><strong>End of story</strong></li><br></ul></p>
+
+<hr>
+
+<h2>VIII. The Control Planes</h2>
+
+<p>The system operates across five planes:</p>
+
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│  HUMAN PLANE                                            │
+│  Authorship + Accountability                            │
+│  Writes policies, signs artifacts, bears responsibility │
+├─────────────────────────────────────────────────────────┤
+│  TEXT PLANE                                             │
+│  Law + Canonical Form                                   │
+│  Policies, schemas, manifests - all signed, all hashed  │
+├─────────────────────────────────────────────────────────┤
+│  AI PLANE                                               │
+│  Translation under Constraint                           │
+│  MAY translate, MAY optimize, MUST NOT be final signer  │
+├─────────────────────────────────────────────────────────┤
+│  SILICON PLANE                                          │
+│  Execution                                              │
+│  Runs what was compiled, produces receipts              │
+├─────────────────────────────────────────────────────────┤
+│  LEDGER PLANE                                           │
+│  Memory + Evidence                                      │
+│  All receipts, all ghosts, immutable and verifiable     │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+<p><strong>Power flows downward. Proof flows upward.</strong></p>
+
+<hr>
+
+<h2>IX. What This Means</h2>
+
+<p>When text becomes law:</p>
+
+<h3>Zero Trust by Construction</h3>
+
+<p>You don't trust the server. You don't trust the network. You don't trust the operator.</p>
+
+<p>You verify the receipt.</p>
+
+<h3>Disputes Collapse to Verification</h3>
+
+<p>Traditional dispute: months of lawyers, discovery, interpretation.</p>
+
+<p>LogLine dispute: compare hashes. Done.</p>
+
+<h3>Freedom as Consequence</h3>
+
+<p>This seems paradoxical: more constraints → more freedom?</p>
+
+<p>Yes.</p>
+
+<p>When you know the rules are enforced for everyone:<br><ul><br><li>You don't negotiate</li><br><li>You don't worry</li><br><li>You don't second-guess</li><br><li>You just act</li><br></ul></p>
+
+<p><strong>Hard constraints remove uncertainty. Freedom is the presence of trustworthy constraint.</strong></p>
+
+<hr>
+
+<h2>X. The Synthesis</h2>
+
+<p>You've now seen the complete architecture:</p>
+
+<table>
+<thead>
+<tr><th>Paper</th><th>What It Does</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I — LogLine</strong></td><td>Makes intention structured and accountable</td></tr>
+<tr><td><strong>II — JSON✯Atomic</strong></td><td>Makes identity deterministic</td></tr>
+<tr><td><strong>III — LLLV</strong></td><td>Makes memory verifiable</td></tr>
+<tr><td><strong>IV — TDLN</strong></td><td>Makes policy compilation provable</td></tr>
+<tr><td><strong>V — SIRP</strong></td><td>Makes delivery receipted</td></tr>
+</tbody>
+</table>And now you understand what binds them all:
+
+<p><strong>Text is the substrate. Text is the law. Text is the power boundary.</strong></p>
+
+<p>The text doesn't describe the hardware.</p>
+
+<p>The text <strong>IS</strong> the hardware.</p>
+
+<p>The silicon is just a rendering. The WASM module is just a rendering. The FPGA bitstream is just a rendering.</p>
+
+<p><strong>The text is the authority.</strong></p>
+
+<hr>
+
+<h2>XI. But...</h2>
+
+<p>You might be thinking: "This is a beautiful vision. But does it work?"</p>
+
+<p>Fair question.</p>
+
+<p>You've seen the architecture. You've seen the theory. You've seen the equations.</p>
+
+<p>But you haven't seen it <strong>run</strong>.</p>
+
+<p>You haven't seen the code that compiles.</p>
+
+<p>You haven't seen the benchmarks.</p>
+
+<p>You haven't seen the receipts verify.</p>
+
+<p><strong>There's one more paper.</strong></p>
+
+<hr>
+
+<h2>XII. What Comes Next</h2>
+
+<p>Paper VI — <strong>Chip as Code</strong> — is different.</p>
+
+<p>It's not theory. It's proof.</p>
+
+<p>Real Rust code. Real WASM modules. Real Verilog synthesis. Real benchmarks. Real receipts.</p>
+
+<p>A 50KB policy file that encodes the behavior of 200 million transistors.</p>
+
+<p>And you can run it yourself:</p>
+
+<pre><code>cargo install logline-cli</code></pre>
+
+<p><strong>Are you ready?</strong></p>
+
+<hr>
+
+<h2>The Equation</h2>
+
+<pre><code>Human Intent + Canonical Text + Compilation = Verifiable Execution
+
+<p>Text is power.<br>Power is accountable.<br>Accountability is structural.</code></pre></p>
+
+<hr>
+
+<blockquote><em>"Whoever controls the text controls the system."</em></blockquote>
+>
+<blockquote><em>Now let me show you that the system works.</em></blockquote>
+
+<hr>
+
+<p><em>Next: <a href="08_Chip_as_Code.md">Paper VI — Chip as Code</a></em></p>
+
+<p><strong>The proof is in the code.</strong></p>
+            </div>
         </div>
     </article>
 

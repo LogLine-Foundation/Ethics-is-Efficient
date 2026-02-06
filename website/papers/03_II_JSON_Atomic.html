@@ -25,14 +25,14 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -81,71 +81,158 @@
             margin-bottom: 8px;
         }
 
-        /* Content */
-        article {
-            padding: 60px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        blockquote {
-            font-style: italic;
-            color: #aaa;
-            padding: 20px;
-            border-left: 3px solid var(--accent);
-            margin: 20px 0;
-            background-color: var(--code-bg);
-        }
-
-        blockquote p {
+        .paper-meta p:last-child {
             margin-bottom: 0;
         }
 
-        /* Code Blocks */
-        .code-block, pre {
-            background-color: var(--code-bg);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            overflow-x: auto;
+        /* Content */
+        article {
+            padding: 80px 0;
         }
 
-        code {
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
+        }
+
+        #markdown-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h4 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        #markdown-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        #markdown-content blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content blockquote p {
+            margin-bottom: 10px;
+        }
+
+        #markdown-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        /* Code Blocks */
+        #markdown-content pre {
+            background-color: var(--code-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        #markdown-content code {
             font-family: 'Courier New', Monaco, monospace;
-            color: #4a9eff;
             font-size: 0.9rem;
         }
 
-        pre {
-            white-space: pre;
+        #markdown-content pre code {
+            color: #4a9eff;
+        }
+
+        #markdown-content p code,
+        #markdown-content li code {
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
 
         /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        #markdown-content ul, 
+        #markdown-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        li {
-            margin-bottom: 8px;
+        #markdown-content li {
+            margin-bottom: 12px;
             color: #ccc;
+            line-height: 1.7;
+        }
+
+        #markdown-content li p {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content th,
+        #markdown-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        #markdown-content th {
+            background-color: var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content td {
+            color: #ccc;
+        }
+
+        #markdown-content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content em {
+            color: #bbb;
         }
 
         /* Links */
@@ -158,30 +245,6 @@
             text-decoration: underline;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -192,12 +255,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
                 font-size: 2rem;
             }
 
-            h2 {
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            #markdown-content h2 {
                 font-size: 1.5rem;
+            }
+
+            #markdown-content h3 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -212,7 +287,7 @@
                 <p><strong>Author:</strong> Dan Voulez</p>
                 <p><strong>Institution:</strong> The LogLine Foundation</p>
                 <p><strong>Version:</strong> 1.0.1</p>
-                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Date:</strong> 2026-02-05</p>
                 <p><strong>Thesis:</strong> Same meaning must produce same bytes. Same bytes must produce same hash. Same hash is same identity.</p>
             </div>
         </div>
@@ -220,92 +295,461 @@
 
     <article>
         <div class="container">
-            <h2>Paper II — JSON✯Atomic</h2>
+            <div id="markdown-content">
+<h1>Paper II — JSON✯Atomic</h1>
+
 <p><strong>The Identity Layer</strong></p>
+
 <p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+
+<hr>
+
 <h2>The Problem (A True Story)</h2>
+
 <p><strong>November 2023. A smart contract audit. $12 million at stake.</strong></p>
+
 <p>The contract hashed a JSON document to verify agreement between parties. Both parties signed the "same" document. Both hashes were different.</p>
-<pre><code>
-// Party A's serializer produced:
+
+<pre><code>// Party A's serializer produced:
 {"amount": 12000000, "recipient": "0x7a3f..."}
 
-// Party B's serializer produced:
-{"recipient": "0x7a3f...", "amount": 12000000}
-</code></pre>
+<p>// Party B's serializer produced:<br>{"recipient": "0x7a3f...", "amount": 12000000}</code></pre></p>
+
 <p>Same meaning. Different bytes. Different hashes. The contract rejected both signatures as invalid.</p>
+
 <p>The fix took three weeks and $200,000 in legal fees. The root cause? <strong>JSON doesn't guarantee key order.</strong></p>
+
 <p>This was not a bug. This was a design flaw in every system that treats JSON as a serialization format without canonicalization.</p>
+
 <p><strong>JSON✯Atomic eliminates this class of failure entirely.</strong></p>
+
+<hr>
+
 <h2>I. The Principle</h2>
-<blockquote>
-<p>**Same semantics ⇒ same bytes ⇒ same hash ⇒ same identity.**</p>
-</blockquote>
-<pre><code>
-use json_atomic::canonize;
 
-// These two objects have the same meaning
-let obj_a = json!({"b": 1, "a": 2});
-let obj_b = json!({"a": 2, "b": 1});
+<blockquote><strong>Same semantics ⇒ same bytes ⇒ same hash ⇒ same identity.</strong></blockquote>
 
-// JSON✯Atomic produces identical bytes
-let bytes_a = canonize(&obj_a);
-let bytes_b = canonize(&obj_b);
+<pre><code>use json_atomic::canonize;
 
-assert_eq!(bytes_a, bytes_b);
-// Both produce: {"a":2,"b":1}
+<p>// These two objects have the same meaning<br>let obj_a = json!({"b": 1, "a": 2});<br>let obj_b = json!({"a": 2, "b": 1});</p>
 
-// Therefore identical hashes
-let hash_a = blake3::hash(&bytes_a);
-let hash_b = blake3::hash(&bytes_b);
+<p>// JSON✯Atomic produces identical bytes<br>let bytes_a = canonize(&amp;obj_a);<br>let bytes_b = canonize(&amp;obj_b);</p>
 
-assert_eq!(hash_a, hash_b);
-// Both produce: b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c...
-</code></pre>
+<p>assert_eq!(bytes_a, bytes_b);<br>// Both produce: {"a":2,"b":1}</p>
+
+<p>// Therefore identical hashes<br>let hash_a = blake3::hash(&amp;bytes_a);<br>let hash_b = blake3::hash(&amp;bytes_b);</p>
+
+<p>assert_eq!(hash_a, hash_b);<br>// Both produce: b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c...</code></pre></p>
+
 <p>This is not a feature. It is the foundation upon which all other papers rest.</p>
-<p>- Paper I requires canonical tuples to chain</p>
-<p>- Paper III requires canonical capsules to verify</p>
-<p>- Paper IV requires canonical ASTs to prove</p>
-<p>- Paper V requires canonical receipts to audit</p>
-<p>- Paper VI requires canonical policies to execute</p>
+
+<ul>
+<li>Paper I requires canonical tuples to chain</li>
+<li>Paper III requires canonical capsules to verify</li>
+<li>Paper IV requires canonical ASTs to prove</li>
+<li>Paper V requires canonical receipts to audit</li>
+<li>Paper VI requires canonical policies to execute</li>
+</ul>
+
 <p><strong>The byte is the unit of law.</strong></p>
+
+<hr>
+
 <h2>II. Install It Now</h2>
-<pre><code>
-# Add to your Rust project
+
+<pre><code># Add to your Rust project
 cargo add json-atomic
 
-# Or install the CLI
-cargo install logline-cli
-</code></pre>
-<pre><code>
-use json_atomic::{canonize, verify, Error};
+<p># Or install the CLI<br>cargo install logline-cli</code></pre></p>
 
-fn main() -> Result<(), Error> {
-    let document = json!({
-        "who": "did:logline:agent:alice",
-        "did": "transfer",
-        "this": {"amount": 1000, "to": "bob"},
-        "when": "2026-02-05T14:30:00Z"
-    });
+<pre><code>use json_atomic::{canonize, verify, Error};
 
-    // Canonicalize
-    let canonical_bytes = canonize(&document)?;
+<p>fn main() -&gt; Result&lt;(), Error&gt; {<br>    let document = json!({<br>        "who": "did:logline:agent:alice",<br>        "did": "transfer",<br>        "this": {"amount": 1000, "to": "bob"},<br>        "when": "2026-02-05T14:30:00Z"<br>    });</p>
 
-    // Hash (identity)
-    let identity = blake3::hash(&canonical_bytes);
-    println!("Identity: b3:{}", hex::encode(identity.as_bytes()));
+<p>// Canonicalize<br>    let canonical_bytes = canonize(&amp;document)?;</p>
 
-    // Verify another serialization matches
-    let other_bytes = r#"{"did":"transfer","this":{"amount":1000,"to":"bob"},"when":"2026-02-05T14:30:00Z","who":"did:logline:agent:alice"}"#;
-    assert!(verify(&document, other_bytes.as_bytes())?);
+<p>// Hash (identity)<br>    let identity = blake3::hash(&amp;canonical_bytes);<br>    println!("Identity: b3:{}", hex::encode(identity.as_bytes()));</p>
 
-    Ok(())
-}
-</code></pre>
+<p>// Verify another serialization matches<br>    let other_bytes = r#"{"did":"transfer","this":{"amount":1000,"to":"bob"},"when":"2026-02-05T14:30:00Z","who":"did:logline:agent:alice"}"#;<br>    assert!(verify(&amp;document, other_bytes.as_bytes())?);</p>
 
-            <p style="margin-top: 40px;">
-                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/03_II_JSON_Atomic.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
-            </p>
+<p>Ok(())<br>}</code></pre></p>
+
+<hr>
+
+<h2>III. The Data Model</h2>
+
+<p>JSON✯Atomic operates on a disciplined subset of JSON (RFC 8259).</p>
+
+<h3>Allowed Values</h3>
+
+<table>
+<thead>
+<tr><th>Type</th><th>Specification</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>null</strong></td><td>Literal <code>null</code></td></tr>
+<tr><td><strong>boolean</strong></td><td>Literals <code>true</code>, <code>false</code></td></tr>
+<tr><td><strong>integer</strong></td><td>Arbitrary precision, base-10, no floats</td></tr>
+<tr><td><strong>string</strong></td><td>UTF-8, normalized to NFC</td></tr>
+<tr><td><strong>array</strong></td><td>Order-preserving sequence of allowed values</td></tr>
+<tr><td><strong>object</strong></td><td>String-to-value map, no duplicate keys</td></tr>
+</tbody>
+</table><h3>Prohibitions</h3>
+
+<table>
+<thead>
+<tr><th>Condition</th><th>Error Code</th></tr>
+</thead>
+<tbody>
+<tr><td>Float, decimal point, exponent, NaN, Inf</td><td><code>E_FLOAT</code></td></tr>
+<tr><td>Leading zeros (except <code>0</code>)</td><td><code>E_NUM_FMT</code></td></tr>
+<tr><td>Invalid UTF-8</td><td><code>E_UTF8</code></td></tr>
+<tr><td>Duplicate object keys</td><td><code>E_DUP_KEY</code></td></tr>
+</tbody>
+</table><pre><code>// json-atomic/src/validate.rs
+
+<p>use thiserror::Error;</p>
+
+<p>#[derive(Debug, Error)]<br>pub enum ValidationError {<br>    #[error("E_FLOAT: Floating point numbers are not allowed: {0}")]<br>    Float(f64),</p>
+
+<p>#[error("E_NUM_FMT: Invalid number format: {0}")]<br>    NumberFormat(String),</p>
+
+<p>#[error("E_UTF8: Invalid UTF-8 sequence at byte {0}")]<br>    InvalidUtf8(usize),</p>
+
+<p>#[error("E_DUP_KEY: Duplicate key in object: {0}")]<br>    DuplicateKey(String),</p>
+
+<p>#[error("E_NFC: String not in NFC form: {0}")]<br>    NotNfc(String),<br>}</p>
+
+<p>pub fn validate(value: &amp;Value) -&gt; Result&lt;(), ValidationError&gt; {<br>    match value {<br>        Value::Null | Value::Bool(_) =&gt; Ok(()),</p>
+
+<p>Value::Number(n) =&gt; {<br>            // Floats are forbidden<br>            if n.is_f64() &amp;&amp; !n.is_i64() &amp;&amp; !n.is_u64() {<br>                return Err(ValidationError::Float(n.as_f64().unwrap()));<br>            }<br>            Ok(())<br>        }</p>
+
+<p>Value::String(s) =&gt; {<br>            // Must be valid UTF-8 (Rust guarantees this)<br>            // Must be NFC normalized<br>            if !unicode_normalization::is_nfc(s) {<br>                return Err(ValidationError::NotNfc(s.clone()));<br>            }<br>            Ok(())<br>        }</p>
+
+<p>Value::Array(arr) =&gt; {<br>            for item in arr {<br>                validate(item)?;<br>            }<br>            Ok(())<br>        }</p>
+
+<p>Value::Object(obj) =&gt; {<br>            let mut seen_keys = HashSet::new();<br>            for (key, val) in obj {<br>                if !seen_keys.insert(key) {<br>                    return Err(ValidationError::DuplicateKey(key.clone()));<br>                }<br>                validate(val)?;<br>            }<br>            Ok(())<br>        }<br>    }<br>}</code></pre></p>
+
+<p><strong>Special case:</strong> <code>-0</code> MUST canonicalize to <code>0</code>.</p>
+
+<hr>
+
+<h2>IV. Canonical Form</h2>
+
+<p>Canonical JSON (CJSON) is JSON serialized under these constraints:</p>
+
+<h3>4.1 Whitespace</h3>
+
+<ul>
+<li>No superfluous whitespace</li>
+<li>No newlines</li>
+<li>No trailing commas</li>
+</ul>
+
+<pre><code>// WRONG: Has whitespace
+{ "a": 1, "b": 2 }
+
+<p>// CORRECT: Canonical<br>{"a":1,"b":2}</code></pre></p>
+
+<h3>4.2 Arrays</h3>
+
+<pre><code>[v₁,v₂,...,vₙ]</code></pre>
+
+<p>Element order MUST be preserved. Arrays are ordered.</p>
+
+<h3>4.3 Objects</h3>
+
+<pre><code>{k₁:v₁,k₂:v₂,...,kₘ:vₘ}</code></pre>
+
+<p>Keys MUST be sorted by <strong>lexicographic order of UTF-8 bytes</strong>.</p>
+
+<pre><code>// Input with any key order
+{"zebra": 1, "apple": 2, "mango": 3}
+
+<p>// Canonical output (keys sorted)<br>{"apple":2,"mango":3,"zebra":1}</code></pre></p>
+
+<p>Locale collation MUST NOT be used. Raw UTF-8 byte comparison only.</p>
+
+<h3>4.4 Strings</h3>
+
+<p>1. Normalize to <strong>NFC</strong> (Unicode Canonical Decomposition, followed by Canonical Composition)<br>2. Encode as UTF-8<br>3. Apply minimal escaping:<br>   - <code>"</code> → <code>\"</code><br>   - <code>\</code> → <code>\\</code><br>   - Control characters U+0000..U+001F → <code>\u00XX</code><br>4. The <code>/</code> character MUST NOT be escaped<br>5. Non-control characters MUST be emitted as UTF-8 directly</p>
+
+<pre><code>// json-atomic/src/escape.rs
+
+<p>pub fn escape_string(s: &amp;str) -&gt; String {<br>    let normalized = unicode_normalization::UnicodeNormalization::nfc(s)<br>        .collect::&lt;String&gt;();</p>
+
+<p>let mut result = String::with_capacity(normalized.len() + 2);<br>    result.push('"');</p>
+
+<p>for ch in normalized.chars() {<br>        match ch {<br>            '"' =&gt; result.push_str("\\\""),<br>            '\\' =&gt; result.push_str("\\\\"),<br>            '\n' =&gt; result.push_str("\\n"),<br>            '\r' =&gt; result.push_str("\\r"),<br>            '\t' =&gt; result.push_str("\\t"),<br>            c if c.is_control() =&gt; {<br>                // Control characters as \u00XX<br>                result.push_str(&amp;format!("\\u{:04x}", c as u32));<br>            }<br>            c =&gt; result.push(c),  // UTF-8 directly<br>        }<br>    }</p>
+
+<p>result.push('"');<br>    result<br>}</code></pre></p>
+
+<h3>4.5 Integers</h3>
+
+<ul>
+<li>Base-10 decimal ASCII</li>
+<li>Leading <code>-</code> only if value is negative and non-zero</li>
+<li>Leading <code>+</code> forbidden</li>
+<li>Leading zeros forbidden</li>
+<li><code>-0</code> serializes as <code>0</code></li>
+<li>Precision is arbitrary (big integers supported)</li>
+</ul>
+
+<pre><code>// json-atomic/src/integer.rs
+
+<p>use num_bigint::BigInt;</p>
+
+<p>pub fn serialize_integer(n: &amp;BigInt) -&gt; String {<br>    // Handle negative zero<br>    if n.sign() == Sign::NoSign || *n == BigInt::from(0) {<br>        return "0".to_string();<br>    }</p>
+
+<p>// No leading zeros, no leading plus<br>    n.to_string()<br>}</p>
+
+<p>#[cfg(test)]<br>mod tests {<br>    #[test]<br>    fn negative_zero_becomes_zero() {<br>        let neg_zero = BigInt::from(0) * BigInt::from(-1);<br>        assert_eq!(serialize_integer(&amp;neg_zero), "0");<br>    }</p>
+
+<p>#[test]<br>    fn large_integers_work() {<br>        let big = BigInt::parse_bytes(<br>            b"123456789012345678901234567890",<br>            10<br>        ).unwrap();<br>        assert_eq!(<br>            serialize_integer(&amp;big),<br>            "123456789012345678901234567890"<br>        );<br>    }<br>}</code></pre></p>
+
+<h3>4.6 Literals</h3>
+
+<p><code>true</code>, <code>false</code>, <code>null</code> — lowercase, exactly as shown.</p>
+
+<hr>
+
+<h2>V. The Algorithm</h2>
+
+<pre><code>// json-atomic/src/canonize.rs
+
+<p>pub fn canonize(value: &amp;Value) -&gt; Result&lt;Vec&lt;u8&gt;, CanonizeError&gt; {<br>    // First validate<br>    validate(value)?;</p>
+
+<p>// Then serialize to canonical form<br>    let mut output = Vec::new();<br>    write_canonical(value, &amp;mut output)?;<br>    Ok(output)<br>}</p>
+
+<p>fn write_canonical(value: &amp;Value, out: &amp;mut Vec&lt;u8&gt;) -&gt; Result&lt;(), CanonizeError&gt; {<br>    match value {<br>        Value::Null =&gt; {<br>            out.extend_from_slice(b"null");<br>        }</p>
+
+<p>Value::Bool(true) =&gt; {<br>            out.extend_from_slice(b"true");<br>        }</p>
+
+<p>Value::Bool(false) =&gt; {<br>            out.extend_from_slice(b"false");<br>        }</p>
+
+<p>Value::Number(n) =&gt; {<br>            // Must be integer<br>            let i = n.as_i64()<br>                .or_else(|| n.as_u64().map(|u| u as i64))<br>                .ok_or(CanonizeError::FloatNotAllowed)?;</p>
+
+<p>// Handle -0<br>            let s = if i == 0 { "0".to_string() } else { i.to_string() };<br>            out.extend_from_slice(s.as_bytes());<br>        }</p>
+
+<p>Value::String(s) =&gt; {<br>            let escaped = escape_string(s);<br>            out.extend_from_slice(escaped.as_bytes());<br>        }</p>
+
+<p>Value::Array(arr) =&gt; {<br>            out.push(b'[');<br>            for (i, item) in arr.iter().enumerate() {<br>                if i &gt; 0 {<br>                    out.push(b',');<br>                }<br>                write_canonical(item, out)?;<br>            }<br>            out.push(b']');<br>        }</p>
+
+<p>Value::Object(obj) =&gt; {<br>            out.push(b'{');</p>
+
+<p>// Sort keys by UTF-8 bytes (NOT locale)<br>            let mut keys: Vec&lt;_&gt; = obj.keys().collect();<br>            keys.sort_by(|a, b| a.as_bytes().cmp(b.as_bytes()));</p>
+
+<p>for (i, key) in keys.iter().enumerate() {<br>                if i &gt; 0 {<br>                    out.push(b',');<br>                }</p>
+
+<p>// Key<br>                let escaped_key = escape_string(key);<br>                out.extend_from_slice(escaped_key.as_bytes());</p>
+
+<p>out.push(b':');</p>
+
+<p>// Value<br>                write_canonical(&amp;obj[*key], out)?;<br>            }</p>
+
+<p>out.push(b'}');<br>        }<br>    }</p>
+
+<p>Ok(())<br>}</code></pre></p>
+
+<p><strong>Constraints enforced by this algorithm:</strong><br><ul><br><li>No randomness (deterministic key ordering)</li><br><li>No locale dependency (UTF-8 byte comparison)</li><br><li>No trailing whitespace</li><br><li>Identical output on all platforms</li><br></ul></p>
+
+<hr>
+
+<h2>VI. Identity by Hash</h2>
+
+<h3>The Binding</h3>
+
+<pre><code>IDENTITY(value) = BLAKE3(CANONIZE(value))</code></pre>
+
+<p>Expressed as: <code>b3:<lowercase_hex></code></p>
+
+<pre><code>// json-atomic/src/identity.rs
+
+<p>use blake3::Hasher;</p>
+
+<p>/// Compute the content address (identity) of a value<br>pub fn identity(value: &amp;Value) -&gt; Result&lt;ContentAddress, CanonizeError&gt; {<br>    let canonical = canonize(value)?;<br>    let hash = blake3::hash(&amp;canonical);<br>    Ok(ContentAddress::from_blake3(hash))<br>}</p>
+
+<p>#[derive(Debug, Clone, PartialEq, Eq, Hash)]<br>pub struct ContentAddress {<br>    bytes: [u8; 32],<br>}</p>
+
+<p>impl ContentAddress {<br>    pub fn from_blake3(hash: blake3::Hash) -&gt; Self {<br>        Self {<br>            bytes: *hash.as_bytes(),<br>        }<br>    }</p>
+
+<p>/// Format as b3:hex<br>    pub fn to_string(&amp;self) -&gt; String {<br>        format!("b3:{}", hex::encode(&amp;self.bytes))<br>    }</p>
+
+<p>/// Parse from b3:hex format<br>    pub fn from_str(s: &amp;str) -&gt; Result&lt;Self, ParseError&gt; {<br>        let hex_part = s.strip_prefix("b3:")<br>            .ok_or(ParseError::MissingPrefix)?;</p>
+
+<p>let bytes = hex::decode(hex_part)<br>            .map_err(ParseError::InvalidHex)?;</p>
+
+<p>if bytes.len() != 32 {<br>            return Err(ParseError::InvalidLength(bytes.len()));<br>        }</p>
+
+<p>let mut arr = [0u8; 32];<br>        arr.copy_from_slice(&amp;bytes);<br>        Ok(Self { bytes: arr })<br>    }<br>}</code></pre></p>
+
+<h3>The Rule</h3>
+
+<p>Any field of the form <code><em>_hash</code> or <code></em>_cid</code> MUST be computed over canonical bytes produced by this specification.</p>
+
+<p>Hashing non-canonical representations is <strong>non-compliant</strong> and will cause verification failures.</p>
+
+<hr>
+
+<h2>VII. Formal Properties</h2>
+
+<table>
+<thead>
+<tr><th>Property</th><th>Statement</th><th>Test</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>P1 — Idempotence</strong></td><td><code>CANONIZE(parse(CANONIZE(x))) = CANONIZE(x)</code></td><td><code>test_idempotence</code></td></tr>
+<tr><td><strong>P2 — Confluence</strong></td><td>Same abstract value ⇒ same canonical bytes</td><td><code>test_confluence</code></td></tr>
+<tr><td><strong>P3 — Identity stability</strong></td><td><code>b3(x) = b3(y)</code> ⟺ structural equality</td><td><code>test_identity_stability</code></td></tr>
+<tr><td><strong>P4 — Sensitivity</strong></td><td>Any semantic difference changes canonical bytes</td><td><code>test_sensitivity</code></td></tr>
+<tr><td><strong>P5 — Independence</strong></td><td>All conforming implementations produce identical output</td><td><code>test_independence</code></td></tr>
+</tbody>
+</table><pre><code>// json-atomic/src/tests/properties.rs
+
+<p>#[test]<br>fn test_idempotence() {<br>    let values = vec![<br>        json!(null),<br>        json!(true),<br>        json!(42),<br>        json!("hello"),<br>        json!([1, 2, 3]),<br>        json!({"a": 1, "b": 2}),<br>    ];</p>
+
+<p>for value in values {<br>        let canonical = canonize(&amp;value).unwrap();<br>        let reparsed: Value = serde_json::from_slice(&amp;canonical).unwrap();<br>        let recanonical = canonize(&amp;reparsed).unwrap();</p>
+
+<p>assert_eq!(canonical, recanonical, "P1 violated for {:?}", value);<br>    }<br>}</p>
+
+<p>#[test]<br>fn test_confluence() {<br>    // Different representations, same meaning<br>    let a = json!({"b": 1, "a": 2});<br>    let b = json!({"a": 2, "b": 1});</p>
+
+<p>let ca = canonize(&amp;a).unwrap();<br>    let cb = canonize(&amp;b).unwrap();</p>
+
+<p>assert_eq!(ca, cb, "P2 violated: same meaning must produce same bytes");<br>}</p>
+
+<p>#[test]<br>fn test_identity_stability() {<br>    let a = json!({"x": 1});<br>    let b = json!({"x": 1});<br>    let c = json!({"x": 2});  // Different value</p>
+
+<p>let ha = identity(&amp;a).unwrap();<br>    let hb = identity(&amp;b).unwrap();<br>    let hc = identity(&amp;c).unwrap();</p>
+
+<p>assert_eq!(ha, hb, "P3 violated: equal values must have equal identity");<br>    assert_ne!(ha, hc, "P3 violated: different values must have different identity");<br>}</p>
+
+<p>#[test]<br>fn test_sensitivity() {<br>    // Tiny differences must produce different hashes<br>    let a = json!({"value": 100});<br>    let b = json!({"value": 101});</p>
+
+<p>let ha = identity(&amp;a).unwrap();<br>    let hb = identity(&amp;b).unwrap();</p>
+
+<p>assert_ne!(ha, hb, "P4 violated: semantic difference must change identity");<br>}</code></pre></p>
+
+<hr>
+
+<h2>VIII. Conformance Vectors</h2>
+
+<p>Every implementation MUST pass these vectors byte-for-byte.</p>
+
+<pre><code>// json-atomic/src/tests/vectors.rs
+
+<p>#[test]<br>fn c1_key_ordering() {<br>    let input = json!({"b": 1, "a": 2});<br>    let expected = br#"{"a":2,"b":1}"#;<br>    assert_eq!(canonize(&amp;input).unwrap(), expected);<br>}</p>
+
+<p>#[test]<br>fn c2_unicode_strings() {<br>    let input = json!(["z", "á", "a"]);  // NFC normalized<br>    let expected = br#"["z","á","a"]"#;  // UTF-8 direct, not \u escapes<br>    assert_eq!(canonize(&amp;input).unwrap(), expected);<br>}</p>
+
+<p>#[test]<br>fn c3_nesting() {<br>    let input = json!({"x": [{"k": "v"}, {}], "y": true});<br>    let expected = br#"{"x":[{"k":"v"},{}],"y":true}"#;<br>    assert_eq!(canonize(&amp;input).unwrap(), expected);<br>}</p>
+
+<p>#[test]<br>fn c4_zero_normalization() {<br>    // Note: serde_json doesn't preserve -0, but if it did:<br>    let input = json!({"n1": 0, "n2": 0, "n3": 10});<br>    let expected = br#"{"n1":0,"n2":0,"n3":10}"#;<br>    assert_eq!(canonize(&amp;input).unwrap(), expected);<br>}</p>
+
+<p>#[test]<br>fn c5_error_duplicate_key() {<br>    // This requires parsing raw JSON since serde_json deduplicates<br>    let raw = r#"{"a":1,"a":2}"#;<br>    let result = canonize_raw(raw);<br>    assert!(matches!(result, Err(ValidationError::DuplicateKey(_))));<br>}</p>
+
+<p>#[test]<br>fn c6_error_float() {<br>    let input = json!({"x": 1.5});<br>    let result = canonize(&amp;input);<br>    assert!(matches!(result, Err(CanonizeError::FloatNotAllowed)));<br>}</p>
+
+<p>#[test]<br>fn c7_deep_nesting() {<br>    let input = json!({<br>        "level1": {<br>            "level2": {<br>                "level3": {<br>                    "value": 42<br>                }<br>            }<br>        }<br>    });<br>    let expected = br#"{"level1":{"level2":{"level3":{"value":42}}}}"#;<br>    assert_eq!(canonize(&amp;input).unwrap(), expected);<br>}</p>
+
+<p>#[test]<br>fn c8_empty_structures() {<br>    assert_eq!(canonize(&amp;json!({})).unwrap(), br#"{}"#);<br>    assert_eq!(canonize(&amp;json!([])).unwrap(), br#"[]"#);<br>}</p>
+
+<p>#[test]<br>fn c9_control_characters() {<br>    let input = json!({"text": "line1\nline2\ttab"});<br>    let expected = br#"{"text":"line1\nline2\ttab"}"#;<br>    assert_eq!(canonize(&amp;input).unwrap(), expected);<br>}</code></pre></p>
+
+<hr>
+
+<h2>IX. CLI Verification</h2>
+
+<pre><code># Verify a JSON file is canonical
+logline json verify document.json
+
+<p># Output if canonical:<br># ✓ document.json is canonical<br># Identity: b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a...</p>
+
+<p># Output if not canonical:<br># ✗ document.json is NOT canonical<br># Reason: Keys not in lexicographic order at path $.metadata<br># Canonical form written to document.canonical.json</p>
+
+<p># Canonicalize a file<br>logline json canonize input.json -o output.json</p>
+
+<p># Compare two files for semantic equality<br>logline json compare a.json b.json</p>
+
+<p># Output:<br># Semantically equal: YES<br># Identity: b3:7f3a9b2c...</p>
+
+<p># Run conformance tests<br>logline json test-vectors</p>
+
+<p># Output:<br># C1 Key Ordering:      PASS<br># C2 Unicode Strings:   PASS<br># C3 Nesting:           PASS<br># C4 Zero Normalization: PASS<br># C5 Error Duplicate:   PASS<br># C6 Error Float:       PASS<br># C7 Deep Nesting:      PASS<br># C8 Empty Structures:  PASS<br># C9 Control Characters: PASS<br># All 9 vectors passed.</code></pre></p>
+
+<hr>
+
+<h2>X. Integration</h2>
+
+<table>
+<thead>
+<tr><th>Paper</th><th>Dependency</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I — LogLine</strong></td><td>9-field tuple sealed with JSON✯Atomic; <code>prev_hash = b3(canonical)</code> chains history</td></tr>
+<tr><td><strong>III — LLLV</strong></td><td>Capsules, manifests, evidence carry <code>b3</code> over canonical bytes</td></tr>
+<tr><td><strong>IV — TDLN</strong></td><td><code>ast_cid</code>, <code>canon_cid</code>, proofs, receipts are canonical</td></tr>
+<tr><td><strong>V — SIRP</strong></td><td>Envelopes, peer descriptors, receipts are canonical</td></tr>
+<tr><td><strong>VI — Chip</strong></td><td>HALs, manifests, policy texts are canonical</td></tr>
+</tbody>
+</table>Every paper depends on this one. If canonicalization fails, everything fails.
+
+<hr>
+
+<h2>XI. Threats Eliminated</h2>
+
+<table>
+<thead>
+<tr><th>Attack</th><th>Mitigation</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Whitespace injection</strong></td><td>Whitespace disallowed</td></tr>
+<tr><td><strong>Key-shuffle attacks</strong></td><td>Keys ordered by UTF-8 bytes</td></tr>
+<tr><td><strong>Unicode spoofing</strong></td><td>NFC normalization</td></tr>
+<tr><td><strong>Float precision drift</strong></td><td>Floats forbidden</td></tr>
+<tr><td><strong>Trailing comma injection</strong></td><td>Trailing commas disallowed</td></tr>
+<tr><td><strong>BOM injection</strong></td><td>BOM disallowed</td></tr>
+<tr><td><strong>Encoding confusion</strong></td><td>UTF-8 only</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XII. The Invariant Connection</h2>
+
+<table>
+<thead>
+<tr><th>Invariant</th><th>JSON✯Atomic Role</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I1</strong> Integrity</td><td>Receipts bind <code>b3(canonical)</code> to effect</td></tr>
+<tr><td><strong>I2</strong> Legality</td><td>Schema validation on canonical form</td></tr>
+<tr><td><strong>I3</strong> Attribution</td><td>Signatures bind author to canonical bytes</td></tr>
+<tr><td><strong>I4</strong> Reproducibility</td><td>Canonical bytes enable exact replay</td></tr>
+<tr><td><strong>I5</strong> Observability</td><td>Receipt streams of canonical facts</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XIII. Conclusion</h2>
+
+<p><strong>JSON✯Atomic makes the byte the unit of truth.</strong></p>
+
+<p>When two implementations produce identical bytes for identical meaning, verification replaces interpretation. When identity is a hash, disputes collapse into computation.</p>
+
+<p>The entire LogLine architecture depends on this layer. Without deterministic canonicalization, there is no chain integrity, no proof verification, no content addressing.</p>
+
+<p>With it, every artifact in the system is exactly what it claims to be.</p>
+
+<hr>
+
+<h2>The Equation</h2>
+
+<pre><code>Same meaning → Same bytes → Same hash → Same identity
+
+<p>Verification replaces argument.</code></pre></p>
+
+<hr>
+
+<p><em>Next: <a href="04_III_LLLV.md">Paper III — LLLV</a></em></p>
+            </div>
         </div>
     </article>
 

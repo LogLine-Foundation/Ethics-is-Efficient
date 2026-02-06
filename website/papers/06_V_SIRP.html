@@ -25,14 +25,14 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -81,71 +81,158 @@
             margin-bottom: 8px;
         }
 
-        /* Content */
-        article {
-            padding: 60px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        blockquote {
-            font-style: italic;
-            color: #aaa;
-            padding: 20px;
-            border-left: 3px solid var(--accent);
-            margin: 20px 0;
-            background-color: var(--code-bg);
-        }
-
-        blockquote p {
+        .paper-meta p:last-child {
             margin-bottom: 0;
         }
 
-        /* Code Blocks */
-        .code-block, pre {
-            background-color: var(--code-bg);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            overflow-x: auto;
+        /* Content */
+        article {
+            padding: 80px 0;
         }
 
-        code {
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
+        }
+
+        #markdown-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h4 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        #markdown-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        #markdown-content blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content blockquote p {
+            margin-bottom: 10px;
+        }
+
+        #markdown-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        /* Code Blocks */
+        #markdown-content pre {
+            background-color: var(--code-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        #markdown-content code {
             font-family: 'Courier New', Monaco, monospace;
-            color: #4a9eff;
             font-size: 0.9rem;
         }
 
-        pre {
-            white-space: pre;
+        #markdown-content pre code {
+            color: #4a9eff;
+        }
+
+        #markdown-content p code,
+        #markdown-content li code {
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
 
         /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        #markdown-content ul, 
+        #markdown-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        li {
-            margin-bottom: 8px;
+        #markdown-content li {
+            margin-bottom: 12px;
             color: #ccc;
+            line-height: 1.7;
+        }
+
+        #markdown-content li p {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content th,
+        #markdown-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        #markdown-content th {
+            background-color: var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content td {
+            color: #ccc;
+        }
+
+        #markdown-content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content em {
+            color: #bbb;
         }
 
         /* Links */
@@ -158,30 +245,6 @@
             text-decoration: underline;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -192,12 +255,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
                 font-size: 2rem;
             }
 
-            h2 {
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            #markdown-content h2 {
                 font-size: 1.5rem;
+            }
+
+            #markdown-content h3 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -212,7 +287,7 @@
                 <p><strong>Author:</strong> Dan Voulez</p>
                 <p><strong>Institution:</strong> The LogLine Foundation</p>
                 <p><strong>Version:</strong> 1.0.1</p>
-                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Date:</strong> 2026-02-05</p>
                 <p><strong>Thesis:</strong> Identity must be routed, not locations. A packet is an accountable artifact when its meaning is content-addressed, signed, and receipted.</p>
             </div>
         </div>
@@ -220,23 +295,30 @@
 
     <article>
         <div class="container">
-            <h2>Paper V — SIRP: The Network Atom</h2>
+            <div id="markdown-content">
+<h1>Paper V — SIRP: The Network Atom</h1>
+
 <p><strong>Secure Intent Routing Protocol</strong></p>
+
 <p><em>Normative keywords per RFC 2119/8174 (MUST/SHOULD/MAY) apply.</em></p>
+
+<hr>
+
 <h2>The Story</h2>
+
 <p><strong>December 2024. A distributed AI system. A catastrophic failure.</strong></p>
+
 <p>Three agents were supposed to coordinate a complex financial operation. Agent A sent instructions to Agent B. Agent B claimed it never received them. Agent C executed based on what it <em>thought</em> Agent B had decided. The result: $18 million in erroneous trades.</p>
-<p>The post-mortem was brutal:</p>
-<p>- TCP delivered the packets (probably)</p>
-<p>- No proof of delivery existed</p>
-<p>- No proof of receipt existed</p>
-<p>- Each agent's version of events contradicted the others</p>
-<p>- The network was a black box</p>
+
+<p>The post-mortem was brutal:<br><ul><br><li>TCP delivered the packets (probably)</li><br><li>No proof of delivery existed</li><br><li>No proof of receipt existed</li><br><li>Each agent's version of events contradicted the others</li><br><li>The network was a black box</li><br></ul></p>
+
 <p><strong>"We can't prove who said what to whom."</strong></p>
+
 <p>Now imagine a different architecture.</p>
+
 <p>Every message between agents is a <strong>Capsule</strong>—signed, content-addressed, receipted:</p>
-<pre><code>
-{
+
+<pre><code>{
   "magic": "0x5199",
   "ver": 1,
   "cid": "b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c...",
@@ -247,11 +329,11 @@
     "params": {"symbol": "AAPL", "quantity": 1000}
   },
   "signature": "ed25519:..."
-}
-</code></pre>
+}</code></pre>
+
 <p>When Agent B receives this Capsule, it signs a <strong>Delivery Receipt</strong>:</p>
-<pre><code>
-{
+
+<pre><code>{
   "kind": "sirp.receipt.delivery.v1",
   "capsule_cid": "b3:7f3a9b2c...",
   "sender_did": "did:logline:agent:A",
@@ -259,36 +341,482 @@
   "ts_received": "2024-12-15T14:23:07.847Z",
   "outcome": "DELIVERED",
   "signature": "ed25519:agent_B_key"
-}
-</code></pre>
+}</code></pre>
+
 <p>Agent B cannot later claim it didn't receive the instruction. The receipt exists. The signature is verifiable. The dispute collapses into a hash comparison.</p>
+
 <p><strong>The network becomes an audit trail.</strong></p>
+
 <p>This is SIRP.</p>
+
+<hr>
+
 <h2>I. The Problem</h2>
-<p>Networks route packets by location. But in a world of accountable agents, location is irrelevant. What matters is:</p>
-<p>- Who is speaking?</p>
-<p>- What do they intend?</p>
-<p>- Can we prove delivery?</p>
-<p>Traditional networks provide none of this:</p>
-<p>- IP addresses change</p>
-<p>- Packets can be forged</p>
-<p>- Delivery is best-effort</p>
-<p>- Routing leaves no audit trail</p>
+
+<p>Networks route packets by location. But in a world of accountable agents, location is irrelevant. What matters is:<br><ul><br><li>Who is speaking?</li><br><li>What do they intend?</li><br><li>Can we prove delivery?</li><br></ul></p>
+
+<p>Traditional networks provide none of this:<br><ul><br><li>IP addresses change</li><br><li>Packets can be forged</li><br><li>Delivery is best-effort</li><br><li>Routing leaves no audit trail</li><br></ul></p>
+
 <p><strong>When meaning must travel, it must travel as an accountable artifact.</strong></p>
+
+<hr>
+
 <h2>II. The Thesis</h2>
-<blockquote>
-<p>**Route by identity, not topology. Receipt every hop. Prove delivery.**</p>
-</blockquote>
-<p>SIRP defines:</p>
-<p>1. <strong>Capsule</strong> — the atomic, signed, content-addressed message</p>
-<p>2. <strong>Discovery</strong> — identity-bound DHT mapping DIDs to endpoints</p>
-<p>3. <strong>TAL</strong> — transport abstraction (UDP, QUIC, WebSocket, TCP)</p>
-<p>4. <strong>Receipts</strong> — cryptographic proof of relay and delivery</p>
+
+<blockquote><strong>Route by identity, not topology. Receipt every hop. Prove delivery.</strong></blockquote>
+
+<p>SIRP defines:<br>1. <strong>Capsule</strong> — the atomic, signed, content-addressed message<br>2. <strong>Discovery</strong> — identity-bound DHT mapping DIDs to endpoints<br>3. <strong>TAL</strong> — transport abstraction (UDP, QUIC, WebSocket, TCP)<br>4. <strong>Receipts</strong> — cryptographic proof of relay and delivery</p>
+
 <p><strong>SIRP is to the network what the Gate is to execution: nothing meaningful happens without artifacts.</strong></p>
 
-            <p style="margin-top: 40px;">
-                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/06_V_SIRP.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
-            </p>
+<hr>
+
+<h2>III. Install It Now</h2>
+
+<pre><code># Add to your Rust project
+cargo add sirp
+
+<p># Or install the CLI<br>cargo install logline-cli</code></pre></p>
+
+<pre><code>use sirp::{Capsule, Node, Discovery, Receipt};
+
+<p>#[tokio::main]<br>async fn main() -&gt; Result&lt;(), sirp::Error&gt; {<br>    // Create a SIRP node<br>    let node = Node::new(<br>        "did:logline:agent:alice",<br>        signing_key,<br>    ).await?;</p>
+
+<p>// Send a capsule<br>    let capsule = Capsule::new(<br>        "did:logline:agent:bob",<br>        json!({"action": "transfer", "amount": 1000}),<br>    )?;</p>
+
+<p>let receipt = node.send(capsule).await?;</p>
+
+<p>// Verify delivery<br>    assert!(matches!(receipt.outcome, Outcome::Delivered));<br>    println!("Delivered! Receipt CID: {}", receipt.cid());</p>
+
+<p>Ok(())<br>}</code></pre></p>
+
+<hr>
+
+<h2>IV. The Capsule</h2>
+
+<p>The atomic unit of SIRP transport is the <strong>Capsule</strong>: a self-contained, signed, content-addressed message.</p>
+
+<h3>Wire Format</h3>
+
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│  MAGIC    u16 [2]     0x5199 (Protocol ID)              │
+│  VER      u8  [1]     0x01 (Wire version)               │
+│  FLAGS    u8  [1]     Encrypted | ReceiptRequired | ... │
+│  TTL      u8  [1]     Hop limit                         │
+│  CID      [32]        BLAKE3(PAYLOAD)                   │
+│  INTENT   u64 [8]     Routing hint (non-authorizing)    │
+│  TS       u64 [8]     UTC nanoseconds                   │
+│  LEN      u32 [4]     Payload length                    │
+│  SIG      [64]        Ed25519(domain ‖ header ‖ payload)│
+├─────────────────────────────────────────────────────────┤
+│  PAYLOAD  var         Canonical JSON or CipherEnvelope  │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+<p>Total header: 121 bytes</p>
+
+<h3>Implementation</h3>
+
+<pre><code>// sirp/src/capsule.rs
+
+<p>use blake3::Hasher;<br>use ed25519_dalek::{Signature, SigningKey, VerifyingKey};</p>
+
+<p>/// A Capsule: the atomic unit of SIRP transport<br>#[derive(Debug, Clone)]<br>pub struct Capsule {<br>    pub header: CapsuleHeader,<br>    pub payload: Payload,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[repr(C, packed)]<br>#[derive(Debug, Clone, Copy)]<br>pub struct CapsuleHeader {<br>    pub magic: u16,      // 0x5199<br>    pub version: u8,     // 0x01<br>    pub flags: u8,<br>    pub ttl: u8,<br>    pub cid: [u8; 32],   // BLAKE3(payload)<br>    pub intent: u64,     // Routing hint<br>    pub timestamp: u64,  // UTC nanoseconds<br>    pub payload_len: u32,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum Payload {<br>    Canonical(serde_json::Value),<br>    Encrypted(CipherEnvelope),<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct CipherEnvelope {<br>    pub nonce: [u8; 24],<br>    pub aad: Vec&lt;u8&gt;,<br>    pub ciphertext: Vec&lt;u8&gt;,<br>}</p>
+
+<p>impl Capsule {<br>    pub const MAGIC: u16 = 0x5199;<br>    pub const VERSION: u8 = 0x01;<br>    pub const DOMAIN: &amp;'static [u8] = b"sirp.cap.v1";</p>
+
+<p>/// Create a new capsule<br>    pub fn new(<br>        recipient: &amp;Did,<br>        payload: serde_json::Value,<br>        signing_key: &amp;SigningKey,<br>    ) -&gt; Result&lt;Self, CapsuleError&gt; {<br>        // Canonicalize payload<br>        let payload_bytes = json_atomic::canonize(&amp;payload)?;<br>        let cid = blake3::hash(&amp;payload_bytes);</p>
+
+<p>// Compute intent (routing hint from action)<br>        let intent = Self::compute_intent(&amp;payload);</p>
+
+<p>let header = CapsuleHeader {<br>            magic: Self::MAGIC,<br>            version: Self::VERSION,<br>            flags: 0,<br>            ttl: 64,  // Default hop limit<br>            cid: *cid.as_bytes(),<br>            intent,<br>            timestamp: Timestamp::now().as_nanos(),<br>            payload_len: payload_bytes.len() as u32,<br>        };</p>
+
+<p>// Sign with domain separation<br>        let sig_material = Self::signature_material(&amp;header, &amp;payload_bytes);<br>        let signature = signing_key.sign(&amp;sig_material);</p>
+
+<p>Ok(Self {<br>            header,<br>            payload: Payload::Canonical(payload),<br>            signature,<br>        })<br>    }</p>
+
+<p>/// Create an encrypted capsule<br>    pub fn new_encrypted(<br>        recipient: &amp;Did,<br>        payload: serde_json::Value,<br>        recipient_public_key: &amp;x25519_dalek::PublicKey,<br>        signing_key: &amp;SigningKey,<br>    ) -&gt; Result&lt;Self, CapsuleError&gt; {<br>        // Canonicalize<br>        let payload_bytes = json_atomic::canonize(&amp;payload)?;</p>
+
+<p>// Encrypt with X25519 + ChaCha20-Poly1305<br>        let envelope = encrypt_payload(&amp;payload_bytes, recipient_public_key)?;<br>        let envelope_bytes = serde_json::to_vec(&amp;envelope)?;</p>
+
+<p>let cid = blake3::hash(&amp;envelope_bytes);<br>        let intent = Self::compute_intent(&amp;payload);</p>
+
+<p>let header = CapsuleHeader {<br>            magic: Self::MAGIC,<br>            version: Self::VERSION,<br>            flags: 0x01,  // ENCRYPTED flag<br>            ttl: 64,<br>            cid: *cid.as_bytes(),<br>            intent,<br>            timestamp: Timestamp::now().as_nanos(),<br>            payload_len: envelope_bytes.len() as u32,<br>        };</p>
+
+<p>let sig_material = Self::signature_material(&amp;header, &amp;envelope_bytes);<br>        let signature = signing_key.sign(&amp;sig_material);</p>
+
+<p>Ok(Self {<br>            header,<br>            payload: Payload::Encrypted(envelope),<br>            signature,<br>        })<br>    }</p>
+
+<p>/// Verify capsule integrity<br>    pub fn verify(&amp;self, public_key: &amp;VerifyingKey) -&gt; Result&lt;(), CapsuleError&gt; {<br>        // 1. Verify CID<br>        let payload_bytes = match &amp;self.payload {<br>            Payload::Canonical(v) =&gt; json_atomic::canonize(v)?,<br>            Payload::Encrypted(e) =&gt; serde_json::to_vec(e)?,<br>        };</p>
+
+<p>let computed_cid = blake3::hash(&amp;payload_bytes);<br>        if computed_cid.as_bytes() != &amp;self.header.cid {<br>            return Err(CapsuleError::CidMismatch);<br>        }</p>
+
+<p>// 2. Verify signature with domain separation<br>        let sig_material = Self::signature_material(&amp;self.header, &amp;payload_bytes);<br>        public_key.verify(&amp;sig_material, &amp;self.signature)<br>            .map_err(|_| CapsuleError::InvalidSignature)?;</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>fn signature_material(header: &amp;CapsuleHeader, payload: &amp;[u8]) -&gt; Vec&lt;u8&gt; {<br>        let mut material = Vec::with_capacity(Self::DOMAIN.len() + 57 + payload.len());<br>        material.extend_from_slice(Self::DOMAIN);</p>
+
+<p>// Header bytes (first 57 bytes)<br>        let header_bytes: [u8; 57] = unsafe {<br>            std::mem::transmute_copy(header)<br>        };<br>        material.extend_from_slice(&amp;header_bytes);</p>
+
+<p>material.extend_from_slice(payload);<br>        material<br>    }</p>
+
+<p>fn compute_intent(payload: &amp;serde_json::Value) -&gt; u64 {<br>        // Intent = first 64 bits of BLAKE3("namespace.action")<br>        let action = payload.get("action")<br>            .and_then(|v| v.as_str())<br>            .unwrap_or("default");</p>
+
+<p>let hash = blake3::hash(action.as_bytes());<br>        u64::from_le_bytes(hash.as_bytes()[..8].try_into().unwrap())<br>    }</p>
+
+<p>/// Get content address<br>    pub fn cid(&amp;self) -&gt; ContentAddress {<br>        ContentAddress::from_bytes(&amp;self.header.cid)<br>    }<br>}</code></pre></p>
+
+<h3>Capsule Invariants</h3>
+
+<table>
+<thead>
+<tr><th>ID</th><th>Guarantee</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CP-I1</strong></td><td>Any byte change invalidates SIG</td></tr>
+<tr><td><strong>CP-I2</strong></td><td>CID MUST equal BLAKE3(PAYLOAD)</td></tr>
+<tr><td><strong>CP-I3</strong></td><td>TTL decremented on relay; drop at zero</td></tr>
+<tr><td><strong>CP-I4</strong></td><td>Replay defense by (sender_did, CID)</td></tr>
+<tr><td><strong>CP-I5</strong></td><td>INTENT is hint only; never authorizes</td></tr>
+</tbody>
+</table><strong>Critical:</strong> INTENT guides queue priority but NEVER authorizes effects. Authorization lives in Gate receipts (Paper IV).
+
+<hr>
+
+<h2>V. Discovery</h2>
+
+<p>Discovery maps DIDs to network endpoints using an identity-bound DHT.</p>
+
+<pre><code>// sirp/src/discovery.rs
+
+<p>use libp2p::kad::{Kademlia, KademliaConfig, store::MemoryStore};</p>
+
+<p>/// Identity-bound DHT for peer discovery<br>pub struct Discovery {<br>    kad: Kademlia&lt;MemoryStore&gt;,<br>    local_did: Did,<br>}</p>
+
+<p>/// A signed peer descriptor<br>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct PeerDescriptor {<br>    pub did: Did,<br>    pub endpoints: Vec&lt;Endpoint&gt;,<br>    pub relay_did: Option&lt;Did&gt;,<br>    pub timestamp: Timestamp,<br>    pub pubkey: PublicKey,<br>    pub kid: String,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum Endpoint {<br>    Udp(SocketAddr),<br>    Quic(String),<br>    WebSocket(String),<br>    Tcp(SocketAddr),<br>}</p>
+
+<p>impl Discovery {<br>    /// Create a new discovery instance<br>    pub fn new(did: Did, signing_key: &amp;SigningKey) -&gt; Result&lt;Self, DiscoveryError&gt; {<br>        let peer_id = did_to_peer_id(&amp;did)?;</p>
+
+<p>let config = KademliaConfig::default();<br>        let store = MemoryStore::new(peer_id);<br>        let kad = Kademlia::with_config(peer_id, store, config);</p>
+
+<p>Ok(Self {<br>            kad,<br>            local_did: did,<br>        })<br>    }</p>
+
+<p>/// Publish our peer descriptor<br>    pub async fn publish(&amp;mut self, descriptor: PeerDescriptor) -&gt; Result&lt;(), DiscoveryError&gt; {<br>        // Verify descriptor is self-signed<br>        descriptor.verify()?;</p>
+
+<p>// Key = BLAKE3(DID public key bytes)<br>        let key = blake3::hash(descriptor.pubkey.as_bytes());</p>
+
+<p>// Value = canonical descriptor<br>        let value = json_atomic::canonize(&amp;descriptor)?;</p>
+
+<p>self.kad.put_record(<br>            libp2p::kad::Record {<br>                key: key.as_bytes().to_vec().into(),<br>                value,<br>                publisher: None,<br>                expires: None,<br>            },<br>            libp2p::kad::Quorum::Majority,<br>        )?;</p>
+
+<p>Ok(())<br>    }</p>
+
+<p>/// Resolve a DID to endpoints<br>    pub async fn resolve(&amp;mut self, did: &amp;Did) -&gt; Result&lt;PeerDescriptor, DiscoveryError&gt; {<br>        // Derive key from DID<br>        let pubkey = did.public_key()?;<br>        let key = blake3::hash(pubkey.as_bytes());</p>
+
+<p>// Query DHT<br>        let record = self.kad.get_record(key.as_bytes().to_vec().into()).await?;</p>
+
+<p>// Parse and verify descriptor<br>        let descriptor: PeerDescriptor = serde_json::from_slice(&amp;record.value)?;</p>
+
+<p>// Verify signature<br>        descriptor.verify()?;</p>
+
+<p>// Check DID matches<br>        if descriptor.did != *did {<br>            return Err(DiscoveryError::DidMismatch);<br>        }</p>
+
+<p>Ok(descriptor)<br>    }<br>}</p>
+
+<p>impl PeerDescriptor {<br>    pub fn verify(&amp;self) -&gt; Result&lt;(), DiscoveryError&gt; {<br>        let canonical = json_atomic::canonize(&amp;PeerDescriptorContent {<br>            did: &amp;self.did,<br>            endpoints: &amp;self.endpoints,<br>            relay_did: &amp;self.relay_did,<br>            timestamp: &amp;self.timestamp,<br>        })?;</p>
+
+<p>self.pubkey.verify(&amp;canonical, &amp;self.signature)<br>            .map_err(|_| DiscoveryError::InvalidSignature)<br>    }<br>}</code></pre></p>
+
+<p><strong>Rule:</strong> Descriptors MUST be signed by the DID key. Newest valid by timestamp is preferred.</p>
+
+<hr>
+
+<h2>VI. Transport Abstraction Layer (TAL)</h2>
+
+<p>TAL provides carrier flexibility without identity drift.</p>
+
+<pre><code>// sirp/src/transport.rs
+
+<p>/// Transport Abstraction Layer<br>pub struct TransportLayer {<br>    drivers: Vec&lt;Box&lt;dyn TransportDriver&gt;&gt;,<br>    preferred_order: Vec&lt;TransportKind&gt;,<br>}</p>
+
+<p>#[derive(Debug, Clone, Copy, PartialEq, Eq)]<br>pub enum TransportKind {<br>    Udp,       // Lowest latency<br>    Quic,      // Multiplexed, encrypted<br>    WebSocket, // Firewall-friendly<br>    Tcp,       // Fallback<br>}</p>
+
+<p>#[async_trait]<br>pub trait TransportDriver: Send + Sync {<br>    fn kind(&amp;self) -&gt; TransportKind;</p>
+
+<p>async fn connect(&amp;self, endpoint: &amp;Endpoint) -&gt; Result&lt;Connection, TransportError&gt;;</p>
+
+<p>async fn send(&amp;self, conn: &amp;mut Connection, capsule: &amp;Capsule) -&gt; Result&lt;(), TransportError&gt;;</p>
+
+<p>async fn recv(&amp;self, conn: &amp;mut Connection) -&gt; Result&lt;Capsule, TransportError&gt;;<br>}</p>
+
+<p>impl TransportLayer {<br>    pub fn new() -&gt; Self {<br>        Self {<br>            drivers: vec![<br>                Box::new(UdpDriver::new()),<br>                Box::new(QuicDriver::new()),<br>                Box::new(WebSocketDriver::new()),<br>                Box::new(TcpDriver::new()),<br>            ],<br>            preferred_order: vec![<br>                TransportKind::Udp,<br>                TransportKind::Quic,<br>                TransportKind::WebSocket,<br>                TransportKind::Tcp,<br>            ],<br>        }<br>    }</p>
+
+<p>/// Send capsule using best available transport<br>    pub async fn send(<br>        &amp;self,<br>        capsule: &amp;Capsule,<br>        endpoints: &amp;[Endpoint],<br>    ) -&gt; Result&lt;Receipt, TransportError&gt; {<br>        // Try transports in preference order<br>        for kind in &amp;self.preferred_order {<br>            let driver = self.drivers.iter()<br>                .find(|d| d.kind() == *kind)<br>                .ok_or(TransportError::NoDriver(*kind))?;</p>
+
+<p>// Find compatible endpoint<br>            let endpoint = endpoints.iter()<br>                .find(|e| self.endpoint_matches_transport(e, *kind));</p>
+
+<p>if let Some(ep) = endpoint {<br>                match driver.connect(ep).await {<br>                    Ok(mut conn) =&gt; {<br>                        match driver.send(&amp;mut conn, capsule).await {<br>                            Ok(()) =&gt; {<br>                                // Wait for receipt<br>                                return self.wait_for_receipt(&amp;mut conn, capsule).await;<br>                            }<br>                            Err(e) =&gt; {<br>                                log::warn!("Send failed on {:?}: {}", kind, e);<br>                                continue;<br>                            }<br>                        }<br>                    }<br>                    Err(e) =&gt; {<br>                        log::warn!("Connect failed on {:?}: {}", kind, e);<br>                        continue;<br>                    }<br>                }<br>            }<br>        }</p>
+
+<p>Err(TransportError::AllTransportsFailed)<br>    }<br>}</code></pre></p>
+
+<h3>Constraints</h3>
+
+<ul>
+<li><strong>No fragmentation:</strong> SIRP does not fragment capsules</li>
+<li><strong>MTU guidance:</strong> Keep header + LEN ≤ 1200 bytes over UDP</li>
+<li><strong>Session identity:</strong> TAL drivers MUST authenticate peer_did at setup</li>
+</ul>
+
+<hr>
+
+<h2>VII. Cryptographic Receipts</h2>
+
+<p>Routing outcomes become durable evidence.</p>
+
+<pre><code>// sirp/src/receipt.rs
+
+<p>/// Receipt types for SIRP operations<br>#[derive(Debug, Clone, Serialize, Deserialize)]<br>#[serde(tag = "kind")]<br>pub enum Receipt {<br>    #[serde(rename = "sirp.receipt.relay.v1")]<br>    Relay(RelayReceipt),</p>
+
+<p>#[serde(rename = "sirp.receipt.delivery.v1")]<br>    Delivery(DeliveryReceipt),<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct RelayReceipt {<br>    pub capsule_cid: ContentAddress,<br>    pub sender_did: Did,<br>    pub receiver_did: Did,  // This relay node<br>    pub ts_received: Timestamp,<br>    pub metrics: RelayMetrics,<br>    pub outcome: RelayOutcome,<br>    pub next_hop_did: Option&lt;Did&gt;,<br>    pub canon_cid: ContentAddress,<br>    pub kid: String,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct RelayMetrics {<br>    pub latency_ingress_ms: u32,<br>    pub verification_cost_us: u32,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum RelayOutcome {<br>    Forwarded,<br>    DroppedTtl,<br>    ReplayDrop,<br>    RejectSig,<br>    Queued,<br>    DroppedBackpressure,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub struct DeliveryReceipt {<br>    pub capsule_cid: ContentAddress,<br>    pub sender_did: Did,<br>    pub receiver_did: Did,<br>    pub ts_received: Timestamp,<br>    pub outcome: DeliveryOutcome,<br>    pub canon_cid: ContentAddress,<br>    pub kid: String,<br>    pub signature: Signature,<br>}</p>
+
+<p>#[derive(Debug, Clone, Serialize, Deserialize)]<br>pub enum DeliveryOutcome {<br>    Delivered,<br>    Rejected { reason: String },<br>}</p>
+
+<p>impl Receipt {<br>    /// Verify receipt signature<br>    pub fn verify(&amp;self, public_key: &amp;VerifyingKey) -&gt; Result&lt;(), ReceiptError&gt; {<br>        let (canonical, signature) = match self {<br>            Receipt::Relay(r) =&gt; {<br>                (json_atomic::canonize(r)?, &amp;r.signature)<br>            }<br>            Receipt::Delivery(d) =&gt; {<br>                (json_atomic::canonize(d)?, &amp;d.signature)<br>            }<br>        };</p>
+
+<p>public_key.verify(&amp;canonical, signature)<br>            .map_err(|_| ReceiptError::InvalidSignature)<br>    }</p>
+
+<p>/// Get the capsule CID this receipt is for<br>    pub fn capsule_cid(&amp;self) -&gt; &amp;ContentAddress {<br>        match self {<br>            Receipt::Relay(r) =&gt; &amp;r.capsule_cid,<br>            Receipt::Delivery(d) =&gt; &amp;d.capsule_cid,<br>        }<br>    }<br>}</code></pre></p>
+
+<h3>Outcomes</h3>
+
+<table>
+<thead>
+<tr><th>Outcome</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>FORWARDED</strong></td><td>Relay accepted, passed to next hop</td></tr>
+<tr><td><strong>DELIVERED</strong></td><td>Final recipient received</td></tr>
+<tr><td><strong>DROPPED_TTL</strong></td><td>TTL exhausted</td></tr>
+<tr><td><strong>REPLAY_DROP</strong></td><td>Duplicate within window</td></tr>
+<tr><td><strong>REJECT_SIG</strong></td><td>Invalid signature</td></tr>
+<tr><td><strong>QUEUED</strong></td><td>Accepted, awaiting processing</td></tr>
+<tr><td><strong>DROPPED_BACKPRESSURE</strong></td><td>Rejected due to load</td></tr>
+</tbody>
+</table><hr>
+
+<h2>VIII. The Node</h2>
+
+<p>A complete SIRP node implementation:</p>
+
+<pre><code>// sirp/src/node.rs
+
+<p>/// A SIRP network node<br>pub struct Node {<br>    did: Did,<br>    signing_key: SigningKey,<br>    discovery: Discovery,<br>    transport: TransportLayer,<br>    replay_cache: ReplayCache,<br>    receipt_store: ReceiptStore,<br>}</p>
+
+<p>impl Node {<br>    pub async fn new(did: Did, signing_key: SigningKey) -&gt; Result&lt;Self, NodeError&gt; {<br>        let discovery = Discovery::new(did.clone(), &amp;signing_key)?;<br>        let transport = TransportLayer::new();<br>        let replay_cache = ReplayCache::new(Duration::from_secs(300));  // 5 min window<br>        let receipt_store = ReceiptStore::new();</p>
+
+<p>Ok(Self {<br>            did,<br>            signing_key,<br>            discovery,<br>            transport,<br>            replay_cache,<br>            receipt_store,<br>        })<br>    }</p>
+
+<p>/// Send a capsule to a recipient<br>    pub async fn send(&amp;mut self, capsule: Capsule) -&gt; Result&lt;Receipt, NodeError&gt; {<br>        // 1. Resolve recipient endpoints<br>        let recipient_did = capsule.recipient_did()?;<br>        let descriptor = self.discovery.resolve(&amp;recipient_did).await?;</p>
+
+<p>// 2. Send via transport layer<br>        let receipt = self.transport.send(&amp;capsule, &amp;descriptor.endpoints).await?;</p>
+
+<p>// 3. Store receipt for future reference<br>        self.receipt_store.store(&amp;receipt)?;</p>
+
+<p>Ok(receipt)<br>    }</p>
+
+<p>/// Receive and process incoming capsules<br>    pub async fn receive(&amp;mut self, capsule: Capsule) -&gt; Result&lt;Receipt, NodeError&gt; {<br>        // 1. Verify capsule<br>        let sender_pubkey = self.resolve_public_key(&amp;capsule.sender_did()?).await?;<br>        capsule.verify(&amp;sender_pubkey)?;</p>
+
+<p>// 2. Check TTL<br>        if capsule.header.ttl == 0 {<br>            return Ok(self.create_receipt(&amp;capsule, DeliveryOutcome::Rejected {<br>                reason: "TTL exhausted".to_string(),<br>            })?);<br>        }</p>
+
+<p>// 3. Check replay cache<br>        let cache_key = (capsule.sender_did()?, capsule.cid());<br>        if self.replay_cache.contains(&amp;cache_key) {<br>            return Ok(self.create_relay_receipt(<br>                &amp;capsule,<br>                RelayOutcome::ReplayDrop,<br>            )?);<br>        }<br>        self.replay_cache.insert(cache_key);</p>
+
+<p>// 4. Determine if we are the final recipient<br>        let recipient = capsule.recipient_did()?;<br>        if recipient == self.did {<br>            // Final delivery<br>            let receipt = self.create_receipt(&amp;capsule, DeliveryOutcome::Delivered)?;<br>            self.handle_payload(&amp;capsule).await?;<br>            Ok(receipt)<br>        } else {<br>            // Relay to next hop<br>            self.relay(capsule).await<br>        }<br>    }</p>
+
+<p>async fn relay(&amp;mut self, mut capsule: Capsule) -&gt; Result&lt;Receipt, NodeError&gt; {<br>        // Decrement TTL<br>        capsule.header.ttl -= 1;</p>
+
+<p>if capsule.header.ttl == 0 {<br>            return Ok(self.create_relay_receipt(&amp;capsule, RelayOutcome::DroppedTtl)?);<br>        }</p>
+
+<p>// Resolve next hop<br>        let recipient = capsule.recipient_did()?;<br>        let descriptor = self.discovery.resolve(&amp;recipient).await?;</p>
+
+<p>// Forward<br>        match self.transport.send(&amp;capsule, &amp;descriptor.endpoints).await {<br>            Ok(receipt) =&gt; Ok(self.create_relay_receipt(<br>                &amp;capsule,<br>                RelayOutcome::Forwarded,<br>            )?),<br>            Err(_) =&gt; Ok(self.create_relay_receipt(<br>                &amp;capsule,<br>                RelayOutcome::DroppedBackpressure,<br>            )?),<br>        }<br>    }</p>
+
+<p>fn create_receipt(<br>        &amp;self,<br>        capsule: &amp;Capsule,<br>        outcome: DeliveryOutcome,<br>    ) -&gt; Result&lt;Receipt, NodeError&gt; {<br>        let receipt = DeliveryReceipt {<br>            capsule_cid: capsule.cid(),<br>            sender_did: capsule.sender_did()?,<br>            receiver_did: self.did.clone(),<br>            ts_received: Timestamp::now(),<br>            outcome,<br>            canon_cid: ContentAddress::default(),  // Computed below<br>            kid: self.signing_key.kid(),<br>            signature: Signature::default(),  // Signed below<br>        };</p>
+
+<p>let canonical = json_atomic::canonize(&amp;receipt)?;<br>        let canon_cid = ContentAddress::from_blake3(blake3::hash(&amp;canonical));</p>
+
+<p>let mut receipt = receipt;<br>        receipt.canon_cid = canon_cid;<br>        receipt.signature = self.signing_key.sign(&amp;canonical);</p>
+
+<p>Ok(Receipt::Delivery(receipt))<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>IX. CLI Usage</h2>
+
+<pre><code># Start a SIRP node
+logline sirp start \
+  --did "did:logline:agent:alice" \
+  --keyfile alice.key \
+  --port 9000
+
+<p># Output:<br># SIRP node started<br># DID: did:logline:agent:alice<br># Endpoints: udp://0.0.0.0:9000, quic://0.0.0.0:9001<br># Discovery: bootstrapped to 3 peers</p>
+
+<p># Send a capsule<br>logline sirp send \<br>  --to "did:logline:agent:bob" \<br>  --payload '{"action": "transfer", "amount": 1000}'</p>
+
+<p># Output:<br># Capsule sent<br># CID: b3:7f3a9b2c4d5e6f7a8b9c0d1e2f3a4b5c...<br># Waiting for delivery receipt...<br># DELIVERED at 2026-02-05T14:23:07Z<br># Receipt CID: b3:8f4a9c3d...</p>
+
+<p># Verify a receipt<br>logline sirp verify-receipt \<br>  --receipt receipt.json \<br>  --capsule capsule.json</p>
+
+<p># Output:<br># Capsule CID: MATCH<br># Signature: VALID<br># Timestamp: 2026-02-05T14:23:07Z (within acceptable skew)<br># Receipt verification: PASS</p>
+
+<p># List pending receipts<br>logline sirp receipts \<br>  --status pending \<br>  --since "1h"</p>
+
+<p># Output:<br># Pending receipts (last 1h):<br>#   b3:1a2b... → did:logline:agent:charlie  QUEUED<br>#   b3:3c4d... → did:logline:agent:david    FORWARDED</p>
+
+<p># Resolve a DID<br>logline sirp resolve "did:logline:agent:bob"</p>
+
+<p># Output:<br># DID: did:logline:agent:bob<br># Endpoints:<br>#   udp://203.0.113.5:9000<br>#   quic://relay.example.com:443/bob<br># Relay: did:logline:relay:gamma<br># Last updated: 2026-02-05T13:00:00Z<br># Signature: VALID</code></pre></p>
+
+<hr>
+
+<h2>X. Security Properties</h2>
+
+<table>
+<thead>
+<tr><th>Threat</th><th>Mitigation</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Header tampering</strong></td><td>Domain-separated signature over header ‖ payload</td></tr>
+<tr><td><strong>Payload exposure</strong></td><td>Encrypted capsules reveal only INTENT hint</td></tr>
+<tr><td><strong>Replay attacks</strong></td><td>(sender_did, CID) cache + time windows</td></tr>
+<tr><td><strong>Downgrade</strong></td><td>Explicit VER; mismatch rejected</td></tr>
+<tr><td><strong>Key rotation</strong></td><td>DIDs rotate via descriptors; receipts bind to kid</td></tr>
+<tr><td><strong>TOCTOU</strong></td><td>Authorization bound in Gate receipts, not SIRP</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XI. Conformance</h2>
+
+<table>
+<thead>
+<tr><th>Test</th><th>Requirement</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>CT-V-01</strong></td><td>Capsule roundtrip: serialize → TAL → parse → verify</td></tr>
+<tr><td><strong>CT-V-02</strong></td><td>Anti-replay: same (sender_did, CID) → REPLAY_DROP</td></tr>
+<tr><td><strong>CT-V-03</strong></td><td>TTL enforcement: decrement per hop, drop at zero</td></tr>
+<tr><td><strong>CT-V-04</strong></td><td>Receipt validity: offline verification passes</td></tr>
+<tr><td><strong>CT-V-05</strong></td><td>Discovery integrity: invalid signature rejected</td></tr>
+</tbody>
+</table><pre><code>#[cfg(test)]
+mod conformance {
+    #[test]
+    fn ct_v_01_roundtrip() {
+        let capsule = Capsule::new(
+            &amp;did!("bob"),
+            json!({"action": "test"}),
+            &amp;signing_key,
+        )?;
+
+<p>// Serialize<br>        let bytes = capsule.to_bytes()?;</p>
+
+<p>// Parse<br>        let parsed = Capsule::from_bytes(&amp;bytes)?;</p>
+
+<p>// Verify<br>        parsed.verify(&amp;signing_key.verifying_key())?;</p>
+
+<p>assert_eq!(capsule.cid(), parsed.cid());<br>    }</p>
+
+<p>#[test]<br>    fn ct_v_02_anti_replay() {<br>        let mut node = Node::new(did!("alice"), signing_key).await?;</p>
+
+<p>let capsule = Capsule::new(&amp;did!("alice"), json!({}), &amp;other_key)?;</p>
+
+<p>// First receive: OK<br>        let receipt1 = node.receive(capsule.clone()).await?;<br>        assert!(matches!(receipt1, Receipt::Delivery(_)));</p>
+
+<p>// Second receive: REPLAY_DROP<br>        let receipt2 = node.receive(capsule).await?;<br>        assert!(matches!(receipt2, Receipt::Relay(r) if r.outcome == RelayOutcome::ReplayDrop));<br>    }</p>
+
+<p>#[test]<br>    fn ct_v_03_ttl() {<br>        let mut capsule = Capsule::new(&amp;did!("bob"), json!({}), &amp;key)?;<br>        capsule.header.ttl = 1;</p>
+
+<p>let mut relay_node = Node::new(did!("relay"), relay_key).await?;<br>        let receipt = relay_node.receive(capsule).await?;</p>
+
+<p>// TTL was 1, after decrement it's 0, should be dropped<br>        assert!(matches!(receipt, Receipt::Relay(r) if r.outcome == RelayOutcome::DroppedTtl));<br>    }<br>}</code></pre></p>
+
+<hr>
+
+<h2>XII. The Invariant Connection</h2>
+
+<table>
+<thead>
+<tr><th>Invariant</th><th>SIRP Implementation</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>I1</strong> Integrity</td><td>Capsules, descriptors, receipts canonical and signed</td></tr>
+<tr><td><strong>I2</strong> Legality</td><td>Delivery never authorizes effects</td></tr>
+<tr><td><strong>I3</strong> Attribution</td><td>DIDs and kid bind actors across artifacts</td></tr>
+<tr><td><strong>I4</strong> Reproducibility</td><td>Same payload + receipts → same verification</td></tr>
+<tr><td><strong>I5</strong> Observability</td><td>DROPPED, REPLAY outcomes are metrified</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XIII. Constants</h2>
+
+<table>
+<thead>
+<tr><th>Constant</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>MAGIC</td><td>0x5199</td></tr>
+<tr><td>VER</td><td>0x01</td></tr>
+<tr><td>INTENT</td><td>First 64 bits of BLAKE3("namespace.action")</td></tr>
+<tr><td>Domain string</td><td>"sirp.cap.v1"</td></tr>
+<tr><td>Default TTL</td><td>64 hops</td></tr>
+<tr><td>Replay window</td><td>300 seconds</td></tr>
+</tbody>
+</table><hr>
+
+<h2>XIV. Conclusion</h2>
+
+<blockquote><strong>SIRP makes intention deliverable without identity loss.</strong></blockquote>
+
+<p>In a network where meaning matters more than location:</p>
+
+<ul>
+<li><strong>Capsules</strong> carry proof-ready content</li>
+<li><strong>Receipts</strong> convert forwarding into facts</li>
+<li><strong>Discovery</strong> ties cryptographic persons to changing edges</li>
+<li><strong>TAL</strong> abstracts the wire without losing accountability</li>
+</ul>
+
+<p>The result is a network where movement of meaning is:<br><ul><br><li><strong>Auditable</strong> (every hop receipted)</li><br><li><strong>Portable</strong> (identity independent of topology)</li><br><li><strong>Economically accountable</strong> (receipts enable settlement)</li><br></ul></p>
+
+<p>When packets become artifacts, routing becomes governance.</p>
+
+<hr>
+
+<h2>The Equation</h2>
+
+<pre><code>Capsule + Receipts = Verifiable Delivery
+
+<p>Movement becomes fact.</code></pre></p>
+
+<hr>
+
+<p><em>Next: <a href="07_Hardware_as_Text_and_Power.md">Hardware as Text and Power</a></em></p>
+            </div>
         </div>
     </article>
 

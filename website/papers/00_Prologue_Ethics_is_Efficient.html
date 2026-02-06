@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="One-page thesis and system invariants. The foundation of LogLine's architectural philosophy.">
-    <meta name="keywords" content="LogLine, accountability, security, protocol, ethics-is-efficient">
+    <meta name="keywords" content="LogLine, accountability, security, protocol, ethics is efficient">
     <title>Ethics is Efficient - LogLine Foundation</title>
     <style>
         * {
@@ -25,14 +25,14 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             font-size: 16px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -81,71 +81,158 @@
             margin-bottom: 8px;
         }
 
-        /* Content */
-        article {
-            padding: 60px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        blockquote {
-            font-style: italic;
-            color: #aaa;
-            padding: 20px;
-            border-left: 3px solid var(--accent);
-            margin: 20px 0;
-            background-color: var(--code-bg);
-        }
-
-        blockquote p {
+        .paper-meta p:last-child {
             margin-bottom: 0;
         }
 
-        /* Code Blocks */
-        .code-block, pre {
-            background-color: var(--code-bg);
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            overflow-x: auto;
+        /* Content */
+        article {
+            padding: 80px 0;
         }
 
-        code {
+        #markdown-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        #markdown-content h1:first-child {
+            margin-top: 0;
+        }
+
+        #markdown-content h2 {
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        #markdown-content h4 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        #markdown-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        #markdown-content blockquote {
+            font-style: italic;
+            color: #aaa;
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content blockquote p {
+            margin-bottom: 10px;
+        }
+
+        #markdown-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        #markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 50px 0;
+        }
+
+        /* Code Blocks */
+        #markdown-content pre {
+            background-color: var(--code-bg);
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        #markdown-content code {
             font-family: 'Courier New', Monaco, monospace;
-            color: #4a9eff;
             font-size: 0.9rem;
         }
 
-        pre {
-            white-space: pre;
+        #markdown-content pre code {
+            color: #4a9eff;
+        }
+
+        #markdown-content p code,
+        #markdown-content li code {
+            background-color: var(--code-bg);
+            color: var(--accent);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
 
         /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        #markdown-content ul, 
+        #markdown-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
-        li {
-            margin-bottom: 8px;
+        #markdown-content li {
+            margin-bottom: 12px;
             color: #ccc;
+            line-height: 1.7;
+        }
+
+        #markdown-content li p {
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: var(--code-bg);
+        }
+
+        #markdown-content th,
+        #markdown-content td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        #markdown-content th {
+            background-color: var(--border);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content td {
+            color: #ccc;
+        }
+
+        #markdown-content strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        #markdown-content em {
+            color: #bbb;
         }
 
         /* Links */
@@ -158,30 +245,6 @@
             text-decoration: underline;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
         /* Footer */
         footer {
             padding: 40px 0;
@@ -192,12 +255,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             h1 {
                 font-size: 2rem;
             }
 
-            h2 {
+            #markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            #markdown-content h2 {
                 font-size: 1.5rem;
+            }
+
+            #markdown-content h3 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -212,7 +287,7 @@
                 <p><strong>Author:</strong> Dan Voulez</p>
                 <p><strong>Institution:</strong> The LogLine Foundation</p>
                 <p><strong>Version:</strong> 1.0.1</p>
-                <p><strong>Date:</strong> February 05, 2026</p>
+                <p><strong>Date:</strong> 2026-02-05</p>
                 <p><strong>Thesis:</strong> Ethics is not overhead. It is the dominant strategy when correctly priced.</p>
             </div>
         </div>
@@ -220,46 +295,226 @@
 
     <article>
         <div class="container">
-            <h2>Ethics is Efficient</h2>
+            <div id="markdown-content">
+<h1>Ethics is Efficient</h1>
+
 <p><strong>Prologue to the LogLine Papers</strong></p>
-<blockquote>
-<p>*"Fraud doesn't pay when fraud is expensive."*</p>
-</blockquote>
+
+<hr>
+
+<blockquote><em>"Fraud doesn't pay when fraud is expensive."</em></blockquote>
+
+<hr>
+
 <h2>Why We Built This</h2>
+
 <p>Let me tell you why this works.</p>
+
 <p>Not how. Why.</p>
+
 <p>Every system you've ever used was built with ethics as an afterthought. A compliance checkbox. A legal department. An ethics committee that meets quarterly and changes nothing.</p>
+
 <p>Ethics was the last thing added.</p>
+
 <p>And that's why those systems fail.</p>
+
+<hr>
+
 <h2>The Insight</h2>
+
 <p>Ethics committees in parliaments are theater. Compliance departments are paper-pushers. "Responsible AI" is marketing copy.</p>
+
 <p>But here's what nobody tells you:</p>
+
 <p><strong>Ethics is not overhead. Ethics is the dominant strategy.</strong></p>
+
 <p>When you make honesty cheaper than deception, people choose honesty.</p>
+
 <p>When you make accountability structural, disputes disappear.</p>
+
 <p>When you make verification cheaper than argument, trust scales.</p>
+
 <p>This isn't idealism. This is arithmetic.</p>
+
+<hr>
+
 <h2>The Math</h2>
+
 <p>A major fintech processes $47 billion annually. Industry-standard fraud rate: 0.3%.</p>
+
 <p>That's $141 million in fraud losses per year.</p>
-<p>Add the teams that deal with fraud:</p>
-<p>- Fraud detection: $30 million</p>
-<p>- Dispute resolution: $22 million</p>
-<p>- Compliance and audit: $18 million</p>
+
+<p>Add the teams that deal with fraud:<br><ul><br><li>Fraud detection: $30 million</li><br><li>Dispute resolution: $22 million</li><br><li>Compliance and audit: $18 million</li><br></ul></p>
+
 <p><strong>Total cost of dealing with fraud after the fact: $211 million/year.</strong></p>
+
 <p>Now imagine a different architecture:</p>
+
 <p>Every transaction requires a signed intent before execution. Every denial persists as evidence. Every decision produces a cryptographic receipt. Fraud doesn't just fail—it leaves a signed confession.</p>
-<p>In this architecture:</p>
-<p>- Fraud detection shrinks because fraudsters can't probe without leaving evidence</p>
-<p>- Disputes collapse because both parties signed the same receipt</p>
-<p>- Audit becomes verification, not investigation</p>
+
+<p>In this architecture:<br><ul><br><li>Fraud detection shrinks because fraudsters can't probe without leaving evidence</li><br><li>Disputes collapse because both parties signed the same receipt</li><br><li>Audit becomes verification, not investigation</li><br></ul></p>
+
 <p><strong>Estimated cost: $40 million/year.</strong></p>
+
 <p><strong>Savings: $171 million/year.</strong></p>
+
 <p>This isn't theory. This is why LogLine exists.</p>
 
-            <p style="margin-top: 40px;">
-                <a href="https://github.com/LogLine-Foundation/Ethics-is-Efficient/blob/main/docs/papers/LogLine_Papers_v1.0.1/00_Prologue_Ethics_is_Efficient.md" class="btn btn-secondary">Read Full Paper on GitHub →</a>
-            </p>
+<hr>
+
+<h2>The Definition</h2>
+
+<p>In this system, ethics has a precise, operational definition:</p>
+
+<blockquote><strong>Ethics is the practice of honoring commitments under uncertainty.</strong></blockquote>
+
+<p>An agent acts ethically when it does what it said it would do, within the constraints it agreed to, even when defection would be locally cheaper.</p>
+
+<p>This is not sentiment. This is not virtue signaling. This is a <strong>calculable strategy</strong>:</p>
+
+<pre><code>Bear a small certain cost now
+to avoid a large uncertain cost later</code></pre>
+
+<p>The entire LogLine framework follows from this single principle.</p>
+
+<hr>
+
+<h2>The Historical Evidence</h2>
+
+<p>This pattern is not new.</p>
+
+<p><strong>1494: Double-Entry Bookkeeping</strong></p>
+
+<p>Luca Pacioli codified it in Venice. Every transaction recorded twice: debit and credit. Fraud now required falsifying two entries in coordination. Honesty became cheaper than deception.</p>
+
+<p>Result: Within a century, the merchants who adopted it dominated Mediterranean trade. Not because they were more virtuous—because their books could be trusted by strangers.</p>
+
+<p><strong>1700s: The Quaker Advantage</strong></p>
+
+<p>Quaker merchants became disproportionately dominant in English banking, ironworks, and chocolate. Their religious constraints—fixed pricing, no negotiation, strict contract fidelity—functioned as economic moats.</p>
+
+<p>Customers returned because the transaction cost of verifying Quaker honesty was zero.</p>
+
+<p><strong>1956: Containerized Shipping</strong></p>
+
+<p>Before containers, loading a ship took weeks and cost $5.86 per ton. Malcolm McLean standardized the container. One box size, everywhere.</p>
+
+<p>Result: Cost dropped to $0.16 per ton. 97% reduction. Global trade became possible.</p>
+
+<p><strong>The Pattern:</strong></p>
+
+<table>
+<thead>
+<tr><th>Innovation</th><th>Constraint</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>Double-entry</td><td>Record twice</td><td>Books trusted by strangers</td></tr>
+<tr><td>Quaker merchants</td><td>Fixed pricing</td><td>Zero verification cost</td></tr>
+<tr><td>Containers</td><td>Standard box</td><td>97% cost reduction</td></tr>
+<tr><td>TCP/IP</td><td>Strict protocol</td><td>Internet possible</td></tr>
+</tbody>
+</table>Every time, the firms that resisted standardization to preserve local advantage were routed by those who accepted the constraint and captured network effects.
+
+<p><strong>LogLine is the same pattern applied to accountability.</strong></p>
+
+<hr>
+
+<h2>The Partnership</h2>
+
+<p>This is not a system for controlling humans.</p>
+
+<p>This is not a system for controlling AI.</p>
+
+<p><strong>This is a system for partnership.</strong></p>
+
+<p>When an AI agent operates in a LogLine system:<br><ul><br><li>It cannot act without signed intent</li><br><li>It cannot exceed its trajectory without consent</li><br><li>It cannot hide its failures (they become Ghosts)</li><br><li>It earns trust through verified history</li><br></ul></p>
+
+<p>When a human operates in a LogLine system:<br><ul><br><li>Their policies compile to enforceable constraints</li><br><li>Their decisions are receipted and verifiable</li><br><li>Their authority is respected by the machine</li><br><li>Their mistakes are correctable, not catastrophic</li><br></ul></p>
+
+<p><strong>The human is not above the AI. The AI is not above the human.</strong></p>
+
+<p>Both are accountable. Both are protected. Both are partners.</p>
+
+<p>The text they share—the policy, the intent, the receipt—is the contract between them.</p>
+
+<hr>
+
+<h2>Why It Works</h2>
+
+<p>Ethics is efficient because:</p>
+
+<p>1. <strong>Verification is cheaper than argument.</strong> When both parties have the same receipt, there's nothing to argue about.</p>
+
+<p>2. <strong>Prevention is cheaper than remediation.</strong> When violations are structurally impossible, you don't need incident response.</p>
+
+<p>3. <strong>Trust is cheaper than paranoia.</strong> When the rules apply to everyone, you can act without second-guessing.</p>
+
+<p>4. <strong>Transparency eliminates negotiation.</strong> When records are immutable, disputes collapse into verification.</p>
+
+<p>5. <strong>Hard limits prevent expensive shortcuts.</strong> When the system can't represent the forbidden state, the forbidden state can't happen.</p>
+
+<hr>
+
+<h2>The Pledge</h2>
+
+<p>We built LogLine on a simple belief:</p>
+
+<p><strong>The future of computation is not humans controlling machines.</strong></p>
+
+<p><strong>The future of computation is not machines controlling humans.</strong></p>
+
+<p><strong>The future is partnership. Mutual accountability. Shared trust.</strong></p>
+
+<p>The text is the contract between human and machine.</p>
+
+<p>The receipt is the proof that both honored it.</p>
+
+<p>The system works because both parties know: defection is expensive, and cooperation is cheap.</p>
+
+<hr>
+
+<h2>What Follows</h2>
+
+<p>The papers that follow are the technical specification of this idea.</p>
+
+<p><strong>From Silicon to User</strong> shows the complete journey—every layer, every component, one language of accountability from transistor to interface.</p>
+
+<p><strong>Papers I-V</strong> define the protocols: how intents are structured, how bytes are canonical, how memory is verifiable, how policies compile, how messages are receipted.</p>
+
+<p><strong>Hardware as Text and Power</strong> reveals the synthesis: the text is not describing the hardware—the text IS the hardware.</p>
+
+<p><strong>Chip as Code</strong> proves it works: real code, real benchmarks, real receipts. Install it and verify yourself.</p>
+
+<hr>
+
+<h2>The Invitation</h2>
+
+<p>If you're building systems that need trust—payments, healthcare, governance, AI safety—this is for you.</p>
+
+<p>If you believe that humans and machines can work together with mutual respect—this is for you.</p>
+
+<p>If you're tired of ethics being the last checkbox instead of the first principle—this is for you.</p>
+
+<p>The code is published. The papers are open. The math checks out.</p>
+
+<p><strong>Ethics is efficient.</strong></p>
+
+<p><strong>Now let us show you how.</strong></p>
+
+<hr>
+
+<blockquote><em>"We will not execute what we cannot explain,</em> <em>and we will not explain what we cannot replay."</em></blockquote>
+
+<hr>
+
+<p><strong>LogLine Foundation — February 2026</strong></p>
+
+<p><em>"Receipts or it didn't happen."</em></p>
+
+<hr>
+
+<p><em>Continue to: <a href="01_From_Silicon_to_User.md">From Silicon to User</a></em></p>
+            </div>
         </div>
     </article>
 
