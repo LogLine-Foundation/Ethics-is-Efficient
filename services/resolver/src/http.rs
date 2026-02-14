@@ -149,9 +149,15 @@ async fn run(State(state): State<AppState>, Json(req): Json<RunRequest>) -> Json
     let bundle = build_bundle(&final_card_json, &manifest_json, &signatures);
     
     // Write synchronously to ensure it's available immediately
-    let _ = state.store.write_card(&did, &final_card).await;
-    let _ = state.store.write_manifest(&did, &manifest).await;
-    let _ = state.store.write_bundle(&did, bundle).await;
+    if let Err(e) = state.store.write_card(&did, &final_card).await {
+        tracing::warn!("Failed to write card for {}: {}", did, e);
+    }
+    if let Err(e) = state.store.write_manifest(&did, &manifest).await {
+        tracing::warn!("Failed to write manifest for {}: {}", did, e);
+    }
+    if let Err(e) = state.store.write_bundle(&did, bundle).await {
+        tracing::warn!("Failed to write bundle for {}: {}", did, e);
+    }
 
     // 8) Preview
     Json(RunAccepted {
