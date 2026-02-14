@@ -3,8 +3,10 @@ target/
 Cargo.lock
 *.rs.bk
 
-# Cards directory
+# Cards and output directories
 .cards/
+.out/
+keys/
 
 # IDE
 .vscode/

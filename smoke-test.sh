@@ -32,7 +32,7 @@ cargo run -p tdln-verify -- .out/bundle.zip
 echo "✅ Verify exit=$?"
 
 # 7) Check decision
-DECISION=$(jq -r '.decision.type' .out/card.json)
+DECISION=$(jq -r '.decision' .out/card.json)
 if [ "$DECISION" = "ACK" ]; then
   echo "✅ PASS: Decision is ACK"
 else
