@@ -3,6 +3,7 @@ use clap::Parser;
 use zip::ZipArchive;
 use std::fs::File;
 use std::io::Read;
+use ed25519_dalek::Verifier;
 
 #[derive(Parser)]
 struct Args {

@@ -6,6 +6,8 @@ members = [
   "crates/tdln-bundle",
   "services/resolver",
   "tools/tdln-verify",
+]
+exclude = [
   "guests/ack",
   "guests/ask",
 ]
