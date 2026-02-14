@@ -1,12 +1,17 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RunRequest {
     pub realm: String,
+    #[serde(default = "default_intent")]
     pub intent: String,
     pub inputs: serde_json::Value,
     #[serde(default)]
     pub options: serde_json::Value,
+}
+
+fn default_intent() -> String {
+    "execute".to_string()
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -31,7 +36,7 @@ pub struct DiamondCard {
     pub object: String,
     pub did: String,
     pub card_id: String,
-    pub decision: Decision,
+    pub decision: String, // "ACK" | "ASK" | "NACK"
     pub refs: Refs,
     pub runtime: Runtime,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -74,6 +79,8 @@ pub struct Runtime {
     pub version: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub hash: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub fuel: Option<u64>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -89,6 +96,8 @@ pub struct RunManifest {
     pub did: String,
     pub input_cid: String,
     pub request_cid: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub request: Option<serde_json::Value>,
     pub started_at: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub completed_at: Option<String>,

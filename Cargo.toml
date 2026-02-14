@@ -5,9 +5,16 @@ members = [
   "crates/tdln-core",
   "crates/tdln-bundle",
   "services/resolver",
-  "tools/tdln-verify"
-
+  "tools/tdln-verify",
+]
+exclude = [
   "guests/ack",
   "guests/ask",
 ]
 resolver = "2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"

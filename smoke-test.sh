@@ -28,11 +28,11 @@ curl -s "localhost:8080/v2/cards/$DID" | tee .out/card.json
 curl -s -o .out/bundle.zip "localhost:8080/v2/cards/$DID/bundle.zip"
 
 # 6) Verify
-cargo run -p tdln-verify -- bundle .out/bundle.zip
+cargo run -p tdln-verify -- .out/bundle.zip
 echo "✅ Verify exit=$?"
 
 # 7) Check decision
-DECISION=$(jq -r '.decision.type' .out/card.json)
+DECISION=$(jq -r '.decision' .out/card.json)
 if [ "$DECISION" = "ACK" ]; then
   echo "✅ PASS: Decision is ACK"
 else

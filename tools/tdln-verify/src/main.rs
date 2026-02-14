@@ -3,6 +3,7 @@ use clap::Parser;
 use zip::ZipArchive;
 use std::fs::File;
 use std::io::Read;
+use ed25519_dalek::Verifier;
 
 #[derive(Parser)]
 struct Args {
@@ -30,8 +31,20 @@ fn main() -> anyhow::Result<()> {
     let sigs_v: serde_json::Value = serde_json::from_str(&sigs)?;
 
     // recompute bundle_hash
-    let cc = serde_json::to_vec(&card_v)?;
-    let mm = serde_json::to_vec(&manifest_v)?;
+    // Note: The card in the bundle has bundle_hash populated, but we need to recompute
+    // using the same value that was there when the hash was originally computed
+    let mut card_for_hash = card_v.clone();
+    if let Some(sigs) = card_for_hash.get_mut("signatures") {
+        if let Some(sigs_obj) = sigs.as_object_mut() {
+            // Replace bundle_hash with the placeholder used during computation
+            sigs_obj.insert("bundle_hash".to_string(), serde_json::Value::String("todo".to_string()));
+            // Remove sig_hex as it wasn't there during hash computation  
+            sigs_obj.remove("sig_hex");
+        }
+    }
+    
+    let cc = serde_json::to_vec(&tdln_core::canonize(&card_for_hash))?;
+    let mm = serde_json::to_vec(&tdln_core::canonize(&manifest_v))?;
     let mut v = Vec::with_capacity(cc.len()+1+mm.len());
     v.extend_from_slice(&cc);
     v.push(0);

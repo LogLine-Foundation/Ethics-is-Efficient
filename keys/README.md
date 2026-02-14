@@ -1,1 +1,0 @@
-Place your ed25519 keys here in the future (pub.pem, priv.pem).

@@ -8,9 +8,3 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-
-[profile.release]
-lto = true
-codegen-units = 1
-opt-level = "z"
-panic = "abort"

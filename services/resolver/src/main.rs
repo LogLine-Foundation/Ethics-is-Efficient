@@ -3,7 +3,7 @@ use resolver::http::{router, AppState};
 use resolver::store::CardStore;
 use std::sync::Arc;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
-use ed25519_dalek::{SigningKey, VerifyingKey, Signer};
+use ed25519_dalek::{SigningKey, VerifyingKey};
 use rand::rngs::OsRng;
 
 fn load_or_create_keys() -> (SigningKey, VerifyingKey) {
