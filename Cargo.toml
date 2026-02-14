@@ -5,8 +5,7 @@ members = [
   "crates/tdln-core",
   "crates/tdln-bundle",
   "services/resolver",
-  "tools/tdln-verify"
-
+  "tools/tdln-verify",
   "guests/ack",
   "guests/ask",
 ]
