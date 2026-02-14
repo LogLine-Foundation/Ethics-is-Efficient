@@ -63,29 +63,53 @@ async fn run(State(state): State<AppState>, Json(req): Json<RunRequest>) -> Json
     let now_str = now.to_string();
 
     // 3) Manifest
-    let manifest = json!({
-        "did": did,
-        "request": canonize(&v),
-        "request_cid": cid,
-        "started_at": now_str
-    });
+    let manifest = crate::model::RunManifest {
+        did: did.clone(),
+        input_cid: cid.clone(),
+        request_cid: cid.clone(),
+        request: Some(canonize(&v)),
+        started_at: now_str.clone(),
+        completed_at: Some(now_str.clone()),
+        unit_cid: None,
+    };
 
     // 4) Card (DiamondCard minimal shape)
-    let card = json!({
-        "schema": "tdln/trust@1",
-        "realm": "trust",
-        "object": "diamondcard",
-        "did": did,
-        "card_id": "card:auto",
-        "decision": decision,
-        "refs": { "inputs": [], "request_cid": cid },
-        "runtime": { "version": state.version, "fuel": fuel },
-        "signatures": { "bundle_hash": "todo", "issuer_signature": "todo" }
-    });
+    let card = crate::model::DiamondCard {
+        schema: "tdln/trust@1".to_string(),
+        realm: realm.clone(),
+        object: "diamondcard".to_string(),
+        did: did.clone(),
+        card_id: "card:auto".to_string(),
+        decision: decision.clone(),
+        refs: crate::model::Refs {
+            inputs: vec![],
+            policy: crate::model::PolicyRef {
+                cid: cid.clone(),
+                rid: "auto".to_string(),
+            },
+        },
+        runtime: crate::model::Runtime {
+            engine: "wasmtime".to_string(),
+            exec: "wasm".to_string(),
+            version: Some(state.version.clone()),
+            hash: None,
+            fuel: Some(fuel),
+        },
+        poi: None,
+        signatures: crate::model::Signatures {
+            bundle_hash: "todo".to_string(),
+            alg: "ed25519-blake3".to_string(),
+            sig_hex: None,
+        },
+    };
+
+    // Convert to JSON for schema validation and bundle building
+    let card_json = serde_json::to_value(&card).unwrap();
+    let manifest_json = serde_json::to_value(&manifest).unwrap();
 
     // 5) Schema validation
     let compiled = JSONSchema::compile(&state.trust_schema).unwrap();
-    let res = compiled.validate(&card);
+    let res = compiled.validate(&card_json);
     if let Err(errors) = res {
         let msg = errors.map(|e| e.to_string()).collect::<Vec<_>>().join("; ");
         return Json(RunAccepted{
@@ -101,7 +125,7 @@ async fn run(State(state): State<AppState>, Json(req): Json<RunRequest>) -> Json
     }
 
     // 6) Signature over bundle_hash(card, manifest)
-    let bundle_hash = bundle_hash_card_manifest(&card, &manifest);
+    let bundle_hash = bundle_hash_card_manifest(&card_json, &manifest_json);
     let signing_key = &*state.signing_key;
     let sig = signing_key.sign(bundle_hash.as_bytes());
     let pubhex = hex::encode(state.verifying_key.to_bytes());
@@ -109,24 +133,25 @@ async fn run(State(state): State<AppState>, Json(req): Json<RunRequest>) -> Json
     let signatures = json!({
         "alg":"ed25519-blake3",
         "pubkey_hex": pubhex,
-        "bundle_hash": bundle_hash,
-        "sig_hex": sighex
+        "bundle_hash": bundle_hash.clone(),
+        "sig_hex": sighex.clone()
     });
 
-    // 7) Bundle - Write card/manifest/bundle separately
-    let bundle = build_bundle(&card, &manifest, &signatures);
-    // Note: write operations are async but we fire and forget here
-    // In a real system, you'd want to handle these errors properly
-    let _ = tokio::spawn({
-        let store = state.store.clone();
-        let did = did.clone();
-        let bundle = bundle.clone();
-        async move {
-            // We need to write JSON values, but the store expects typed structs
-            // For now, we'll just write the bundle
-            let _ = store.write_bundle(&did, bundle).await;
-        }
-    });
+    // Update card with actual bundle hash and signature
+    let mut final_card = card;
+    final_card.signatures.bundle_hash = bundle_hash;
+    final_card.signatures.sig_hex = Some(sighex);
+
+    // Re-convert to JSON for bundle building (must match what was used for hash)
+    let final_card_json = serde_json::to_value(&final_card).unwrap();
+
+    // 7) Bundle - Write card/manifest/bundle
+    let bundle = build_bundle(&final_card_json, &manifest_json, &signatures);
+    
+    // Write synchronously to ensure it's available immediately
+    let _ = state.store.write_card(&did, &final_card).await;
+    let _ = state.store.write_manifest(&did, &manifest).await;
+    let _ = state.store.write_bundle(&did, bundle).await;
 
     // 8) Preview
     Json(RunAccepted {
@@ -170,22 +195,13 @@ async fn get_trust_html(State(state): State<AppState>, Path(did): Path<String>) 
     let card = card.unwrap();
     let mani = mani.unwrap();
     
-    // Convert structs to JSON to extract fields
-    let card_json = serde_json::to_value(&card).unwrap_or(json!({}));
-    let mani_json = serde_json::to_value(&mani).unwrap_or(json!({}));
-    
-    let decision = card_json.get("decision").and_then(|v| {
-        if let Some(obj) = v.as_object() {
-            obj.get("decision_type").and_then(|s| s.as_str())
-        } else {
-            v.as_str()
-        }
-    }).unwrap_or("?");
-    let schema = card_json.get("schema").and_then(|s| s.as_str()).unwrap_or("?");
-    let realm = card_json.get("realm").and_then(|s| s.as_str()).unwrap_or("trust");
-    let did_s = card_json.get("did").and_then(|s| s.as_str()).unwrap_or(&did).to_string();
-    let cid = mani_json.get("request_cid").and_then(|s| s.as_str()).unwrap_or("?");
-    let bundle_hash = card_json.pointer("/signatures/bundle_hash").and_then(|s| s.as_str()).unwrap_or("?");
+    // Now decision is a simple string
+    let decision = &card.decision;
+    let schema = &card.schema;
+    let realm = &card.realm;
+    let did_s = &card.did;
+    let cid = &mani.request_cid;
+    let bundle_hash = &card.signatures.bundle_hash;
     let url = format!("{}/{}/{}#{}", state.base_url, realm, did_s, cid);
 
     // Generate SVG QR inline (server-side) for the URL
@@ -199,7 +215,7 @@ async fn get_trust_html(State(state): State<AppState>, Path(did): Path<String>) 
         Err(_) => "<!-- qr generation failed -->".to_string()
     };
 
-    let (badge, color) = match decision {
+    let (badge, color) = match decision.as_str() {
         "ACK" => ("ACK", "#16a34a"),
         "ASK" => ("ASK", "#ca8a04"),
         "NACK" => ("NACK", "#dc2626"),

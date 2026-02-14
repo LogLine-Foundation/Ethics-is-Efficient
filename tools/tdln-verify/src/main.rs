@@ -31,8 +31,8 @@ fn main() -> anyhow::Result<()> {
     let sigs_v: serde_json::Value = serde_json::from_str(&sigs)?;
 
     // recompute bundle_hash
-    let cc = serde_json::to_vec(&card_v)?;
-    let mm = serde_json::to_vec(&manifest_v)?;
+    let cc = serde_json::to_vec(&tdln_core::canonize(&card_v))?;
+    let mm = serde_json::to_vec(&tdln_core::canonize(&manifest_v))?;
     let mut v = Vec::with_capacity(cc.len()+1+mm.len());
     v.extend_from_slice(&cc);
     v.push(0);
